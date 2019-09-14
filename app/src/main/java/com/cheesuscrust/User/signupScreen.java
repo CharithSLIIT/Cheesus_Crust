@@ -127,8 +127,10 @@ public class signupScreen extends AppCompatActivity {
             return;
         }
 
+        String points = "0";
+
         //Invoke insertFunction of the database
-        int insertResult = database.insertData(fname, lname, email, phone, address, password, confirmPassword, type);
+        int insertResult = database.insertData(fname, lname, email, phone, address, password, points, type);
 
         //Existing email found
         if(insertResult == 0)

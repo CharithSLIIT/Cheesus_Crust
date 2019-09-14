@@ -1,5 +1,6 @@
 package com.cheesuscrust.Database;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -7,7 +8,6 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteStatement;
-import android.graphics.DashPathEffect;
 import android.util.Log;
 
 import androidx.annotation.Nullable;
@@ -17,50 +17,51 @@ import com.cheesuscrust.User.UserData;
 public class Cheesus_Crust_Db extends SQLiteOpenHelper {
 
     //Database Name
-    public static final String DATABASE_NAME = "cheesus.db";
+    private static final String DATABASE_NAME = "cheesus.db";
 
     //Table Names
-    public static final String TABLE_USER = "user";
-    public static final String TABLE_CONTACT = "contact";
-    public static final String TABLE_NAME = "product";
+    private static final String TABLE_USER = "user";
+    private static final String TABLE_CONTACT = "contact";
+    private static final String TABLE_NAME = "product";
 
     //Column names of the user Table
-    public static final String COLUMN_NAME_USER_ID = "user_id";
-    public static final String COLUMN_NAME_USER_FNAME = "user_fname";
-    public static final String COLUMN_NAME_USER_LNAME = "user_lname";
-    public static final String COLUMN_NAME_USER_EMAIL = "user_email";
-    public static final String COLUMN_NAME_USER_PHONE = "user_phone";
-    public static final String COLUMN_NAME_USER_ADDRESS = "user_address";
-    public static final String COLUMN_NAME_USER_PASSWORD = "user_password";
-    public static final String COLUMN_NAME_USER_POINTS = "user_points";
-    public static final String COLUMN_NAME_USER_TYPE = "user_type";
+    private static final String COLUMN_NAME_USER_ID = "user_id";
+    private static final String COLUMN_NAME_USER_FNAME = "user_fname";
+    private static final String COLUMN_NAME_USER_LNAME = "user_lname";
+    private static final String COLUMN_NAME_USER_EMAIL = "user_email";
+    private static final String COLUMN_NAME_USER_PHONE = "user_phone";
+    private static final String COLUMN_NAME_USER_ADDRESS = "user_address";
+    private static final String COLUMN_NAME_USER_PASSWORD = "user_password";
+    private static final String COLUMN_NAME_USER_POINTS = "user_points";
+    private static final String COLUMN_NAME_USER_TYPE = "user_type";
 
     //Column names of the contact Table
-    public static final String COLUMN_NAME_CON_ID = "con_id";
-    public static final String COLUMN_NAME_CON_STATUS = "con_status";
-    public static final String COLUMN_NAME_CON_DATE = "con_date";
-    public static final String COLUMN_NAME_CON_FNAME = "con_fname";
-    public static final String COLUMN_NAME_CON_LNAME = "con_lname";
-    public static final String COLUMN_NAME_CON_EMAIL = "con_email";
-    public static final String COLUMN_NAME_CON_REMAIL = "con_remail";
-    public static final String COLUMN_NAME_CON_PHONE = "con_phone";
-    public static final String COLUMN_NAME_CON_MSG = "con_msg";
+    private static final String COLUMN_NAME_CON_ID = "con_id";
+    private static final String COLUMN_NAME_CON_STATUS = "con_status";
+    private static final String COLUMN_NAME_CON_DATE = "con_date";
+    private static final String COLUMN_NAME_CON_FNAME = "con_fname";
+    private static final String COLUMN_NAME_CON_LNAME = "con_lname";
+    private static final String COLUMN_NAME_CON_EMAIL = "con_email";
+    private static final String COLUMN_NAME_CON_REMAIL = "con_remail";
+    private static final String COLUMN_NAME_CON_PHONE = "con_phone";
+    private static final String COLUMN_NAME_CON_MSG = "con_msg";
 
     //Column names of the product Table
-    public static final String COLUMN_NAME_P_ID = "p_id";
-    public static final String COLUMN_NAME_P_NAME = "p_name";
-    public static final String COLUMN_NAME_P_DESCRIPTION = "p_description";
-    public static final String COLUMN_NAME_P_S_price = "p_s_price";
-    public static final String COLUMN_NAME_P_M_price = "p_m_price";
-    public static final String COLUMN_NAME_P_L_price = "p_l_price";
-    public static final String COLUMN_NAME_P_TYPE = "p_type";
-    public static final String COLUMN_NAME_P_IMG = "p_img";
+    private static final String COLUMN_NAME_P_ID = "p_id";
+    private static final String COLUMN_NAME_P_NAME = "p_name";
+    private static final String COLUMN_NAME_P_DESCRIPTION = "p_description";
+    private static final String COLUMN_NAME_P_S_price = "p_s_price";
+    private static final String COLUMN_NAME_P_M_price = "p_m_price";
+    private static final String COLUMN_NAME_P_L_price = "p_l_price";
+    private static final String COLUMN_NAME_P_TYPE = "p_type";
+    private static final String COLUMN_NAME_P_IMG = "p_img";
 
 
     public Cheesus_Crust_Db(@Nullable Context context) {
         super(context, DATABASE_NAME, null, 1);
     }
 
+    @SuppressLint("SQLiteString")
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
@@ -82,18 +83,18 @@ public class Cheesus_Crust_Db extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(sql_create_userTable);
 
         //Create contact Table
-        String sql_create_contact =
-                "CREATE TABLE " + TABLE_CONTACT + "(" +
-                        COLUMN_NAME_CON_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-                        COLUMN_NAME_CON_STATUS + " TEXT," +
-                        COLUMN_NAME_CON_DATE + " TEXT," +
-                        COLUMN_NAME_CON_FNAME + " TEXT," +
-                        COLUMN_NAME_CON_LNAME + " TEXT," +
-                        COLUMN_NAME_CON_EMAIL + " TEXT," +
-                        COLUMN_NAME_CON_REMAIL + " TEXT," +
-                        COLUMN_NAME_CON_PHONE + " TEXT," +
-                        COLUMN_NAME_CON_MSG + " TEXT" +
-                        " ) ";
+        String sql_create_contact;
+        sql_create_contact = "CREATE TABLE " + TABLE_CONTACT + "(" +
+                COLUMN_NAME_CON_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                COLUMN_NAME_CON_STATUS + " TEXT," +
+                COLUMN_NAME_CON_DATE + " TEXT," +
+                COLUMN_NAME_CON_FNAME + " TEXT," +
+                COLUMN_NAME_CON_LNAME + " TEXT," +
+                COLUMN_NAME_CON_EMAIL + " TEXT," +
+                COLUMN_NAME_CON_REMAIL + " TEXT," +
+                COLUMN_NAME_CON_PHONE + " TEXT," +
+                COLUMN_NAME_CON_MSG + " TEXT" +
+                " ) ";
 
         //EXECUTE THE QUERY
         sqLiteDatabase.execSQL(sql_create_contact);
@@ -165,13 +166,14 @@ public class Cheesus_Crust_Db extends SQLiteOpenHelper {
 
         String databasePassword;
 
-        while(result.moveToNext())
+        if(result.moveToNext())
         {
             databasePassword = result.getString(6);
 
             if(!databasePassword.equals(password))
             {
                 //password is not correct
+                result.close();
                 return 0;
             }
 
@@ -189,11 +191,13 @@ public class Cheesus_Crust_Db extends SQLiteOpenHelper {
                 data.setUser_phone(result.getString(4));
                 data.setUser_address(result.getString(5));
 
+                result.close();
                 return 1;
             }
         }
 
         //Error
+        result.close();
         return -2;
     }
 
@@ -213,6 +217,7 @@ public class Cheesus_Crust_Db extends SQLiteOpenHelper {
         //Check whether an existing email exists
         if(checkEmailCursor.getCount() != 0)
         {
+            checkEmailCursor.close();
             return 0;
         }
 
@@ -230,9 +235,16 @@ public class Cheesus_Crust_Db extends SQLiteOpenHelper {
         long result = sqLiteDatabase.insert(TABLE_USER, null, contentValues);
 
         if(result == -1)
+        {
+            checkEmailCursor.close();
             return -1;
+        }
+
         else
+        {
+            checkEmailCursor.close();
             return 1;
+        }
     }
 
     //Update user phone number
@@ -247,16 +259,12 @@ public class Cheesus_Crust_Db extends SQLiteOpenHelper {
 
         //Where Clause
         String whereClause = COLUMN_NAME_USER_EMAIL +" = ?";
-        String whereArgs[] = {email};
+        String[] whereArgs = {email};
 
         //Execute the update function
         int isUpdated = sqLiteDatabase.update(TABLE_USER, contentValues, whereClause, whereArgs);
 
-        if(isUpdated > 0)
-            return true;
-
-        else
-            return false;
+        return isUpdated > 0;
 
     }
 
@@ -276,6 +284,7 @@ public class Cheesus_Crust_Db extends SQLiteOpenHelper {
         //Check whether an existing email exists
         if(checkEmailCursor.getCount() != 0)
         {
+            checkEmailCursor.close();
             return -1;
         }
 
@@ -289,6 +298,8 @@ public class Cheesus_Crust_Db extends SQLiteOpenHelper {
 
         //Execute the update function
         int isUpdated = sqLiteDatabase.update(TABLE_USER, contentValues, whereClause, whereArgs);
+
+        checkEmailCursor.close();
 
         if(isUpdated > 0)
             return 1;
@@ -314,11 +325,7 @@ public class Cheesus_Crust_Db extends SQLiteOpenHelper {
         //Execute the update function
         int isUpdated = sqLiteDatabase.update(TABLE_USER, contentValues, whereClause, whereArgs);
 
-        if(isUpdated > 0)
-            return true;
-
-        else
-            return false;
+        return isUpdated > 0;
     }
 
     //Update user password
@@ -341,6 +348,7 @@ public class Cheesus_Crust_Db extends SQLiteOpenHelper {
             if(!databasePassword.equals(currentPassword))
             {
                 //password is not correct
+                checkPasswordCursor.close();
                 return -1;
             }
         }
@@ -355,6 +363,8 @@ public class Cheesus_Crust_Db extends SQLiteOpenHelper {
 
         //Execute the update function
         int isUpdated = sqLiteDatabase.update(TABLE_USER, contentValues, whereClause, whereArgs);
+
+        checkPasswordCursor.close();
 
         if(isUpdated > 0)
             return 1;
@@ -374,11 +384,7 @@ public class Cheesus_Crust_Db extends SQLiteOpenHelper {
 
         int result = sqLiteDatabase.delete(TABLE_USER, whereClause, whereArgs);
 
-        if(result > 0)
-            return true;
-
-        else
-            return false;
+        return result > 0;
     }
 
 
@@ -402,10 +408,7 @@ public class Cheesus_Crust_Db extends SQLiteOpenHelper {
 
         long result = sqLiteDatabase.insert(TABLE_CONTACT, null, contentValues);
 
-        if (result == -1)
-            return false;
-        else
-            return true;
+        return result != -1;
     }
 
 
@@ -422,15 +425,7 @@ public class Cheesus_Crust_Db extends SQLiteOpenHelper {
         //execute the update function
         int isUpdated = sqLiteDatabase.update(TABLE_CONTACT,contentValues,whereClause, whereArgs);
 
-        if(isUpdated > 0)
-        {
-            return true;
-        }
-
-        else
-        {
-            return false;
-        }
+        return isUpdated > 0;
     }
 
     public Cursor getAllInquries(){
@@ -438,9 +433,7 @@ public class Cheesus_Crust_Db extends SQLiteOpenHelper {
 
         String query = "SELECT * FROM " +TABLE_CONTACT;
 
-        Cursor result = sqLiteDatabase.rawQuery(query, null);
-
-        return result;
+        return sqLiteDatabase.rawQuery(query, null);
 
 
     }
@@ -453,11 +446,7 @@ public class Cheesus_Crust_Db extends SQLiteOpenHelper {
 
         int result = sqLiteDatabase.delete(TABLE_CONTACT, whereClause, whereArgs);
 
-        if(result > 0)
-            return true;
-
-        else
-            return false;
+        return result > 0;
     }
 
 
@@ -474,12 +463,7 @@ public class Cheesus_Crust_Db extends SQLiteOpenHelper {
         contentValues.put(COLUMN_NAME_P_TYPE,type);
         contentValues.put(COLUMN_NAME_P_IMG,image);
         long result = db.insert(TABLE_NAME, null, contentValues);
-        if(result == -1){
-            return false;
-        }
-        else{
-            return true;
-        }
+        return result != -1;
     }
 
     public void updateData(int id, String name, String desc, String sprice, String mprice, String lprice, byte[] image) throws SQLException{
