@@ -13,6 +13,8 @@ public class UsersTable extends SQLiteOpenHelper {
     //Database Name
     public static final String DATABASE_NAME = "cheesus.db";
 
+    //String Bla Bla Bla
+
     //Table Name
     public static final String TABLE_USER = "user";
 
