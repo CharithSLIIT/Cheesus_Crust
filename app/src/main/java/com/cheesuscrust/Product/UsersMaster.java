@@ -7,7 +7,7 @@ public class UsersMaster {
 
 
     public static class Users implements BaseColumns{
-        public static final String TABLE_NAME = "product";
+        public static final String TABLE_NAME = "Product";
         public static final String COLUMN_NAME_P_ID = "p_id";
         public static final String COLUMN_NAME_P_NAME = "p_name";
         public static final String COLUMN_NAME_P_DESCRIPTION = "p_description";

@@ -46,7 +46,7 @@ public class Cheesus_Crust_Db extends SQLiteOpenHelper {
     private static final String COLUMN_NAME_CON_PHONE = "con_phone";
     private static final String COLUMN_NAME_CON_MSG = "con_msg";
 
-    //Column names of the product Table
+    //Column names of the Product Table
     private static final String COLUMN_NAME_P_ID = "p_id";
     private static final String COLUMN_NAME_P_NAME = "p_name";
     private static final String COLUMN_NAME_P_DESCRIPTION = "p_description";
@@ -99,7 +99,7 @@ public class Cheesus_Crust_Db extends SQLiteOpenHelper {
         //EXECUTE THE QUERY
         sqLiteDatabase.execSQL(sql_create_contact);
 
-        //Create product Table
+        //Create Product Table
         String SQL_CREATE_ENTRIES =
                 "CREATE TABLE " + TABLE_NAME + " (" +
                         COLUMN_NAME_P_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -126,7 +126,7 @@ public class Cheesus_Crust_Db extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+TABLE_CONTACT);
         onCreate(sqLiteDatabase);
 
-        //product Table
+        //Product Table
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+TABLE_NAME);
         onCreate(sqLiteDatabase);
 
@@ -450,7 +450,7 @@ public class Cheesus_Crust_Db extends SQLiteOpenHelper {
     }
 
 
-    //product Table Functions
+    //Product Table Functions
     public boolean insertData(String name, String desc, String sprice, String mprice, String lprice, String type, byte[] image) throws SQLException {
         Log.i("first1", "image byte is " +image);
         SQLiteDatabase db = this.getWritableDatabase();

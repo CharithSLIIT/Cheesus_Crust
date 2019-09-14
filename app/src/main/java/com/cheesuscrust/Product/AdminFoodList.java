@@ -29,7 +29,7 @@ public class AdminFoodList extends AppCompatActivity {
         gridView.setAdapter(adapter);
 
         //Get data from Database
-        Cursor cursor = AddItem.myDB.getData("SELECT * FROM product ORDER by p_type DESC ");
+        Cursor cursor = AddItem.myDB.getData("SELECT * FROM Product ORDER by p_type DESC ");
         list.clear();
         while (cursor.moveToNext()){
             int id = cursor.getInt(0);
