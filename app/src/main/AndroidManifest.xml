@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.cheesuscrust">
 
+<!--    Access Network Status-->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -16,6 +17,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning">
+
+<!--        User Management -->
         <activity android:name=".User.WelcomeScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,6 +29,7 @@
         <activity android:name=".User.loginScreen" />
         <activity android:name=".User.signupScreen" />
 
+<!--        Product Management-->
         <activity android:name=".product.AdminEdit"
             android:label="Edit Item">
         </activity>
@@ -35,6 +39,7 @@
             android:label="Food List"
             android:parentActivityName=".product.AddItem" />
 
+<!--        Inquiry Management-->
         <activity android:name=".Contact.activity_dash"/>
         <activity android:name=".Contact.ContactActivity"/>
         <activity android:name=".Contact.InquiryActivity"></activity>
