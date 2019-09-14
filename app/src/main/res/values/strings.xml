@@ -134,6 +134,7 @@
     <string name="addemp">Add Employees</string>
     <string name="viewemp">View Employees</string>
     <string name="viewinquries">View Inquries</string>
+    <string name="personal_notification">Personal_Notifications</string>
 
 
 </resources>

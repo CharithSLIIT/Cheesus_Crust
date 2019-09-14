@@ -21,10 +21,12 @@ import androidx.core.app.NotificationManagerCompat;
 import com.cheesuscrust.Database.Cheesus_Crust_Db;
 import com.cheesuscrust.R;
 
+import static java.lang.String.valueOf;
+
 public class signupScreen extends AppCompatActivity {
 
     //Notification attributes
-    private final String CHANNEL_ID = "Personal_Notifications";
+    private final String CHANNEL_ID = valueOf(R.string.personal_notification);
 
     //Declare Seven EditText Objects
     EditText getFirstName, getLastName, getPhone, getAddress, getEmail, getPassword, getConfirmPassword;
