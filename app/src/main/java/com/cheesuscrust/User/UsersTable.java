@@ -27,7 +27,6 @@ public class UsersTable extends SQLiteOpenHelper {
     public static final String COLUMN_NAME_USER_POINTS = "user_points";
     public static final String COLUMN_NAME_USER_TYPE = "user_type";
 
-
     public UsersTable(@Nullable Context context) {
         super(context, DATABASE_NAME, null, 1);
     }
