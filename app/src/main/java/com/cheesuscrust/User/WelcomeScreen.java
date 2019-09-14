@@ -29,7 +29,7 @@ public class WelcomeScreen extends AppCompatActivity {
         //Check network
         boolean network = this.isOnline();
 
-        if(network == false)
+        if(!network)
         {
             Snackbar.make(findViewById(R.id.welcome_screen), R.string.please_connect_to_a_network, Snackbar.LENGTH_LONG).show();
             return;
@@ -68,7 +68,7 @@ public class WelcomeScreen extends AppCompatActivity {
         //Check network
         boolean network = this.isOnline();
 
-        if(network == false)
+        if(!network)
         {
             Snackbar.make(findViewById(R.id.welcome_screen), R.string.please_connect_to_a_network, Snackbar.LENGTH_LONG).show();
             return;
@@ -107,7 +107,7 @@ public class WelcomeScreen extends AppCompatActivity {
         //Check network
         boolean network = this.isOnline();
 
-        if(network == false)
+        if(!network)
         {
             Snackbar.make(findViewById(R.id.welcome_screen), R.string.please_connect_to_a_network, Snackbar.LENGTH_LONG).show();
             return;
@@ -144,7 +144,7 @@ public class WelcomeScreen extends AppCompatActivity {
         //Check network
         boolean network = this.isOnline();
 
-        if(network == false)
+        if(!network)
         {
             Snackbar.make(findViewById(R.id.welcome_screen), R.string.please_connect_to_a_network, Snackbar.LENGTH_LONG).show();
             return;
