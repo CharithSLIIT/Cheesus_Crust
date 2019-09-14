@@ -6,6 +6,8 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.cheesuscrust.R;
+
 public class activity_dash extends AppCompatActivity {
 
     @Override
