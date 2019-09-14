@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".User.UserProfile"
+    android:orientation="vertical"
+    android:background="@drawable/app_background_default">
+
+    <include
+        layout="@layout/toolbar_layout"/>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:rowCount="4"
+        android:columnCount="2"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        tools:ignore="UselessParent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="@string/name"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/pureWhite" />
+
+        <TextView
+            android:id="@+id/userProfile_displayName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/pureWhite" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="@string/email"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/pureWhite" />
+
+        <TextView
+            android:id="@+id/userProfile_displayEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/pureWhite"
+            android:onClick="editEmail"
+            android:drawableEnd="@drawable/edit_icon_white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="@string/phone"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/pureWhite" />
+
+        <TextView
+            android:id="@+id/userProfile_displayPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/pureWhite"
+            android:onClick="editPhone"
+            android:drawableEnd="@drawable/edit_icon_white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="@string/address"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/pureWhite" />
+
+        <TextView
+            android:id="@+id/userProfile_displayAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:drawableEnd="@drawable/edit_icon_white"
+            android:onClick="editAddress"
+            android:lines="2"
+            android:maxLines="3"
+            android:maxWidth="300dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/pureWhite" />
+
+    </GridLayout>
+
+    <Button
+        android:layout_width="180dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/button_background"
+        android:onClick="editPassword"
+        android:text="@string/change_password"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:layout_width="180dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/button_background"
+        android:onClick="user_logout"
+        android:text="@string/logout"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:layout_width="180dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/button_background"
+        android:onClick="delete_account"
+        android:text="@string/delete_my_account"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"/>
+
+
+</LinearLayout>
