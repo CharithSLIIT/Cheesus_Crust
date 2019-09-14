@@ -121,4 +121,19 @@
     <string name="include_all_the_personal_notifications">Include all the personal notifications</string>
     <string name="your_account_was_created">Your Account Was Created!</string>
     <string name="please_login_and_order_some_pizza_to_satisfy_your_hunger">Please login and order some pizza to satisfy your hunger...!</string>
+    <string name="contatus">Contact Us</string>
+    <string name="date">Date</string>
+    <string name="fname">First Name</string>
+    <string name="lname">Last Name</string>
+    <string name="remail">Re Enter Email</string>
+    <string name="message">Message</string>
+    <string name="send">Send</string>
+    <string name="order">Order Inquiry</string>
+    <string name="type">Inquiry Type</string>
+    <string name="additem">Add Items</string>
+    <string name="addemp">Add Employees</string>
+    <string name="viewemp">View Employees</string>
+    <string name="viewinquries">View Inquries</string>
+
+
 </resources>
