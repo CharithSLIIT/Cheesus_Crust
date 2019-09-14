@@ -1,12 +1,8 @@
 package com.cheesuscrust.User;
 
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -15,8 +11,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
 
 import com.cheesuscrust.Database.Cheesus_Crust_Db;
 import com.cheesuscrust.R;
@@ -24,9 +18,6 @@ import com.cheesuscrust.R;
 import static android.text.TextUtils.isEmpty;
 
 public class UserProfile extends AppCompatActivity implements UserProfile_UpdateAddress_Dialog.passAddress, UserProfile_UpdateEmail_Dialog.passEmail, UserProfile_UpdatePhone_Dialog.passPhone, UserProfile_UpdatePassword_Dialog.passPassword {
-
-    //Toolbar
-    private Toolbar toolbar;
 
     //Create the database connection
     Cheesus_Crust_Db database;
@@ -42,7 +33,8 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
 
-        toolbar = findViewById(R.id.toolbar);
+        //Toolbar
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         //Set the title
@@ -127,7 +119,7 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
         //Update the database
         boolean isUpdated = database.updateUserAddress(email, address);
 
-        if(isUpdated == true)
+        if(isUpdated)
         {
             //Update the view
             displayAddress.setText(data.getUser_address());
@@ -174,7 +166,6 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
                 }
             });
             builder.show();
-            return;
         }
 
         else if(isUpdated == 1)
@@ -221,7 +212,7 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
         //Update the database
         boolean isUpdated = database.updateUserPhone(email, phone);
 
-        if(isUpdated == true)
+        if(isUpdated)
         {
             //Update details in the UserData object
             data.setUser_phone(phone);
@@ -326,7 +317,6 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
                 }
             });
             builder.show();
-            return;
         }
 
         else if(result == 1)
@@ -359,7 +349,6 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 Toast.makeText(UserProfile.this, R.string.hurray_lets_eat_some_pizza, Toast.LENGTH_SHORT).show();
-                return;
             }
         });
         builder.setNegativeButton(getString(R.string.delete_my_account), new DialogInterface.OnClickListener() {
@@ -368,9 +357,8 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
 
                 boolean result = database.deleteUser(data.getUser_email());
 
-                if (result == false) {
+                if (!result) {
                     Toast.makeText(UserProfile.this, R.string.some_error_occured_lease_try_again_later, Toast.LENGTH_SHORT).show();
-                    return;
                 } else {
                     Toast.makeText(UserProfile.this, R.string.your_account_was_deleted, Toast.LENGTH_SHORT).show();
 
@@ -380,13 +368,9 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
 
                     Intent intent = new Intent(UserProfile.this, WelcomeScreen.class);
                     startActivity(intent);
-
-                    return;
                 }
             }
         });
         builder.show();
-        return;
-
     }
 }
