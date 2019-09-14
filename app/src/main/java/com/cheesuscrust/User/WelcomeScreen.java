@@ -11,13 +11,14 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.cheesuscrust.Database.Cheesus_Crust_Db;
 import com.cheesuscrust.R;
 import com.google.android.material.snackbar.Snackbar;
 
 public class WelcomeScreen extends AppCompatActivity {
 
     SharedPreferences sharedPreferences;
-    UsersTable database;
+    Cheesus_Crust_Db database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -41,7 +42,7 @@ public class WelcomeScreen extends AppCompatActivity {
             //Create UserData Singleton object to store user data
             UserData data = UserData.getInstance();
 
-            database = new UsersTable(this);
+            database = new Cheesus_Crust_Db(this);
 
             Cursor userData = database.getUserData(sharedPreferences.getString(String.valueOf(R.string.email), null));
 
@@ -80,7 +81,7 @@ public class WelcomeScreen extends AppCompatActivity {
             //Create UserData Singleton object to store user data
             UserData data = UserData.getInstance();
 
-            database = new UsersTable(this);
+            database = new Cheesus_Crust_Db(this);
 
             Cursor userData = database.getUserData(sharedPreferences.getString(String.valueOf(R.string.email), null));
 
@@ -119,7 +120,7 @@ public class WelcomeScreen extends AppCompatActivity {
             //Create UserData Singleton object to store user data
             UserData data = UserData.getInstance();
 
-            database = new UsersTable(this);
+            database = new Cheesus_Crust_Db(this);
 
             Cursor userData = database.getUserData(sharedPreferences.getString(String.valueOf(R.string.email), null));
 
@@ -156,7 +157,7 @@ public class WelcomeScreen extends AppCompatActivity {
             //Create UserData Singleton object to store user data
             UserData data = UserData.getInstance();
 
-            database = new UsersTable(this);
+            database = new Cheesus_Crust_Db(this);
 
             Cursor userData = database.getUserData(sharedPreferences.getString(String.valueOf(R.string.email), null));
 

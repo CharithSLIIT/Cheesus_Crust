@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.cheesuscrust.Database.Cheesus_Crust_Db;
 import com.cheesuscrust.R;
 
 public class loginScreen extends AppCompatActivity {
@@ -20,14 +21,14 @@ public class loginScreen extends AppCompatActivity {
     //SharedPreference
     SharedPreferences sharedPreferences;
 
-    UsersTable database;
+    Cheesus_Crust_Db database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_screen);
 
-        database = new UsersTable(this);
+        database = new Cheesus_Crust_Db(this);
 
         //Initialise two EditText objects
         getEmail = (EditText) findViewById(R.id.login_email);

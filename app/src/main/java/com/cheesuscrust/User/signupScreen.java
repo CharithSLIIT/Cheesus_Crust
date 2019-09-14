@@ -14,6 +14,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
+import com.cheesuscrust.Database.Cheesus_Crust_Db;
 import com.cheesuscrust.R;
 
 public class signupScreen extends AppCompatActivity {
@@ -29,7 +30,7 @@ public class signupScreen extends AppCompatActivity {
     EditText getFirstName, getLastName, getPhone, getAddress, getEmail, getPassword, getConfirmPassword;
 
     //Create an object of the UsersTable class
-    UsersTable database;
+    Cheesus_Crust_Db database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +43,7 @@ public class signupScreen extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         //Create the database connection
-        database = new UsersTable(this);
+        database = new Cheesus_Crust_Db(this);
 
         //Initialise EditText objects
         getFirstName = (EditText) findViewById(R.id.signup_fname);

@@ -18,6 +18,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
+import com.cheesuscrust.Database.Cheesus_Crust_Db;
 import com.cheesuscrust.R;
 
 import static android.text.TextUtils.isEmpty;
@@ -32,7 +33,7 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
     private Toolbar toolbar;
 
     //Create the database connection
-    UsersTable database;
+    Cheesus_Crust_Db database;
 
     //get an instance of the UserData to get user data
     UserData data = UserData.getInstance();
@@ -51,7 +52,7 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
         //Set the title
         getSupportActionBar().setTitle(getString(R.string.my_account));
 
-        database = new UsersTable(this);
+        database = new Cheesus_Crust_Db(this);
 
         //Initialise TextView objects
         displayName = findViewById(R.id.userProfile_displayName);
