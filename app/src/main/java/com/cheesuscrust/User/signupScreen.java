@@ -37,8 +37,6 @@ public class signupScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup_screen);
 
-        //getWindow().setBackgroundDrawable(R.id.);
-
         //Toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

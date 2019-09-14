@@ -31,8 +31,8 @@ public class loginScreen extends AppCompatActivity {
         database = new Cheesus_Crust_Db(this);
 
         //Initialise two EditText objects
-        getEmail = (EditText) findViewById(R.id.login_email);
-        getPassword = (EditText) findViewById(R.id.login_password);
+        getEmail = findViewById(R.id.login_email);
+        getPassword = findViewById(R.id.login_password);
     }
 
     public void userLogin(View view)
