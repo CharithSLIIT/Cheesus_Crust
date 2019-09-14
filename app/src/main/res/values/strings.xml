@@ -120,7 +120,7 @@
     <string name="personal_notifications">Personal Notifications</string>
     <string name="include_all_the_personal_notifications">Include all the personal notifications</string>
     <string name="your_account_was_created">Your Account Was Created!</string>
-    <string name="please_login_and_order_some_pizza_to_satisfy_your_hunger">Please login and order some pizza to satisfy your hunger...!</string>
+    <string name="please_login_and_order_some_pizza_to_satisfy_your_hunger">Please login and order some pizza to satisfy your hunger…!</string>
     <string name="contatus">Contact Us</string>
     <string name="date">Date</string>
     <string name="fname">First Name</string>
@@ -135,6 +135,7 @@
     <string name="viewemp">View Employees</string>
     <string name="viewinquries">View Inquries</string>
     <string name="personal_notification">Personal_Notifications</string>
+    <string name="cart">Cart</string>
 
 
 </resources>
