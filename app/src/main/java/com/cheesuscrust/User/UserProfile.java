@@ -25,10 +25,6 @@ import static android.text.TextUtils.isEmpty;
 
 public class UserProfile extends AppCompatActivity implements UserProfile_UpdateAddress_Dialog.passAddress, UserProfile_UpdateEmail_Dialog.passEmail, UserProfile_UpdatePhone_Dialog.passPhone, UserProfile_UpdatePassword_Dialog.passPassword {
 
-    //Notification attributes
-    private final String CHANNEL_ID = "Personal_Notifications";
-    private final int NOTIFICATION_ID = 001;
-
     //Toolbar
     private Toolbar toolbar;
 
@@ -104,7 +100,6 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
 
     public void editPassword(View view)
     {
-        displayNotification();
         UserProfile_UpdatePassword_Dialog editPassword = new UserProfile_UpdatePassword_Dialog();
         editPassword.show(getSupportFragmentManager(), getString(R.string.update_password_dialog));
     }
@@ -394,44 +389,4 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
         return;
 
     }
-
-    public void displayNotification()
-    {
-        createNotificationChannel();
-
-        Intent landingIntent = new Intent(this, WelcomeScreen.class);
-        landingIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
-
-        PendingIntent landingPendingIntent = PendingIntent.getActivity(this, 0, landingIntent, PendingIntent.FLAG_ONE_SHOT);
-
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID);
-        builder.setSmallIcon(R.drawable.ic_lcheesus_crust_notification_icon);
-        builder.setContentTitle(getString(R.string.your_account_was_created));
-        builder.setContentText(getString(R.string.please_login_and_order_some_pizza_to_satisfy_your_hunger));
-        builder.setPriority(NotificationCompat.PRIORITY_DEFAULT);
-        builder.setAutoCancel(true);
-        builder.setContentIntent(landingPendingIntent);
-
-        NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(this);
-        notificationManagerCompat.notify(NOTIFICATION_ID, builder.build());
-    }
-
-    public void createNotificationChannel()
-    {
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-        {
-            CharSequence name = getString(R.string.personal_notifications);
-            String description = getString(R.string.include_all_the_personal_notifications);
-            int importance = NotificationManager.IMPORTANCE_DEFAULT;
-
-            NotificationChannel notificationChannel = new NotificationChannel(CHANNEL_ID, name, importance);
-
-            notificationChannel.setDescription(description);
-
-            NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-            notificationManager.createNotificationChannel(notificationChannel);
-        }
-    }
-
-
 }

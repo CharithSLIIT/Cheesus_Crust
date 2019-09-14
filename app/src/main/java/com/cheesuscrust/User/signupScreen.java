@@ -1,6 +1,10 @@
 package com.cheesuscrust.User;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Menu;
@@ -21,10 +25,6 @@ public class signupScreen extends AppCompatActivity {
 
     //Notification attributes
     private final String CHANNEL_ID = "Personal_Notifications";
-    private final int NOTIFICATION_ID = 001;
-
-    //Toolbar
-    private Toolbar toolbar;
 
     //Declare Seven EditText Objects
     EditText getFirstName, getLastName, getPhone, getAddress, getEmail, getPassword, getConfirmPassword;
@@ -39,20 +39,21 @@ public class signupScreen extends AppCompatActivity {
 
         //getWindow().setBackgroundDrawable(R.id.);
 
-        toolbar = findViewById(R.id.toolbar);
+        //Toolbar
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         //Create the database connection
         database = new Cheesus_Crust_Db(this);
 
         //Initialise EditText objects
-        getFirstName = (EditText) findViewById(R.id.signup_fname);
-        getLastName = (EditText) findViewById(R.id.signup_lname);
-        getPhone = (EditText) findViewById(R.id.signup_phone);
-        getAddress = (EditText) findViewById(R.id.signup_address);
-        getEmail = (EditText) findViewById(R.id.signup_email);
-        getPassword = (EditText) findViewById(R.id.signup_password);
-        getConfirmPassword = (EditText) findViewById(R.id.signup_confirmPassword);
+        getFirstName = findViewById(R.id.signup_fname);
+        getLastName = findViewById(R.id.signup_lname);
+        getPhone = findViewById(R.id.signup_phone);
+        getAddress = findViewById(R.id.signup_address);
+        getEmail = findViewById(R.id.signup_email);
+        getPassword = findViewById(R.id.signup_password);
+        getConfirmPassword = findViewById(R.id.signup_confirmPassword);
     }
 
     @Override
@@ -143,13 +144,17 @@ public class signupScreen extends AppCompatActivity {
         if(insertResult == -1)
         {
             Toast.makeText(this, R.string.insert_error_please_try_again_later, Toast.LENGTH_SHORT).show();
-            return;
         }
 
         else
         {
+            //Display a notification
+            displayNotification();
+
+            //Display a Toast
             Toast.makeText(this, R.string.account_created_please_login, Toast.LENGTH_SHORT).show();
 
+            //Send the user into the login screen
             Intent intent = new Intent(signupScreen.this, loginScreen.class);
             startActivity(intent);
         }
@@ -158,11 +163,7 @@ public class signupScreen extends AppCompatActivity {
     //Check empty fields function
     public boolean isEmpty(String value)
     {
-        if(TextUtils.isEmpty(value))
-            return true;
-
-        else
-            return false;
+        return TextUtils.isEmpty(value);
     }
 
     public void goToLogin(View view)
@@ -171,15 +172,47 @@ public class signupScreen extends AppCompatActivity {
         startActivity(intent);
     }
 
+    //Display Notification
     public void displayNotification()
     {
+        int NOTIFICATION_ID = 1;
+
+        createNotificationChannel();
+
+        Intent landingIntent = new Intent(this, WelcomeScreen.class);
+        landingIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+        PendingIntent landingPendingIntent = PendingIntent.getActivity(this, 0, landingIntent, PendingIntent.FLAG_ONE_SHOT);
+
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID);
         builder.setSmallIcon(R.drawable.ic_lcheesus_crust_notification_icon);
-        builder.setContentTitle("Your Account Was Created!");
-        builder.setContentText("Please login and order some pizza to satisfy your hunger...!");
+        builder.setContentTitle(getString(R.string.your_account_was_created));
+        builder.setContentText(getString(R.string.please_login_and_order_some_pizza_to_satisfy_your_hunger));
         builder.setPriority(NotificationCompat.PRIORITY_DEFAULT);
+        builder.setAutoCancel(true);
+        builder.setContentIntent(landingPendingIntent);
 
         NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(this);
+
         notificationManagerCompat.notify(NOTIFICATION_ID, builder.build());
+    }
+
+    public void createNotificationChannel()
+    {
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+        {
+            CharSequence name = getString(R.string.personal_notifications);
+            String description = getString(R.string.include_all_the_personal_notifications);
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+
+            NotificationChannel notificationChannel = new NotificationChannel(CHANNEL_ID, name, importance);
+
+            notificationChannel.setDescription(description);
+
+            NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+            if (notificationManager != null) {
+                notificationManager.createNotificationChannel(notificationChannel);
+            }
+        }
     }
 }
