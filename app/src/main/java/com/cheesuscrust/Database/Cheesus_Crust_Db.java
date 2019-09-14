@@ -56,6 +56,7 @@ public class Cheesus_Crust_Db extends SQLiteOpenHelper {
     public static final String COLUMN_NAME_P_TYPE = "p_type";
     public static final String COLUMN_NAME_P_IMG = "p_img";
 
+
     public Cheesus_Crust_Db(@Nullable Context context) {
         super(context, DATABASE_NAME, null, 1);
     }
@@ -81,7 +82,6 @@ public class Cheesus_Crust_Db extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(sql_create_userTable);
 
         //Create contact Table
-        //create table
         String sql_create_contact =
                 "CREATE TABLE " + TABLE_CONTACT + "(" +
                         COLUMN_NAME_CON_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
