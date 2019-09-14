@@ -1,4 +1,4 @@
-package com.cheesuscrust.product;
+package com.cheesuscrust.Product;
 
 import android.content.ContentValues;
 import android.content.Context;

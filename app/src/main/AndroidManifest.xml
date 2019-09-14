@@ -30,14 +30,14 @@
         <activity android:name=".User.signupScreen" />
 
 <!--        Product Management-->
-        <activity android:name=".product.AdminEdit"
+        <activity android:name=".Product.AdminEdit"
             android:label="Edit Item">
         </activity>
-        <activity android:name=".product.AddItem"></activity>
+        <activity android:name=".Product.AddItem"></activity>
         <activity
-            android:name=".product.AdminFoodList"
+            android:name=".Product.AdminFoodList"
             android:label="Food List"
-            android:parentActivityName=".product.AddItem" />
+            android:parentActivityName=".Product.AddItem" />
 
 <!--        Inquiry Management-->
         <activity android:name=".Contact.activity_dash"/>

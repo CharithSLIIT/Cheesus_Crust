@@ -1,4 +1,4 @@
-package com.cheesuscrust.product;
+package com.cheesuscrust.Product;
 
 public class AdminFood {
 
