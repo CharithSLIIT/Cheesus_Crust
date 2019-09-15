@@ -139,6 +139,9 @@
     <string name="dashboard">Dashboard</string>
     <string name="contact_us">Contact Us</string>
     <string name="view_inquiries">View Inquiries</string>
+    <string name="view_order">View Orders</string>
+    <string name="view_customer">View Customers</string>
+    <string name="welcome_admins">Welcome Admin!</string>
 
 
 </resources>
