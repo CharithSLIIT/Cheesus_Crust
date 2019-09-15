@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.cheesuscrust.Contact.activity_dash;
 import com.cheesuscrust.Database.Cheesus_Crust_Db;
 import com.cheesuscrust.R;
 
@@ -55,19 +56,37 @@ public class loginScreen extends AppCompatActivity {
         }
 
         //Invoke loginunction in the UserTable class
-        int loginResult = database.loginFunction(email, password);
+        String loginResult = database.loginFunction(email, password);
 
         //No emails found
-        if(loginResult == -1)
+        if(loginResult == "Invalid Email")
         {
             getEmail.setError(getString(R.string.invalid_email));
             return;
         }
 
         //Password is not correct
-        else if(loginResult == 0)
+        else if(loginResult == "Invalid Password")
         {
             getPassword.setError(getString(R.string.invalid_password));
+            return;
+        }
+
+        else if(loginResult == "Error")
+        {
+            Toast.makeText(this, "Some error occured! Please try again shortly", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if(loginResult == "Admin")
+        {
+            Toast.makeText(this, R.string.login_success, Toast.LENGTH_LONG).show();
+            sharedPreferences = getSharedPreferences(String.valueOf(R.string.cheesus_crust), MODE_PRIVATE);
+            sharedPreferences.edit().putBoolean(String.valueOf(R.string.logged),true).apply();
+            sharedPreferences.edit().putString(String.valueOf(R.string.email), email).apply();
+
+            Intent intent = new Intent(loginScreen.this, activity_dash.class);
+            startActivity(intent);
             return;
         }
 

@@ -4,7 +4,7 @@ public class UserData {
 
     //User data variables
     private int user_id;
-    private String user_fname, user_lname, user_address, user_phone, user_email;
+    private String user_fname, user_lname, user_address, user_phone, user_email, user_type;
 
     //UserData Singleton object
     private static UserData userData = null;
@@ -69,5 +69,13 @@ public class UserData {
 
     public int getUser_id() {
         return user_id;
+    }
+
+    public String getUser_type() {
+        return user_type;
+    }
+
+    public void setUser_type(String user_type) {
+        this.user_type = user_type;
     }
 }

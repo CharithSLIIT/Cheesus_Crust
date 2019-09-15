@@ -11,6 +11,7 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.cheesuscrust.Contact.activity_dash;
 import com.cheesuscrust.Database.Cheesus_Crust_Db;
 import com.cheesuscrust.R;
 import com.google.android.material.snackbar.Snackbar;
@@ -169,6 +170,14 @@ public class WelcomeScreen extends AppCompatActivity {
                 data.setUser_email(userData.getString(3));
                 data.setUser_phone(userData.getString(4));
                 data.setUser_address(userData.getString(5));
+                data.setUser_type(userData.getString(8));
+            }
+
+            if(data.getUser_type() == "Admin")
+            {
+                Intent intent = new Intent(WelcomeScreen.this, activity_dash.class);
+                startActivity(intent);
+                return;
             }
 
             Intent intent = new Intent(WelcomeScreen.this, UserProfile.class);

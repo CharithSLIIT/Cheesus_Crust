@@ -136,6 +136,7 @@
     <string name="viewinquries">View Inquries</string>
     <string name="personal_notification">Personal_Notifications</string>
     <string name="cart">Cart</string>
+    <string name="dashboard">Dashboard</string>
 
 
 </resources>

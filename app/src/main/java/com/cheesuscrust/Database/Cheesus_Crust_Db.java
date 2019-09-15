@@ -113,6 +113,19 @@ public class Cheesus_Crust_Db extends SQLiteOpenHelper {
 
         sqLiteDatabase.execSQL(SQL_CREATE_ENTRIES);
 
+        //Create the default Admin Account when creating the App
+        sqLiteDatabase = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COLUMN_NAME_USER_FNAME, "Will");
+        contentValues.put(COLUMN_NAME_USER_LNAME, "Byers");
+        contentValues.put(COLUMN_NAME_USER_EMAIL, "will@gmail.com");
+        contentValues.put(COLUMN_NAME_USER_PHONE, "0762211454");
+        contentValues.put(COLUMN_NAME_USER_ADDRESS, "No.5, Malabe");
+        contentValues.put(COLUMN_NAME_USER_PASSWORD, "123");
+        contentValues.put(COLUMN_NAME_USER_POINTS, "0");
+        contentValues.put(COLUMN_NAME_USER_TYPE, "Admin");
+        sqLiteDatabase.insert(TABLE_USER, null, contentValues);
+
     }
 
     @Override
@@ -146,7 +159,7 @@ public class Cheesus_Crust_Db extends SQLiteOpenHelper {
     }
 
     //Login function
-    public int loginFunction(String email, String password)
+    public String loginFunction(String email, String password)
     {
         //Connect the database
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
@@ -161,7 +174,7 @@ public class Cheesus_Crust_Db extends SQLiteOpenHelper {
         if(result.getCount() == 0)
         {
             //No emails found
-            return -1;
+            return "Invalid Email";
         }
 
         String databasePassword;
@@ -174,7 +187,7 @@ public class Cheesus_Crust_Db extends SQLiteOpenHelper {
             {
                 //password is not correct
                 result.close();
-                return 0;
+                return "Invalid Password";
             }
 
             else
@@ -190,15 +203,16 @@ public class Cheesus_Crust_Db extends SQLiteOpenHelper {
                 data.setUser_email(result.getString(3));
                 data.setUser_phone(result.getString(4));
                 data.setUser_address(result.getString(5));
+                data.setUser_type(result.getString(8));
 
                 result.close();
-                return 1;
+                return data.getUser_type();
             }
         }
 
         //Error
         result.close();
-        return -2;
+        return "Error";
     }
 
     //Insert data to the table
