@@ -137,6 +137,8 @@
     <string name="personal_notification">Personal_Notifications</string>
     <string name="cart">Cart</string>
     <string name="dashboard">Dashboard</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="view_inquiries">View Inquiries</string>
 
 
 </resources>

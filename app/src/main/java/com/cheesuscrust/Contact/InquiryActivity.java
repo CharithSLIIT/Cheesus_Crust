@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.cheesuscrust.R;
 
@@ -23,6 +24,13 @@ public class InquiryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inquiry);
+
+        //Toolbar
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        //Set the title
+        getSupportActionBar().setTitle(getString(R.string.view_inquiries));
 
         //Instantiating the database manager object
         database = new contactTable(this);
