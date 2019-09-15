@@ -22,8 +22,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="@string/welcome"
-            android:textColor="@color/colorPrimary"
+            android:text="@string/welcome_admin"
+            android:textColor="@color/pureWhite"
             android:textSize="34sp"
             android:fontFamily="@font/eraserdust"/>
 
@@ -64,7 +64,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
-                    android:src="@drawable/pizza2"
+                    android:src="@drawable/pizza3"
                     android:layout_gravity="center_horizontal"/>
 
                 <TextView
@@ -230,8 +230,8 @@
 
                 <ImageView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/pizza2"
+                    android:layout_height="60dp"
+                    android:src="@drawable/view_orders"
                     android:layout_gravity="center_horizontal"/>
 
                 <TextView
@@ -239,8 +239,9 @@
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
                     android:textAlignment="center"
-                    android:text="me"
-                    android:textColor="@color/colorPrimary"
+                    android:text="@string/view_orders"
+                    android:layout_gravity="center"
+                    android:textColor="@color/pureBlack"
                     android:textSize="18sp"/>
 
 
@@ -270,8 +271,8 @@
 
                 <ImageView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/pizza2"
+                    android:layout_height="60dp"
+                    android:src="@drawable/view_customer"
                     android:layout_gravity="center_horizontal"/>
 
                 <TextView
@@ -279,8 +280,8 @@
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
                     android:textAlignment="center"
-                    android:text="me"
-                    android:textColor="@color/colorPrimary"
+                    android:text="@string/view_customers"
+                    android:textColor="@color/pureBlack"
                     android:textSize="18sp"/>
 
 
