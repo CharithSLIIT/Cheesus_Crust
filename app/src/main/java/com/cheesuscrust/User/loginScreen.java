@@ -55,38 +55,26 @@ public class loginScreen extends AppCompatActivity {
             return;
         }
 
-        //Invoke loginunction in the UserTable class
-        String loginResult = database.loginFunction(email, password);
+        //Invoke login function in the UserTable class
+        int loginResult = database.loginFunction(email, password);
 
         //No emails found
-        if(loginResult == "Invalid Email")
+        if(loginResult == -1)
         {
             getEmail.setError(getString(R.string.invalid_email));
             return;
         }
 
         //Password is not correct
-        else if(loginResult == "Invalid Password")
+        else if(loginResult == 0)
         {
             getPassword.setError(getString(R.string.invalid_password));
             return;
         }
 
-        else if(loginResult == "Error")
+        else if(loginResult == -2)
         {
             Toast.makeText(this, "Some error occured! Please try again shortly", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        if(loginResult == "Admin")
-        {
-            Toast.makeText(this, R.string.login_success, Toast.LENGTH_LONG).show();
-            sharedPreferences = getSharedPreferences(String.valueOf(R.string.cheesus_crust), MODE_PRIVATE);
-            sharedPreferences.edit().putBoolean(String.valueOf(R.string.logged),true).apply();
-            sharedPreferences.edit().putString(String.valueOf(R.string.email), email).apply();
-
-            Intent intent = new Intent(loginScreen.this, activity_dash.class);
-            startActivity(intent);
             return;
         }
 
@@ -95,6 +83,14 @@ public class loginScreen extends AppCompatActivity {
         sharedPreferences = getSharedPreferences(String.valueOf(R.string.cheesus_crust), MODE_PRIVATE);
         sharedPreferences.edit().putBoolean(String.valueOf(R.string.logged),true).apply();
         sharedPreferences.edit().putString(String.valueOf(R.string.email), email).apply();
+
+        UserData data = UserData.getInstance();
+        if(data.getUser_type().equals("Admin"))
+        {
+            Intent intent = new Intent(loginScreen.this, activity_dash.class);
+            startActivity(intent);
+            return;
+        }
 
         Intent intent = new Intent(loginScreen.this, UserProfile.class);
         startActivity(intent);

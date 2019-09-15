@@ -173,7 +173,7 @@ public class WelcomeScreen extends AppCompatActivity {
                 data.setUser_type(userData.getString(8));
             }
 
-            if(data.getUser_type() == "Admin")
+            if(data.getUser_type().equals("Admin"))
             {
                 Intent intent = new Intent(WelcomeScreen.this, activity_dash.class);
                 startActivity(intent);

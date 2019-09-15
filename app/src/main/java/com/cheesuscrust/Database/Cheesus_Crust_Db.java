@@ -114,7 +114,6 @@ public class Cheesus_Crust_Db extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(SQL_CREATE_ENTRIES);
 
         //Create the default Admin Account when creating the App
-        sqLiteDatabase = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COLUMN_NAME_USER_FNAME, "Will");
         contentValues.put(COLUMN_NAME_USER_LNAME, "Byers");
@@ -159,7 +158,7 @@ public class Cheesus_Crust_Db extends SQLiteOpenHelper {
     }
 
     //Login function
-    public String loginFunction(String email, String password)
+    public int loginFunction(String email, String password)
     {
         //Connect the database
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
@@ -174,7 +173,7 @@ public class Cheesus_Crust_Db extends SQLiteOpenHelper {
         if(result.getCount() == 0)
         {
             //No emails found
-            return "Invalid Email";
+            return -1;
         }
 
         String databasePassword;
@@ -187,7 +186,7 @@ public class Cheesus_Crust_Db extends SQLiteOpenHelper {
             {
                 //password is not correct
                 result.close();
-                return "Invalid Password";
+                return 0;
             }
 
             else
@@ -206,13 +205,13 @@ public class Cheesus_Crust_Db extends SQLiteOpenHelper {
                 data.setUser_type(result.getString(8));
 
                 result.close();
-                return data.getUser_type();
+                return 1;
             }
         }
 
         //Error
         result.close();
-        return "Error";
+        return -2;
     }
 
     //Insert data to the table
