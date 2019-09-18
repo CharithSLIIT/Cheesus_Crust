@@ -7,6 +7,7 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.cheesuscrust.Product.AddItem;
 import com.cheesuscrust.R;
 
 public class activity_dash extends AppCompatActivity {
@@ -24,8 +25,8 @@ public class activity_dash extends AppCompatActivity {
         getSupportActionBar().setTitle(getString(R.string.dashboard));
     }
 
-    public void goToContact(View view) {
-        Intent intent = new Intent(activity_dash.this, ContactActivity.class);
+    public void goToAddItems(View view) {
+        Intent intent = new Intent(activity_dash.this, AddItem.class);
         startActivity(intent);
     }
 

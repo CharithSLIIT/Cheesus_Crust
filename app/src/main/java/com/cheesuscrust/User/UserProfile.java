@@ -17,6 +17,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.cheesuscrust.Contact.ContactActivity;
 import com.cheesuscrust.Database.Cheesus_Crust_Db;
 import com.cheesuscrust.R;
 import com.google.android.material.navigation.NavigationView;
@@ -66,8 +67,29 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
                 {
                     case R.id.nav_user_profile :
                         menuItem.setChecked(true);
-                        Toast.makeText(UserProfile.this, "User Profile Selected", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(UserProfile.this, R.string.you_are_already_in_your_page, Toast.LENGTH_SHORT).show();
                         drawerLayout.closeDrawers();
+                        return true;
+
+                    case R.id.nav_contact_us :
+                        menuItem.setChecked(true);
+                        Intent intent1 = new Intent(UserProfile.this, ContactActivity.class);
+                        startActivity(intent1);
+                        drawerLayout.closeDrawers();
+                        return true;
+
+                    case R.id.nav_settings :
+                        menuItem.setChecked(true);
+                        Toast.makeText(UserProfile.this, R.string.settings_are_not_available_right_now, Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawers();
+                        return true;
+
+                    case R.id.nav_logout:
+                        SharedPreferences sharedPreferences = getSharedPreferences(String.valueOf(R.string.cheesus_crust), MODE_PRIVATE);
+                        sharedPreferences.edit().remove(String.valueOf(R.string.logged)).apply();
+                        sharedPreferences.edit().remove(String.valueOf(R.string.email)).apply();
+                        Intent intent2 = new Intent(UserProfile.this, WelcomeScreen.class);
+                        startActivity(intent2);
                         return true;
                 }
                 return false;
@@ -375,16 +397,6 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
         {
             Toast.makeText(this, R.string.cant_update_your_password_right_now_please_try_again_shortly, Toast.LENGTH_LONG).show();
         }
-    }
-
-    public void user_logout(View view)
-    {
-        SharedPreferences sharedPreferences = getSharedPreferences(String.valueOf(R.string.cheesus_crust), MODE_PRIVATE);
-        sharedPreferences.edit().remove(String.valueOf(R.string.logged)).apply();
-        sharedPreferences.edit().remove(String.valueOf(R.string.email)).apply();
-
-        Intent intent = new Intent(UserProfile.this, WelcomeScreen.class);
-        startActivity(intent);
     }
 
     public void delete_account(View view) {
