@@ -4,16 +4,22 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.cheesuscrust.Database.Cheesus_Crust_Db;
 import com.cheesuscrust.R;
+import com.google.android.material.navigation.NavigationView;
 
 import static android.text.TextUtils.isEmpty;
 
@@ -28,6 +34,10 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
     //Create TextView objects
     TextView displayName, displayEmail, displayAddress, displayPhone;
 
+    //Navigation Drawer
+    DrawerLayout drawerLayout;
+    NavigationView navigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +50,32 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
         //Set the title
         getSupportActionBar().setTitle(getString(R.string.my_account));
 
+        //Navigation menu icon
+        final ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setHomeAsUpIndicator(R.drawable.navigation_drawer_icon);
+
+        //Navigation Drawer
+        drawerLayout = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.navigation_view);
+
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
+                switch (menuItem.getItemId())
+                {
+                    case R.id.nav_user_profile :
+                        menuItem.setChecked(true);
+                        Toast.makeText(UserProfile.this, "User Profile Selected", Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawers();
+                        return true;
+                }
+
+                return false;
+            }
+        });
+
         database = new Cheesus_Crust_Db(this);
 
         //Initialise TextView objects
@@ -47,6 +83,19 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
         displayEmail = findViewById(R.id.userProfile_displayEmail);
         displayAddress = findViewById(R.id.userProfile_displayAddress);
         displayPhone = findViewById(R.id.userProfile_displayPhone);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId())
+        {
+            case android.R.id.home:
+                drawerLayout.openDrawer(GravityCompat.START);
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

@@ -135,6 +135,7 @@
     <string name="view_order">View Orders</string>
     <string name="view_customer">View Customers</string>
     <string name="welcome_admins">Welcome Admin!</string>
+    <string name="my_profile">My Profile</string>
 
     <string-array name="type">
         <item>Pizza</item>
