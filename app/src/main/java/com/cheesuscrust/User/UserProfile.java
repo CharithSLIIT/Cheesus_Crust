@@ -58,7 +58,6 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
         //Navigation Drawer
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigation_view);
-
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -71,7 +70,6 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
                         drawerLayout.closeDrawers();
                         return true;
                 }
-
                 return false;
             }
         });
@@ -85,6 +83,7 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
         displayPhone = findViewById(R.id.userProfile_displayPhone);
     }
 
+    //Navigation Drawer Display icon
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
@@ -94,7 +93,6 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
                 drawerLayout.openDrawer(GravityCompat.START);
                 return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
