@@ -15,33 +15,34 @@
         android:roundIcon="@mipmap/app_icon_rounded"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar"
-        tools:ignore="GoogleAppIndexingWarning">
+        tools:ignore="GoogleAppIndexingWarning"
+        android:fullBackupContent="true">
 
 <!--        User Management -->
-        <activity android:name=".User.WelcomeScreen">
+        <activity android:name="$User.WelcomeScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".User.UserProfile" />
-        <activity android:name=".User.loginScreen" />
-        <activity android:name=".User.signupScreen" />
+        <activity android:name="$User.UserProfile" />
+        <activity android:name="$User.loginScreen" />
+        <activity android:name="$User.signupScreen" />
 
 <!--        Product Management-->
-        <activity android:name=".Product.AdminEdit"
+        <activity android:name="$Product.AdminEdit"
             android:label="Edit Item">
         </activity>
-        <activity android:name=".Product.AddItem"></activity>
+        <activity android:name="$Product.AddItem"/>
         <activity
-            android:name=".Product.AdminFoodList"
+            android:name="$Product.AdminFoodList"
             android:label="Food List"
             android:parentActivityName=".Product.AddItem" />
 
 <!--        Inquiry Management-->
-        <activity android:name=".Contact.activity_dash"/>
-        <activity android:name=".Contact.ContactActivity"/>
-        <activity android:name=".Contact.InquiryActivity"></activity>
+        <activity android:name="$Contact.activity_dash"/>
+        <activity android:name="$Contact.ContactActivity"/>
+        <activity android:name="$Contact.InquiryActivity"/>
     </application>
 
 </manifest>
