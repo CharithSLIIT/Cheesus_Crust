@@ -512,13 +512,6 @@ public class Cheesus_Crust_Db extends SQLiteOpenHelper {
         db.close();
     }
 
-    //newvid commented "public Cursor getAllData()" and retyped getData
-//    public Cursor getAllData(){
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        Cursor res = db.rawQuery("SELECT * FROM " + UsersMaster.Users.TABLE_NAME, null);
-//        return res;
-//    }
-
     public Cursor getData(String sql){
         SQLiteDatabase db = this.getReadableDatabase();
         return db.rawQuery(sql, null);
