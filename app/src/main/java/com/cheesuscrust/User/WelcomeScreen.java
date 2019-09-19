@@ -8,7 +8,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -51,7 +50,6 @@ public class WelcomeScreen extends AppCompatActivity {
             while(userData.moveToNext())
             {
                 //Store user data
-                data.setUser_id(userData.getInt(0));
                 data.setUser_name(userData.getString(1), userData.getString(2));
                 data.setUser_email(userData.getString(3));
                 data.setUser_phone(userData.getString(4));
@@ -98,7 +96,6 @@ public class WelcomeScreen extends AppCompatActivity {
             while(userData.moveToNext())
             {
                 //Store user data
-                data.setUser_id(userData.getInt(0));
                 data.setUser_name(userData.getString(1), userData.getString(2));
                 data.setUser_email(userData.getString(3));
                 data.setUser_phone(userData.getString(4));
@@ -145,7 +142,6 @@ public class WelcomeScreen extends AppCompatActivity {
             while(userData.moveToNext())
             {
                 //Store user data
-                data.setUser_id(userData.getInt(0));
                 data.setUser_name(userData.getString(1), userData.getString(2));
                 data.setUser_email(userData.getString(3));
                 data.setUser_phone(userData.getString(4));
@@ -190,7 +186,6 @@ public class WelcomeScreen extends AppCompatActivity {
             while(userData.moveToNext())
             {
                 //Store user data
-                data.setUser_id(userData.getInt(0));
                 data.setUser_name(userData.getString(1), userData.getString(2));
                 data.setUser_email(userData.getString(3));
                 data.setUser_phone(userData.getString(4));
@@ -218,7 +213,10 @@ public class WelcomeScreen extends AppCompatActivity {
     public boolean isOnline() {
         ConnectivityManager connMgr = (ConnectivityManager)
                 getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+        NetworkInfo networkInfo = null;
+        if (connMgr != null) {
+            networkInfo = connMgr.getActiveNetworkInfo();
+        }
         return (networkInfo != null && networkInfo.isConnected());
     }
 }

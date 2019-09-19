@@ -24,6 +24,8 @@ import com.cheesuscrust.Database.Cheesus_Crust_Db;
 import com.cheesuscrust.R;
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.Objects;
+
 import static android.text.TextUtils.isEmpty;
 
 public class UserProfile extends AppCompatActivity implements UserProfile_UpdateAddress_Dialog.passAddress, UserProfile_UpdateEmail_Dialog.passEmail, UserProfile_UpdatePhone_Dialog.passPhone, UserProfile_UpdatePassword_Dialog.passPassword {
@@ -51,7 +53,7 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
         setSupportActionBar(toolbar);
 
         //Set the title
-        getSupportActionBar().setTitle(getString(R.string.my_account));
+        Objects.requireNonNull(getSupportActionBar()).setTitle(getString(R.string.my_account));
 
         //Navigation menu icon
         final ActionBar actionBar = getSupportActionBar();
@@ -113,13 +115,11 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
                                 sharedPreferences.edit().remove(String.valueOf(R.string.email)).apply();
                                 Intent intent3 = new Intent(UserProfile.this, WelcomeScreen.class);
                                 startActivity(intent3);
-                                return;
                             }
                         });
                         builder.setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                return;
                             }
                         });
                         builder.show();

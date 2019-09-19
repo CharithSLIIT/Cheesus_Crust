@@ -197,7 +197,6 @@ public class Cheesus_Crust_Db extends SQLiteOpenHelper {
                 UserData data = UserData.getInstance();
 
                 //Store user data
-                data.setUser_id(result.getInt(0));
                 data.setUser_name(result.getString(1), result.getString(2));
                 data.setUser_email(result.getString(3));
                 data.setUser_phone(result.getString(4));

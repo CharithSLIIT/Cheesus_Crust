@@ -3,7 +3,6 @@ package com.cheesuscrust.User;
 public class UserData {
 
     //User data variables
-    private int user_id;
     private String user_fname, user_lname, user_address, user_phone, user_email, user_type;
 
     //UserData Singleton object
@@ -22,9 +21,6 @@ public class UserData {
     }
 
     //set user id
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
-    }
 
     //get user name
     String getUser_name() {
@@ -38,7 +34,7 @@ public class UserData {
     }
 
     //get user address
-    public String getUser_address() {
+    String getUser_address() {
         return user_address;
     }
 
@@ -65,10 +61,6 @@ public class UserData {
     //set user email address
     public void setUser_email(String user_email) {
         this.user_email = user_email;
-    }
-
-    public int getUser_id() {
-        return user_id;
     }
 
     public String getUser_type() {

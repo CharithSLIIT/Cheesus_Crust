@@ -1,5 +1,6 @@
 package com.cheesuscrust.User;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
@@ -15,6 +16,8 @@ import androidx.fragment.app.DialogFragment;
 
 import com.cheesuscrust.R;
 
+import java.util.Objects;
+
 public class UserProfile_UpdateEmail_Dialog extends DialogFragment
 {
     private EditText editTextNewEmail;
@@ -26,8 +29,8 @@ public class UserProfile_UpdateEmail_Dialog extends DialogFragment
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setCancelable(false);
-        LayoutInflater inflater = getActivity().getLayoutInflater();
-        final View view = inflater.inflate(R.layout.user_update_email_dialog, null);
+        LayoutInflater inflater = Objects.requireNonNull(getActivity()).getLayoutInflater();
+        @SuppressLint("InflateParams") final View view = inflater.inflate(R.layout.user_update_email_dialog, null);
         builder.setView(view);
 
         builder.setTitle(R.string.update_email);
@@ -44,7 +47,7 @@ public class UserProfile_UpdateEmail_Dialog extends DialogFragment
         builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                getDialog().dismiss();
+                Objects.requireNonNull(getDialog()).dismiss();
             }
         });
 
