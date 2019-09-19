@@ -2,11 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
      android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/adminviewback">
 
 
 
-    <LinearLayout
+        <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -21,20 +22,22 @@
                 android:id="@+id/adTextType"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Category Name"
-                android:layout_marginTop="40dp"
                 android:layout_marginLeft="10dp"
+                android:layout_marginTop="40dp"
                 android:layout_marginRight="10dp"
+                android:text="Category Name"
+                android:textColor="@android:color/white"
                 android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/adTxtName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Item Name"
-                android:layout_marginTop="10dp"
                 android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
+                android:text="Item Name"
+                android:textColor="@android:color/white"
                 android:textSize="18sp" />
 
             <GridLayout
