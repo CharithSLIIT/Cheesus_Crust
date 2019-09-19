@@ -138,6 +138,13 @@ public class signupScreen extends AppCompatActivity {
             return;
         }
 
+        //Telephone number validation
+        if (phone.length() != 10)
+        {
+            getPhone.setError(getString(R.string.please_enter_valid_phone_number));
+            return;
+        }
+
         //Invoke insertFunction of the database
         int insertResult = database.insertData(fname, lname, email, phone, address, password, points, type);
 

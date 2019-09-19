@@ -145,6 +145,7 @@
     <string name="are_you_sure_you_want_to_logout">Are you sure you want to Logout?</string>
     <string name="add_an_item">Add an Item</string>
     <string name="invalid_email_address_please_enter_correct_email_address">Invalid Email Address! Please enter correct Email Address…</string>
+    <string name="please_enter_valid_phone_number">Please enter valid phone number</string>
 
     <string-array name="type">
         <item>Pizza</item>

@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/userProfile_update_AddressEditText"
         android:hint="@string/enter_your_new_address"
-        android:inputType="textPostalAddress|textMultiLine"
+        android:inputType="textPostalAddress|textMultiLine|textCapWords"
         android:minLines="1"
         android:layout_marginTop="@dimen/dp_5"
         android:layout_marginHorizontal="@dimen/dp_20"
