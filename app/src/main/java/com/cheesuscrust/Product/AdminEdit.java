@@ -1,5 +1,6 @@
 package com.cheesuscrust.Product;
 import com.cheesuscrust.Contact.activity_dash;
+import com.cheesuscrust.Database.Cheesus_Crust_Db;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -29,7 +30,7 @@ import java.io.InputStream;
 
 public class AdminEdit extends AppCompatActivity {
 
-    public static DBHelper myDB;
+    public static Cheesus_Crust_Db myDB;
     EditText updateame,updateDesc,updatesPrice,updatemPrice,updatelPrice;
     Button btnUpdateData , btnUpdateImage;
     ImageView updateImage, updateImage1;
@@ -44,7 +45,7 @@ public class AdminEdit extends AppCompatActivity {
         getid = getintent.getIntExtra("id", 0);
 
         //Database Connection
-        myDB = new DBHelper(this);
+        myDB = new Cheesus_Crust_Db(this);
 
 
         //Display the current values

@@ -15,6 +15,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -27,6 +28,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -59,7 +61,7 @@ public class AddItem extends AppCompatActivity {
 
     UserData userData = UserData.getInstance();
 
-    public static DBHelper myDB;
+    public static Cheesus_Crust_Db myDB;
     TextInputLayout editName,editDesc,editsPrice,editmPrice,editlPrice;
     Spinner  spinnerType;
     Button btnAddData, btnView, btnAddImage;
@@ -77,7 +79,7 @@ public class AddItem extends AppCompatActivity {
 
 
         //Database Connection
-        myDB = new DBHelper(this);
+        myDB = new Cheesus_Crust_Db(this);
 
         //Display values inside Spinners
         Spinner proType = (Spinner) findViewById(R.id.typeSpinner);
@@ -99,6 +101,7 @@ public class AddItem extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View arg1,
                                        int pos, long arg3) {
                 editType= parent.getSelectedItem().toString();
+                ((TextView) parent.getChildAt(0)).setTextColor(Color.WHITE);
             }
 
             @Override
@@ -149,11 +152,11 @@ public class AddItem extends AppCompatActivity {
         navigationView = findViewById(R.id.navigation_view);
 
         //Show Dashboard option
-        if (userData.getUser_type().equals(getString(R.string.admin)))
-        {
-            Menu menu = navigationView.getMenu();
-            menu.findItem(R.id.nav_dashboard).setVisible(true);
-        }
+//        if (userData.getUser_type().equals(getString(R.string.admin)))
+//        {
+//            Menu menu = navigationView.getMenu();
+//            menu.findItem(R.id.nav_dashboard).setVisible(true);
+//        }
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
