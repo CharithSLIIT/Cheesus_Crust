@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -18,6 +19,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.cheesuscrust.Contact.ContactActivity;
+import com.cheesuscrust.Contact.activity_dash;
 import com.cheesuscrust.Database.Cheesus_Crust_Db;
 import com.cheesuscrust.R;
 import com.google.android.material.navigation.NavigationView;
@@ -30,7 +32,7 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
     Cheesus_Crust_Db database;
 
     //get an instance of the UserData to get user data
-    UserData data = UserData.getInstance();
+    UserData userData = UserData.getInstance();
 
     //Create TextView objects
     TextView displayName, displayEmail, displayAddress, displayPhone;
@@ -59,22 +61,37 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
         //Navigation Drawer
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigation_view);
+
+        //Show Dashboard option
+        if (userData.getUser_type().equals("Admin"))
+        {
+            Menu menu = navigationView.getMenu();
+            menu.findItem(R.id.nav_dashboard).setVisible(true);
+        }
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
                 switch (menuItem.getItemId())
                 {
+                    case R.id.nav_dashboard :
+                        menuItem.setChecked(true);
+                        Intent intent0 = new Intent(UserProfile.this, activity_dash.class);
+                        startActivity(intent0);
+                        drawerLayout.closeDrawers();
+                        return true;
+
                     case R.id.nav_user_profile :
                         menuItem.setChecked(true);
-                        Toast.makeText(UserProfile.this, R.string.you_are_already_in_your_page, Toast.LENGTH_SHORT).show();
+                        Intent intent1 = new Intent(UserProfile.this, UserProfile.class);
+                        startActivity(intent1);
                         drawerLayout.closeDrawers();
                         return true;
 
                     case R.id.nav_contact_us :
                         menuItem.setChecked(true);
-                        Intent intent1 = new Intent(UserProfile.this, ContactActivity.class);
-                        startActivity(intent1);
+                        Intent intent2 = new Intent(UserProfile.this, ContactActivity.class);
+                        startActivity(intent2);
                         drawerLayout.closeDrawers();
                         return true;
 
@@ -88,8 +105,8 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
                         SharedPreferences sharedPreferences = getSharedPreferences(String.valueOf(R.string.cheesus_crust), MODE_PRIVATE);
                         sharedPreferences.edit().remove(String.valueOf(R.string.logged)).apply();
                         sharedPreferences.edit().remove(String.valueOf(R.string.email)).apply();
-                        Intent intent2 = new Intent(UserProfile.this, WelcomeScreen.class);
-                        startActivity(intent2);
+                        Intent intent3 = new Intent(UserProfile.this, WelcomeScreen.class);
+                        startActivity(intent3);
                         return true;
                 }
                 return false;
@@ -121,10 +138,10 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
         super.onStart();
 
         //Set user data
-        displayName.setText(data.getUser_name());
-        displayEmail.setText(data.getUser_email());
-        displayAddress.setText(data.getUser_address());
-        displayPhone.setText(data.getUser_phone());
+        displayName.setText(userData.getUser_name());
+        displayEmail.setText(userData.getUser_email());
+        displayAddress.setText(userData.getUser_address());
+        displayPhone.setText(userData.getUser_phone());
     }
 
     @Override
@@ -132,10 +149,10 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
         super.onRestart();
 
         //Set user data
-        displayName.setText(data.getUser_name());
-        displayEmail.setText(data.getUser_email());
-        displayAddress.setText(data.getUser_address());
-        displayPhone.setText(data.getUser_phone());
+        displayName.setText(userData.getUser_name());
+        displayEmail.setText(userData.getUser_email());
+        displayAddress.setText(userData.getUser_address());
+        displayPhone.setText(userData.getUser_phone());
     }
 
     public void editAddress(View view)
@@ -178,10 +195,10 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
         }
 
         //Update details in the UserData object
-        data.setUser_address(address);
+        userData.setUser_address(address);
 
         //Get user email
-        String email = data.getUser_email();
+        String email = userData.getUser_email();
 
         //Update the database
         boolean isUpdated = database.updateUserAddress(email, address);
@@ -189,7 +206,7 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
         if(isUpdated)
         {
             //Update the view
-            displayAddress.setText(data.getUser_address());
+            displayAddress.setText(userData.getUser_address());
 
             Toast.makeText(this, R.string.your_address_updated, Toast.LENGTH_SHORT).show();
         }
@@ -215,7 +232,7 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
         }
 
         //Get user email
-        String currentEmail = data.getUser_email();
+        String currentEmail = userData.getUser_email();
 
         //Update the database
     int isUpdated = database.updateUserEmail(currentEmail, email);
@@ -238,10 +255,10 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
         else if(isUpdated == 1)
         {
             //Update details in the UserData object
-            data.setUser_email(email);
+            userData.setUser_email(email);
 
             //Update the view
-            displayEmail.setText(data.getUser_email());
+            displayEmail.setText(userData.getUser_email());
 
             Toast.makeText(this, R.string.your_email_updated, Toast.LENGTH_SHORT).show();
         }
@@ -274,7 +291,7 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
         }
 
         //Get user email
-        String email = data.getUser_email();
+        String email = userData.getUser_email();
 
         //Update the database
         boolean isUpdated = database.updateUserPhone(email, phone);
@@ -282,10 +299,10 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
         if(isUpdated)
         {
             //Update details in the UserData object
-            data.setUser_phone(phone);
+            userData.setUser_phone(phone);
 
             //Update the view
-            displayPhone.setText(data.getUser_phone());
+            displayPhone.setText(userData.getUser_phone());
 
             Toast.makeText(this, R.string.your_phone_number_updated, Toast.LENGTH_SHORT).show();
         }
@@ -366,7 +383,7 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
         }
 
         //Get user email
-        String email = data.getUser_email();
+        String email = userData.getUser_email();
 
         //Update the database
         int result = database.updateUserPassword(email, currentPassword, newPassword);
@@ -412,7 +429,7 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
 
-                boolean result = database.deleteUser(data.getUser_email());
+                boolean result = database.deleteUser(userData.getUser_email());
 
                 if (!result) {
                     Toast.makeText(UserProfile.this, R.string.some_error_occured_lease_try_again_later, Toast.LENGTH_SHORT).show();

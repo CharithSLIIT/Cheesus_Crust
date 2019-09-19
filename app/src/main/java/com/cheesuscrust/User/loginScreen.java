@@ -74,7 +74,7 @@ public class loginScreen extends AppCompatActivity {
 
         else if(loginResult == -2)
         {
-            Toast.makeText(this, "Some error occured! Please try again shortly", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Some error occurred! Please try again shortly", Toast.LENGTH_SHORT).show();
             return;
         }
 

@@ -38,7 +38,7 @@ public class UserData {
     }
 
     //get user address
-    String getUser_address() {
+    public String getUser_address() {
         return user_address;
     }
 
