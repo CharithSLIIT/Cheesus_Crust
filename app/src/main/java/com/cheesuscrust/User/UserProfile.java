@@ -104,8 +104,8 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
                     case R.id.nav_logout:
                         AlertDialog.Builder builder = new AlertDialog.Builder(UserProfile.this);
                         builder.setCancelable(true);
-                        builder.setTitle("Are you sure you want to Logout?");
-                        builder.setPositiveButton("Logout", new DialogInterface.OnClickListener() {
+                        builder.setTitle(getString(R.string.are_you_sure_you_want_to_logout));
+                        builder.setPositiveButton(getString(R.string.logout), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 SharedPreferences sharedPreferences = getSharedPreferences(String.valueOf(R.string.cheesus_crust), MODE_PRIVATE);

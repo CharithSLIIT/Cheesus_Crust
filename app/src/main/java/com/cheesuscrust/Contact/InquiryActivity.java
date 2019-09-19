@@ -71,7 +71,7 @@ public class InquiryActivity extends AppCompatActivity {
         navigationView = findViewById(R.id.navigation_view);
 
         //Show Dashboard option
-        if (userData.getUser_type().equals("Admin"))
+        if (userData.getUser_type().equals(getString(R.string.admin)))
         {
             Menu menu = navigationView.getMenu();
             menu.findItem(R.id.nav_dashboard).setVisible(true);
@@ -112,8 +112,8 @@ public class InquiryActivity extends AppCompatActivity {
                     case R.id.nav_logout:
                         AlertDialog.Builder builder = new AlertDialog.Builder(InquiryActivity.this);
                         builder.setCancelable(true);
-                        builder.setTitle("Are you sure you want to Logout?");
-                        builder.setPositiveButton("Logout", new DialogInterface.OnClickListener() {
+                        builder.setTitle(getString(R.string.are_you_sure_you_want_to_logout));
+                        builder.setPositiveButton(getString(R.string.logout), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 SharedPreferences sharedPreferences = getSharedPreferences(String.valueOf(R.string.cheesus_crust), MODE_PRIVATE);
