@@ -102,11 +102,27 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
                         return true;
 
                     case R.id.nav_logout:
-                        SharedPreferences sharedPreferences = getSharedPreferences(String.valueOf(R.string.cheesus_crust), MODE_PRIVATE);
-                        sharedPreferences.edit().remove(String.valueOf(R.string.logged)).apply();
-                        sharedPreferences.edit().remove(String.valueOf(R.string.email)).apply();
-                        Intent intent3 = new Intent(UserProfile.this, WelcomeScreen.class);
-                        startActivity(intent3);
+                        AlertDialog.Builder builder = new AlertDialog.Builder(UserProfile.this);
+                        builder.setCancelable(true);
+                        builder.setTitle("Are you sure you want to Logout?");
+                        builder.setPositiveButton("Logout", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                SharedPreferences sharedPreferences = getSharedPreferences(String.valueOf(R.string.cheesus_crust), MODE_PRIVATE);
+                                sharedPreferences.edit().remove(String.valueOf(R.string.logged)).apply();
+                                sharedPreferences.edit().remove(String.valueOf(R.string.email)).apply();
+                                Intent intent3 = new Intent(UserProfile.this, WelcomeScreen.class);
+                                startActivity(intent3);
+                                return;
+                            }
+                        });
+                        builder.setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                return;
+                            }
+                        });
+                        builder.show();
                         return true;
                 }
                 return false;
