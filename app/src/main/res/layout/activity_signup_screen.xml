@@ -12,19 +12,19 @@
             android:layout_height="wrap_content">
 
                 <TextView
-                    android:layout_width="111dp"
-                    android:layout_height="73dp"
+                    android:layout_width="@dimen/dp_111"
+                    android:layout_height="@dimen/dp_73"
                     android:layout_row="0"
                     android:layout_column="0"
                     android:layout_gravity="end|bottom"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginBottom="30dp"
+                    android:layout_marginStart="@dimen/dp_10"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:layout_marginEnd="@dimen/dp_20"
+                    android:layout_marginBottom="@dimen/dp_30"
                     android:background="@color/pureYellowTransparent"
                     android:gravity="center"
                     android:onClick="goToLogin"
-                    android:padding="10dp"
+                    android:padding="@dimen/dp_10"
                     android:text="@string/i_have_an_account"
                     android:textColor="@color/pureWhite"
                     android:textSize="20sp" />
@@ -40,52 +40,52 @@
                     android:foregroundGravity="">
 
                         <TextView
-                            android:layout_width="256dp"
+                            android:layout_width="@dimen/dp_256"
                             android:layout_height="wrap_content"
                             android:layout_gravity="end"
-                            android:layout_marginTop="180dp"
-                            android:layout_marginEnd="20dp"
+                            android:layout_marginTop="@dimen/dp_180"
+                            android:layout_marginEnd="@dimen/dp_20"
                             android:fontFamily="@font/eraserdust"
                             android:text="@string/let_s_create_an_account"
                             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                             android:textColor="@color/pureWhite" />
 
                         <EditText
-                            android:layout_width="230dp"
+                            android:layout_width="@dimen/dp_230"
                             android:layout_height="wrap_content"
                             android:layout_gravity="end"
                             android:inputType="text|textCapWords"
                             android:hint="@string/enter_first_name"
                             android:textColorHint="@color/pureWhite"
                             android:textColor="@color/pureWhite"
-                            android:layout_marginTop="20dp"
-                            android:layout_marginEnd="20dp"
+                            android:layout_marginTop="@dimen/dp_20"
+                            android:layout_marginEnd="@dimen/dp_20"
                             android:id="@+id/signup_fname"
                             android:importantForAutofill="no" />
 
                         <EditText
-                            android:layout_width="230dp"
+                            android:layout_width="@dimen/dp_230"
                             android:layout_height="wrap_content"
                             android:textColorHint="@color/pureWhite"
                             android:textColor="@color/pureWhite"
                             android:layout_gravity="end"
                             android:inputType="text|textCapWords"
                             android:hint="@string/enter_last_name"
-                            android:layout_marginEnd="20dp"
-                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="@dimen/dp_20"
+                            android:layout_marginTop="@dimen/dp_10"
                             android:id="@+id/signup_lname"
                             android:importantForAutofill="no" />
 
                         <EditText
-                            android:layout_width="230dp"
+                            android:layout_width="@dimen/dp_230"
                             android:layout_height="wrap_content"
                             android:textColorHint="@color/pureWhite"
                             android:textColor="@color/pureWhite"
                             android:layout_gravity="end"
                             android:inputType="phone"
                             android:hint="@string/enter_phone"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginEnd="20dp"
+                            android:layout_marginTop="@dimen/dp_10"
+                            android:layout_marginEnd="@dimen/dp_20"
                             android:id="@+id/signup_phone"
                             android:importantForAutofill="no" />
 
@@ -97,58 +97,58 @@
                             android:layout_gravity="end"
                             android:inputType="textPostalAddress|textCapWords"
                             android:hint="@string/enter_address"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginEnd="20dp"
+                            android:layout_marginTop="@dimen/dp_10"
+                            android:layout_marginEnd="@dimen/dp_20"
                             android:id="@+id/signup_address"
                             android:importantForAutofill="no" />
 
                         <EditText
-                            android:layout_width="230dp"
+                            android:layout_width="@dimen/dp_230"
                             android:layout_height="wrap_content"
                             android:layout_gravity="end"
                             android:inputType="textEmailAddress"
                             android:hint="@string/enter_email"
                             android:textColorHint="@color/pureWhite"
                             android:textColor="@color/pureWhite"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginEnd="20dp"
+                            android:layout_marginTop="@dimen/dp_10"
+                            android:layout_marginEnd="@dimen/dp_20"
                             android:id="@+id/signup_email"
                             android:importantForAutofill="no" />
 
                         <EditText
-                            android:layout_width="230dp"
+                            android:layout_width="@dimen/dp_230"
                             android:layout_height="wrap_content"
                             android:layout_gravity="end"
                             android:inputType="textPassword"
                             android:hint="@string/enter_password"
                             android:textColorHint="@color/pureWhite"
                             android:textColor="@color/pureWhite"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginEnd="20dp"
+                            android:layout_marginTop="@dimen/dp_10"
+                            android:layout_marginEnd="@dimen/dp_20"
                             android:id="@+id/signup_password"
                             android:importantForAutofill="no" />
 
                         <EditText
-                            android:layout_width="230dp"
+                            android:layout_width="@dimen/dp_230"
                             android:layout_height="wrap_content"
                             android:layout_gravity="end"
                             android:inputType="textPassword"
                             android:hint="@string/confirm_password"
                             android:textColorHint="@color/pureWhite"
                             android:textColor="@color/pureWhite"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginEnd="20dp"
+                            android:layout_marginTop="@dimen/dp_10"
+                            android:layout_marginEnd="@dimen/dp_20"
                             android:id="@+id/signup_confirmPassword"
                             android:importantForAutofill="no" />
 
                         <Button
                             android:id="@+id/signup_signupBtn"
-                            android:layout_width="210dp"
-                            android:layout_height="46dp"
+                            android:layout_width="@dimen/dp_210"
+                            android:layout_height="@dimen/dp_46"
                             android:layout_gravity="end"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginEnd="30dp"
-                            android:layout_marginBottom="30dp"
+                            android:layout_marginTop="@dimen/dp_10"
+                            android:layout_marginEnd="@dimen/dp_30"
+                            android:layout_marginBottom="@dimen/dp_30"
                             android:background="@drawable/button_background"
                             android:onClick="userSignup"
                             android:text="@string/signup" />

@@ -10,8 +10,8 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="157dp"
-        android:layout_height="39dp"
+        android:layout_width="@dimen/dp_157"
+        android:layout_height="@dimen/dp_39"
         android:layout_marginBottom="303dp"
         android:background="@drawable/button_background"
         android:onClick="goToLogin"
@@ -38,13 +38,13 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="286dp"
-        android:layout_height="68dp"
+        android:layout_width="@dimen/dp_286"
+        android:layout_height="@dimen/dp_68"
         android:fontFamily="@font/eraserdust"
         android:text="@string/welcome"
         android:textAppearance="@style/TextAppearance.AppCompat.Display3"
         android:textColor="@color/pureWhite"
-        android:textSize="60sp"
+        android:textSize="@dimen/sp_60"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.584"
@@ -54,8 +54,8 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="283dp"
-        android:layout_height="17dp"
+        android:layout_width="@dimen/dp_283"
+        android:layout_height="@dimen/dp_17"
         android:text="@string/c2019_cheesus_crust_all_rights_reserved"
         android:textColor="@color/pureWhite"
         app:layout_constraintBottom_toBottomOf="parent"
