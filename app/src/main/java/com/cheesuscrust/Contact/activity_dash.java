@@ -102,7 +102,7 @@ public class activity_dash extends AppCompatActivity {
         });
     }
 
-    //Navigation Drawer Display icon
+    //Navigation Drawer Display icon in Toolbar
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
