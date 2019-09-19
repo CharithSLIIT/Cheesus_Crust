@@ -9,6 +9,7 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -31,6 +32,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
@@ -186,11 +188,27 @@ public class AddItem extends AppCompatActivity {
                         return true;
 
                     case R.id.nav_logout:
-                        SharedPreferences sharedPreferences = getSharedPreferences(String.valueOf(R.string.cheesus_crust), MODE_PRIVATE);
-                        sharedPreferences.edit().remove(String.valueOf(R.string.logged)).apply();
-                        sharedPreferences.edit().remove(String.valueOf(R.string.email)).apply();
-                        Intent intent4 = new Intent(AddItem.this, WelcomeScreen.class);
-                        startActivity(intent4);
+                        AlertDialog.Builder builder = new AlertDialog.Builder(AddItem.this);
+                        builder.setCancelable(true);
+                        builder.setTitle("Are you sure you want to Logout?");
+                        builder.setPositiveButton("Logout", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                SharedPreferences sharedPreferences = getSharedPreferences(String.valueOf(R.string.cheesus_crust), MODE_PRIVATE);
+                                sharedPreferences.edit().remove(String.valueOf(R.string.logged)).apply();
+                                sharedPreferences.edit().remove(String.valueOf(R.string.email)).apply();
+                                Intent intent3 = new Intent(AddItem.this, WelcomeScreen.class);
+                                startActivity(intent3);
+                                return;
+                            }
+                        });
+                        builder.setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                return;
+                            }
+                        });
+                        builder.show();
                         return true;
                 }
                 return false;

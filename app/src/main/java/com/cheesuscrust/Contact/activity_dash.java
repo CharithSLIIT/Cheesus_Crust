@@ -1,5 +1,6 @@
 package com.cheesuscrust.Contact;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
@@ -90,11 +92,27 @@ public class activity_dash extends AppCompatActivity {
                         return true;
 
                     case R.id.nav_logout:
-                        SharedPreferences sharedPreferences = getSharedPreferences(String.valueOf(R.string.cheesus_crust), MODE_PRIVATE);
-                        sharedPreferences.edit().remove(String.valueOf(R.string.logged)).apply();
-                        sharedPreferences.edit().remove(String.valueOf(R.string.email)).apply();
-                        Intent intent3 = new Intent(activity_dash.this, WelcomeScreen.class);
-                        startActivity(intent3);
+                        AlertDialog.Builder builder = new AlertDialog.Builder(activity_dash.this);
+                        builder.setCancelable(true);
+                        builder.setTitle("Are you sure you want to Logout?");
+                        builder.setPositiveButton("Logout", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                SharedPreferences sharedPreferences = getSharedPreferences(String.valueOf(R.string.cheesus_crust), MODE_PRIVATE);
+                                sharedPreferences.edit().remove(String.valueOf(R.string.logged)).apply();
+                                sharedPreferences.edit().remove(String.valueOf(R.string.email)).apply();
+                                Intent intent3 = new Intent(activity_dash.this, WelcomeScreen.class);
+                                startActivity(intent3);
+                                return;
+                            }
+                        });
+                        builder.setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                return;
+                            }
+                        });
+                        builder.show();
                         return true;
                 }
                 return false;
