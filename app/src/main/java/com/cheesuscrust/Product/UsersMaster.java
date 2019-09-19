@@ -1,5 +1,4 @@
 package com.cheesuscrust.Product;
-
 import android.provider.BaseColumns;
 
 public class UsersMaster {

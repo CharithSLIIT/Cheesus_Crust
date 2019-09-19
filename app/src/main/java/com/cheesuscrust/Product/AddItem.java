@@ -1,7 +1,12 @@
 package com.cheesuscrust.Product;
+import com.cheesuscrust.Database.Cheesus_Crust_Db;
 
-
+import com.cheesuscrust.Contact.activity_dash;
 import android.Manifest;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -22,6 +27,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.core.app.NotificationCompat;
 
 import com.cheesuscrust.R;
 import com.google.android.material.textfield.TextInputLayout;
@@ -39,6 +45,7 @@ public class AddItem extends AppCompatActivity {
     ImageView imageView;
 
     final int REQUEST_CODE_GALLERY = 999;
+    final String CHANNEL_ID = "Cheesus";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -157,9 +164,12 @@ public class AddItem extends AppCompatActivity {
 
         if(isInserted == true)
         {
-            Toast.makeText(AddItem.this, "Item Added", Toast.LENGTH_SHORT).show();
             spinnerType.setSelection(0);
             imageView.setImageResource((R.drawable.imageupload));
+
+            Toast.makeText(AddItem.this, "Item successfully Added", Toast.LENGTH_SHORT).show();
+
+
         }
         else
             Toast.makeText(AddItem.this, "Item Add failed",Toast.LENGTH_SHORT).show();

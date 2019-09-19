@@ -129,7 +129,9 @@ public class AdminFoodListAdapter extends BaseAdapter {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 AddItem.myDB.deleteData(id);
-                Toast.makeText(context, "Item Removed!", Toast.LENGTH_SHORT);
+                Toast.makeText(context, "Item Removed!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(context, AdminFoodList.class);
+                context.startActivity(intent);
             }
         });
 

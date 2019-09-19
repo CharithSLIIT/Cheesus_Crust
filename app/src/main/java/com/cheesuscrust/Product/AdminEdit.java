@@ -1,5 +1,5 @@
 package com.cheesuscrust.Product;
-
+import com.cheesuscrust.Contact.activity_dash;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -155,7 +155,9 @@ public class AdminEdit extends AppCompatActivity {
                      updatelPrice.getText().toString().trim(),
                      imageViewToByte(updateImage1));
 
-             Toast.makeText(getApplicationContext(), "Item Updated",Toast.LENGTH_SHORT);
+             Toast.makeText(getApplicationContext(), "Item Updated",Toast.LENGTH_SHORT).show();
+             Intent intent = new Intent(this, AdminFoodList.class);
+            startActivity(intent);
     }
 
     private byte[] imageViewToByte(ImageView image) {
