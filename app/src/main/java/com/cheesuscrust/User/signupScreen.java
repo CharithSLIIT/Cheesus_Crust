@@ -130,6 +130,14 @@ public class signupScreen extends AppCompatActivity {
 
         String points = "0";
 
+        //Email Validation
+        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+        if (!email.matches(emailPattern))
+        {
+            getEmail.setError(getString(R.string.invalid_email_address_please_enter_correct_email_address));
+            return;
+        }
+
         //Invoke insertFunction of the database
         int insertResult = database.insertData(fname, lname, email, phone, address, password, points, type);
 

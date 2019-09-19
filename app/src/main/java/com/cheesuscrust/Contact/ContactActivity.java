@@ -49,9 +49,6 @@ public class ContactActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact_us);
 
-
-        Toast.makeText(this, userData.getUser_type(), Toast.LENGTH_SHORT).show();
-
         //Toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
