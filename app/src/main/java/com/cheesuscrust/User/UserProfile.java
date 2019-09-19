@@ -63,7 +63,7 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
         navigationView = findViewById(R.id.navigation_view);
 
         //Show Dashboard option
-        if (userData.getUser_type().equals("Admin"))
+        if (userData.getUser_type().equals(getString(R.string.admin)))
         {
             Menu menu = navigationView.getMenu();
             menu.findItem(R.id.nav_dashboard).setVisible(true);
@@ -432,7 +432,7 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
                 boolean result = database.deleteUser(userData.getUser_email());
 
                 if (!result) {
-                    Toast.makeText(UserProfile.this, R.string.some_error_occured_lease_try_again_later, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UserProfile.this, R.string.some_error_occurred_lease_try_again_later, Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(UserProfile.this, R.string.your_account_was_deleted, Toast.LENGTH_SHORT).show();
 

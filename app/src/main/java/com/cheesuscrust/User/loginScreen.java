@@ -74,7 +74,7 @@ public class loginScreen extends AppCompatActivity {
 
         else if(loginResult == -2)
         {
-            Toast.makeText(this, "Some error occurred! Please try again shortly", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.some_error_occurred_lease_try_again_later), Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -85,7 +85,7 @@ public class loginScreen extends AppCompatActivity {
         sharedPreferences.edit().putString(String.valueOf(R.string.email), email).apply();
 
         UserData data = UserData.getInstance();
-        if(data.getUser_type().equals("Admin"))
+        if(data.getUser_type().equals(getString(R.string.admin)))
         {
             Intent intent = new Intent(loginScreen.this, activity_dash.class);
             startActivity(intent);
