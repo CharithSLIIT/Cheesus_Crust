@@ -3,11 +3,8 @@ package com.cheesuscrust.Product;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.widget.GridView;
-import android.widget.Spinner;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.cheesuscrust.Database.Cheesus_Crust_Db;
 import com.cheesuscrust.R;
 import com.cheesuscrust.Contact.activity_dash;
@@ -15,7 +12,7 @@ import java.util.ArrayList;
 
 public class BeverageActivity extends AppCompatActivity {
 
-
+    //Declaration
     GridView gridView;
     ArrayList<CustomerFood> list;
     CustomerFoodListAdapter adapter = null;
@@ -26,12 +23,14 @@ public class BeverageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.customer_food_list_activity);
 
+        //Database Connection
         mydb = new Cheesus_Crust_Db(this);
-        gridView = (GridView) findViewById(R.id.adGridView);
+
+        //Set Layouts
+        gridView =  findViewById(R.id.adGridView);
         list = new ArrayList<>();
         adapter = new CustomerFoodListAdapter(this, R.layout.customer_food_items, list);
         gridView.setAdapter(adapter);
-        Spinner spinner;
 
 
         //Get data from Database

@@ -17,6 +17,7 @@ import com.cheesuscrust.R;
 
 public class HomeSliderAdapter extends PagerAdapter {
 
+    //Declaration
     Context context;
     LayoutInflater layoutInflater;
 
@@ -26,6 +27,7 @@ public class HomeSliderAdapter extends PagerAdapter {
 
     }
 
+    //Slide values
     public int[] slide_back = {
 
             R.drawable.homebackground1,
@@ -53,6 +55,7 @@ public class HomeSliderAdapter extends PagerAdapter {
             "Have a drink, be refreshed with our wide range of Soft Drink Beverages",
             "Not yet full? Have a fiesta with our new line of Desserts that will surely satisfy your tummy!"
     };
+
     @Override
     public int getCount() {
         return slide_headings.length;
@@ -70,6 +73,7 @@ public class HomeSliderAdapter extends PagerAdapter {
         layoutInflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
         View view = layoutInflater.inflate(R.layout.home_slide_layout, container, false);
 
+        //Set Layouts
         ImageView slideImageView = (ImageView) view.findViewById(R.id.slide_image);
         TextView slideHeading = (TextView) view.findViewById(R.id.slide_heading);
         TextView slideDesciption = (TextView) view.findViewById(R.id.slide_desc);
@@ -80,6 +84,7 @@ public class HomeSliderAdapter extends PagerAdapter {
         slideDesciption.setText(slide_descs[position]);
         view.setBackgroundResource(slide_back[position]);
 
+        //Click event for images
         slideImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -99,6 +104,7 @@ public class HomeSliderAdapter extends PagerAdapter {
             }
         });
 
+        //Click event for "Get Started" Button
         getStarted.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

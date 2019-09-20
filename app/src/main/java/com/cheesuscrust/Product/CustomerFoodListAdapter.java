@@ -20,6 +20,7 @@ import java.util.ArrayList;
 
 public class CustomerFoodListAdapter extends BaseAdapter {
 
+    //Declaration
     private Context context;
     private int layout, selectedsize = 1;
     private ArrayList<CustomerFood> foodList;
@@ -60,16 +61,17 @@ public class CustomerFoodListAdapter extends BaseAdapter {
         ViewHolder holder = new ViewHolder();
 
 
+        //Set Layouts
         if(row == null){
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             row = inflater.inflate(layout, null);
 
-            holder.txtname = (TextView) row.findViewById(R.id.cusItemName);
-            holder.imageview = (ImageView) row.findViewById(R.id.cusProductImage);
-            holder.txtdesc = (TextView) row.findViewById(R.id.cusItemDesc);
-            holder.txtprice = (TextView) row.findViewById(R.id.cusPrice);
-            holder.cart = (Button) row.findViewById(R.id.cartButton);
-            spinner= row.findViewById(R.id.cusSpinner);
+            holder.txtname =  row.findViewById(R.id.cusItemName);
+            holder.imageview = row.findViewById(R.id.cusProductImage);
+            holder.txtdesc = row.findViewById(R.id.cusItemDesc);
+            holder.txtprice = row.findViewById(R.id.cusPrice);
+            holder.cart = row.findViewById(R.id.cartButton);
+            spinner = row.findViewById(R.id.cusSpinner);
 
             row.setTag(holder);
         }
@@ -78,12 +80,21 @@ public class CustomerFoodListAdapter extends BaseAdapter {
             holder = (ViewHolder) row.getTag();
         }
 
+        //Get current position
         CustomerFood food = foodList.get(position);
+
+        String smallPrice = context.getString(R.string.small_price) + food.getSprice();
+        String mediumPrice = context.getString(R.string.medium_price)+ food.getMprice();
+        String largePrice = context.getString(R.string.large_price)+ food.getLprice();
+        String price = smallPrice + mediumPrice+ largePrice;
+
+        //Set Values
         holder.txtname.setText(food.getName());
         holder.txtdesc.setText(food.getDescription());
-        holder.txtprice.setText("Small: Rs." + food.getSprice() + "  |  Medium Rs." + food.getMprice() + "  |  Large Rs." + food.getLprice());
+        holder.txtprice.setText(price);
 
 
+        //Spinner values
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(context,
                 R.array.size, android.R.layout.simple_list_item_1);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -94,10 +105,10 @@ public class CustomerFoodListAdapter extends BaseAdapter {
             public void onItemSelected(AdapterView<?> parent, View arg1,
                                        int pos, long arg3) {
                 size= parent.getSelectedItem().toString();
-                if(size == "Small"){
+                if(size.equals("Small")){
                     selectedsize = 1;
                 }
-                else if(size == "Medium"){
+                else if(size.equals("Medium")){
                     selectedsize = 2;
 
                 }
@@ -112,6 +123,7 @@ public class CustomerFoodListAdapter extends BaseAdapter {
         });
 
 
+        //Convert BLOB to image
         byte[] foodImage = food.getImage();
         Bitmap bitmap = BitmapFactory.decodeByteArray(foodImage, 0, foodImage.length);
         if (bitmap != null){

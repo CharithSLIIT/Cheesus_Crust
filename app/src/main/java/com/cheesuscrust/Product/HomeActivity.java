@@ -26,19 +26,20 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.homepage_main);
 
-        SlideViewPager = (ViewPager) findViewById(R.id.slideViewPager);
-        DotLayout = (LinearLayout) findViewById(R.id.dotLayout);
+        SlideViewPager =  findViewById(R.id.slideViewPager);
+        DotLayout =  findViewById(R.id.dotLayout);
 
         sliderAdapter = new HomeSliderAdapter(this);
 
-        NextButton = (Button) findViewById(R.id.nxtbttn);
-        BackButton = (Button) findViewById(R.id.prvsbttn);
-//        trigger = (Button) findViewById(R.id.getStarted);
+        //Set Layouts
+        NextButton = findViewById(R.id.nxtbttn);
+        BackButton = findViewById(R.id.prvsbttn);
         SlideViewPager.setAdapter(sliderAdapter);
         addDotsIndicator(0);
 
         SlideViewPager.addOnPageChangeListener(viewListener);
 
+        //Button click
         NextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,17 +54,9 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-
-//        trigger.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Dots[1]
-//                Intent viewintent = new Intent(HomeActivity.this, sample.class);
-//                startActivity(viewintent);
-//            }
-//        });
     }
 
+    //Navigation Dots
     public void addDotsIndicator(int position){
 
         Dots = new TextView[3];
@@ -86,6 +79,7 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
+    //Page scrolls
     ViewPager.OnPageChangeListener viewListener = new ViewPager.OnPageChangeListener() {
         @Override
         public void onPageScrolled(int i, float v, int i1) {
@@ -104,7 +98,8 @@ public class HomeActivity extends AppCompatActivity {
                 BackButton.setEnabled(false);
                 BackButton.setVisibility(View.INVISIBLE);
 
-                NextButton.setText("Next");
+                String next = "Next";
+                NextButton.setText(next);
                 BackButton.setText("");
             }
             else if(i == Dots.length -1 ){
@@ -112,8 +107,10 @@ public class HomeActivity extends AppCompatActivity {
                 BackButton.setEnabled(true);
                 BackButton.setVisibility(View.VISIBLE);
 
-                NextButton.setText("Finish");
-                BackButton.setText("Previous");
+                String previous = "Previous";
+                String finish = "Finish";
+                NextButton.setText(finish);
+                BackButton.setText(previous);
 
             }
 
@@ -123,8 +120,10 @@ public class HomeActivity extends AppCompatActivity {
                 BackButton.setEnabled(true);
                 BackButton.setVisibility(View.VISIBLE);
 
-                NextButton.setText("Next");
-                BackButton.setText("Previous");
+                String next = "Next";
+                String previous = "Previous";
+                NextButton.setText(next);
+                BackButton.setText(previous);
             }
         }
 

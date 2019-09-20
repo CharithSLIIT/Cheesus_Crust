@@ -15,6 +15,7 @@ import java.util.ArrayList;
 public class PizzaActivity extends AppCompatActivity {
 
 
+    //Declaration
     GridView gridView;
     ArrayList<CustomerFood> list;
     CustomerFoodListAdapter adapter = null;
@@ -25,12 +26,14 @@ public class PizzaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.customer_food_list_activity);
 
+        //Database Connection
         mydb = new Cheesus_Crust_Db(this);
-        gridView = (GridView) findViewById(R.id.adGridView);
+
+        //Set Layouts
+        gridView = findViewById(R.id.adGridView);
         list = new ArrayList<>();
         adapter = new CustomerFoodListAdapter(this, R.layout.customer_food_items, list);
         gridView.setAdapter(adapter);
-        Spinner spinner;
 
 
         //Get data from Database
