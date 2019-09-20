@@ -3,7 +3,6 @@ package com.cheesuscrust.Product;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.widget.GridView;
-import android.widget.Spinner;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
