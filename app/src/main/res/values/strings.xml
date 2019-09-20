@@ -167,6 +167,10 @@
     <string name="description">"Description"</string>
     <string name="previous">"Previous"</string>
     <string name="next">"Next"</string>
+    <string name="small_price">"Small: Rs."</string>
+    <string name="medium_price">" | Medium: Rs."</string>
+    <string name="large_price">" | Large: Rs."</string>
+
 
     <string-array name="type">
         <item>Pizza</item>

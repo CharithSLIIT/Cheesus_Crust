@@ -14,6 +14,7 @@ import java.util.ArrayList;
 
 public class AdminFoodList extends AppCompatActivity {
 
+    //Declaration
     public static Cheesus_Crust_Db myDB;
     GridView gridView;
     ArrayList<AdminFood> list;
@@ -27,7 +28,8 @@ public class AdminFoodList extends AppCompatActivity {
         //Database Connection
         myDB = new Cheesus_Crust_Db(this);
 
-        gridView = (GridView) findViewById(R.id.adGridView);
+        //Get layouts
+        gridView = findViewById(R.id.adGridView);
         list = new ArrayList<>();
         adapter = new AdminFoodListAdapter(this, R.layout.admin_food_items, list);
         gridView.setAdapter(adapter);
