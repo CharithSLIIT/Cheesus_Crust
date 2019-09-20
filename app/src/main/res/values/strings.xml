@@ -153,4 +153,10 @@
         <item>Dessert</item>
     </string-array>
 
+    <string-array name="size">
+        <item>Small</item>
+        <item>Medium</item>
+        <item>Large</item>
+    </string-array>
+
 </resources>

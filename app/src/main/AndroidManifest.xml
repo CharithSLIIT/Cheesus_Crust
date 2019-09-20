@@ -19,7 +19,7 @@
         android:fullBackupContent="true">
 
 <!--        User Management -->
-        <activity android:name=".Product.AddItem"
+        <activity android:name=".User.WelcomeScreen"
             tools:ignore="InnerclassSeparator">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -38,7 +38,7 @@
             tools:ignore="InnerclassSeparator"
             android:label="Edit Item">
         </activity>
-        <activity android:name=".User.WelcomeScreen"
+        <activity android:name=".Product.AddItem"
             tools:ignore="InnerclassSeparator"/>
         <activity
             android:name=".Product.AdminFoodList"
