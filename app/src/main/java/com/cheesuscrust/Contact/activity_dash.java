@@ -18,6 +18,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.cheesuscrust.Product.AddItem;
+import com.cheesuscrust.Product.AdminFoodList;
 import com.cheesuscrust.R;
 import com.cheesuscrust.User.UserData;
 import com.cheesuscrust.User.UserProfile;
@@ -139,6 +140,11 @@ public class activity_dash extends AppCompatActivity {
 
     public void goToView(View view) {
         Intent intent = new Intent(activity_dash.this,InquiryActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToAllItems(View view) {
+        Intent intent = new Intent(activity_dash.this,AdminFoodList.class);
         startActivity(intent);
     }
 }

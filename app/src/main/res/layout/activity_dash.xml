@@ -228,6 +228,7 @@
                 android:layout_marginRight="16dp"
                 app:cardElevation="8dp"
                 app:cardCornerRadius="8dp"
+                android:onClick="goToAllItems"
                 >
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -247,7 +248,7 @@
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
                         android:textAlignment="center"
-                        android:text="@string/view_order"
+                        android:text="@string/view_items"
                         android:layout_gravity="center"
                         android:textColor="@color/pureBlack"
                         android:textSize="18sp"/>

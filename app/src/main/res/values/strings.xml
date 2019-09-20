@@ -3,9 +3,9 @@
     <string name="app_name">Cheesus Crust</string>
     <string name="itm_name">Item Name</string>
     <string name="itm_type">Item Type</string>
-    <string name="itm_sprice">Small Price</string>
-    <string name="itm_mprice">Medium Price</string>
-    <string name="itm_lprice">Large Price</string>
+    <string name="itm_sprice">Small Price (Rs.)</string>
+    <string name="itm_mprice">Medium Price (Rs.)</string>
+    <string name="itm_lprice">Large Price (Rs.)</string>
     <string name="itm_desc">Description</string>
     <string name="nav_pizza_text">Pizza</string>
     <string name="nav_beverages_text">Beverages</string>
@@ -132,7 +132,7 @@
     <string name="dashboard">Dashboard</string>
     <string name="contact_us">Contact Us</string>
     <string name="view_inquiries">View Inquiries</string>
-    <string name="view_order">View Orders</string>
+    <string name="view_items">View Items</string>
     <string name="view_customer">View Customers</string>
     <string name="welcome_admins">Welcome Admin!</string>
     <string name="my_profile">My Profile</string>
@@ -146,6 +146,16 @@
     <string name="add_an_item">Add an Item</string>
     <string name="invalid_email_address_please_enter_correct_email_address">Invalid Email Address! Please enter correct Email Address…</string>
     <string name="please_enter_valid_phone_number">Please enter valid phone number</string>
+    <string name="add_image">"Add Image"</string>
+    <string name="update_image">"Update Image</string>
+    <string name="add_data">"Add Data</string>
+    <string name="update_data">"Update Data</string>
+    <string name="item_image">"Item Image"</string>
+    <string name="enter_name">"Enter Name"</string>
+    <string name="enter_sprice">"Enter Small Price"</string>
+    <string name="enter_mprice">"Enter Medium Price"</string>
+    <string name="enter_lprice">"Enter Large Price"</string>
+    <string name="enter_desc">"Enter Description"</string>
 
     <string-array name="type">
         <item>Pizza</item>

@@ -100,7 +100,7 @@ public class AdminEdit extends AppCompatActivity {
 
 
         //Get values from the Database
-        Cursor cursor = AddItem.myDB.getData("SELECT * FROM Product WHERE p_id = " + getid + ";");
+        Cursor cursor = myDB.getData("SELECT * FROM Product WHERE p_id = " + getid + ";");
         while (cursor.moveToNext()){
             int id = cursor.getInt(0);
             String name = cursor.getString(1);

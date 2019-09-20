@@ -111,18 +111,10 @@ public class AddItem extends AppCompatActivity {
         });
 
         imageView = (ImageView) findViewById(R.id.imageView1);
-        btnView = (Button)findViewById(R.id.buttonView);
         btnAddImage = (Button)findViewById(R.id.buttonAddImage);
 
 
-        btnView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent viewintent = new Intent(AddItem.this, AdminFoodList.class);
-                startActivity(viewintent);
 
-            }
-        });
 
         btnAddImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -287,6 +279,8 @@ public class AddItem extends AppCompatActivity {
             imageView.setImageResource((R.drawable.imageupload));
 
             Toast.makeText(AddItem.this, "Item successfully Added", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(AddItem.this, activity_dash.class);
+            startActivity(intent);
 
 
         }
