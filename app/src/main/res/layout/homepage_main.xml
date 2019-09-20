@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/nonslidebackground"
-    tools:context=".HomeActivity">
+    tools:context=".Product.HomeActivity">
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/slideViewPager"
@@ -26,8 +26,8 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="156dp"
-        android:layout_marginLeft="156dp"
+        android:layout_marginStart="186dp"
+        android:layout_marginLeft="186dp"
         android:layout_marginTop="474dp"
         android:layout_marginEnd="131dp"
         android:layout_marginRight="131dp"
