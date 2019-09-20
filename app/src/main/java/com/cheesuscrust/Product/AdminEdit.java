@@ -59,6 +59,46 @@ public class AdminEdit extends AppCompatActivity {
         btnUpdateImage = (Button)findViewById(R.id.buttonUpdateImage);
 
 
+        //Vaidate input values
+        updateame.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if(!checkName()){
+                    updateame.setError("Name cannot be empty");
+                }
+            }
+        });
+
+        updatesPrice.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if(!checkSPrice()){
+                    updatesPrice.setError("Price cannot be empty");
+                }
+            }
+        });
+
+        updatemPrice.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if(!checkMPrice()){
+                    updatemPrice.setError("Price cannot be empty");
+                }
+            }
+        });
+
+
+        updatelPrice.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if(!checkLPrice()){
+                    updatelPrice.setError("Price cannot be empty");
+                }
+            }
+        });
+
+
+
         //Get values from the Database
         Cursor cursor = AddItem.myDB.getData("SELECT * FROM Product WHERE p_id = " + getid + ";");
         while (cursor.moveToNext()){
@@ -147,18 +187,25 @@ public class AdminEdit extends AppCompatActivity {
 
 
     public void AddData(){
-        updateImage1 = (ImageView)findViewById(R.id.updateimageView1);
-             myDB.updateData(getid,
-                     updateame.getText().toString().trim(),
-                     updateDesc.getText().toString().trim(),
-                     updatesPrice.getText().toString().trim(),
-                     updatemPrice.getText().toString().trim(),
-                     updatelPrice.getText().toString().trim(),
-                     imageViewToByte(updateImage1));
+//        Log.i("whaty", "" + sPriceCheck);
+        if(!checkName() | !checkSPrice() | !checkMPrice() | !checkLPrice()){
+            return;
+        }
+        else{
+            updateImage1 = (ImageView)findViewById(R.id.updateimageView1);
+            myDB.updateData(getid,
+                    updateame.getText().toString().trim(),
+                    updateDesc.getText().toString().trim(),
+                    updatesPrice.getText().toString().trim(),
+                    updatemPrice.getText().toString().trim(),
+                    updatelPrice.getText().toString().trim(),
+                    imageViewToByte(updateImage1));
 
-             Toast.makeText(getApplicationContext(), "Item Updated",Toast.LENGTH_SHORT).show();
-             Intent intent = new Intent(this, AdminFoodList.class);
+            Toast.makeText(getApplicationContext(), "Item Updated",Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, AdminFoodList.class);
             startActivity(intent);
+        }
+
     }
 
     private byte[] imageViewToByte(ImageView image) {
@@ -168,5 +215,33 @@ public class AdminEdit extends AppCompatActivity {
         byte[] byteArray = stream.toByteArray();
         Log.i("res1", "image byte is " +byteArray);
         return byteArray;
+    }
+
+    private boolean checkName(){
+        if(updateame.getText().length() < 1)
+            return false;
+        else
+            return true;
+    }
+
+    private boolean checkSPrice(){
+        if(updatesPrice.getText().length() <= 0)
+            return false;
+        else
+            return true;
+    }
+
+    private boolean checkMPrice(){
+        if(updatemPrice.getText().length() <= 0)
+            return false;
+        else
+            return true;
+    }
+
+    private boolean checkLPrice(){
+        if(updatelPrice.getText().length() <=0)
+            return false;
+        else
+            return true;
     }
 }
