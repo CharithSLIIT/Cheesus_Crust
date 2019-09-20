@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.cheesuscrust.Contact.activity_dash;
 import com.cheesuscrust.Database.Cheesus_Crust_Db;
+import com.cheesuscrust.Product.HomeActivity;
 import com.cheesuscrust.R;
 
 public class loginScreen extends AppCompatActivity {
@@ -92,7 +93,7 @@ public class loginScreen extends AppCompatActivity {
             return;
         }
 
-        Intent intent = new Intent(loginScreen.this, UserProfile.class);
+        Intent intent = new Intent(loginScreen.this, HomeActivity.class);
         startActivity(intent);
     }
 

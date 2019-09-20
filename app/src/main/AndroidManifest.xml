@@ -45,6 +45,10 @@
             tools:ignore="InnerclassSeparator"
             android:label="Food List"
             android:parentActivityName=".Product.AddItem" />
+        <activity android:name=".Product.PizzaActivity"/>
+        <activity android:name=".Product.BeverageActivity"/>
+        <activity android:name=".Product.DessertActivity"/>
+        <activity android:name=".Product.HomeActivity"/>
 
 <!--        Inquiry Management-->
         <activity android:name=".Contact.activity_dash"
