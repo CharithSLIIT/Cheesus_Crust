@@ -156,6 +156,11 @@
     <string name="enter_mprice">"Enter Medium Price"</string>
     <string name="enter_lprice">"Enter Large Price"</string>
     <string name="enter_desc">"Enter Description"</string>
+    <string name="category_name">"Category name"</string>
+    <string name="product_name">"Product Name"</string>
+    <string name="product_desc">"Product Description"</string>
+    <string name="edit">"Edit"</string>
+    <string name="delete">"Delete"</string>
 
     <string-array name="type">
         <item>Pizza</item>

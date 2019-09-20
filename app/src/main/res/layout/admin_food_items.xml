@@ -7,150 +7,10 @@
 
 
 
-<!--        <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:orientation="vertical">-->
-
-<!--        <GridLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:columnCount="1"-->
-<!--            android:rowCount="3">-->
-
-<!--            <TextView-->
-<!--                android:id="@+id/adTextType"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginLeft="10dp"-->
-<!--                android:layout_marginTop="40dp"-->
-<!--                android:layout_marginRight="10dp"-->
-<!--                android:text="Category Name"-->
-<!--                android:textColor="@android:color/white"-->
-<!--                android:textSize="24sp" />-->
-
-<!--            <TextView-->
-<!--                android:id="@+id/adTxtName"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginLeft="20dp"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:layout_marginRight="10dp"-->
-<!--                android:text="Item Name"-->
-<!--                android:textColor="@android:color/white"-->
-<!--                android:textSize="18sp" />-->
-
-<!--            <GridLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:columnCount="2"-->
-<!--                android:layout_marginLeft="2dp"-->
-<!--                android:layout_marginRight="10dp"-->
-<!--                android:rowCount="1">-->
-
-<!--                <ImageView-->
-<!--                    android:id="@+id/adImgFood"-->
-<!--                    android:layout_width="150dp"-->
-<!--                    android:layout_height="150dp"-->
-<!--                    android:layout_marginTop="10dp"-->
-<!--                    app:srcCompat="@mipmap/ic_launcher" />-->
-
-<!--                <GridLayout-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:columnCount="1"-->
-<!--                    android:layout_marginLeft="-5dp"-->
-<!--                    android:rowCount="3">-->
-
-<!--                    <TextView-->
-<!--                        android:id="@+id/adTxtDesc"-->
-<!--                        android:layout_width="190dp"-->
-<!--                        android:layout_height="132dp"-->
-<!--                        android:layout_marginLeft="5dp"-->
-<!--                        android:layout_marginTop="10dp"-->
-<!--                        android:text="TextView" />-->
-
-<!--                    <TextView-->
-<!--                        android:id="@+id/adTxtPrice"-->
-<!--                        android:layout_width="191dp"-->
-<!--                        android:layout_height="match_parent"-->
-<!--                        android:layout_marginLeft="5dp"-->
-<!--                        android:layout_marginTop="10dp"-->
-<!--                        android:text="TextView" />-->
-
-<!--                    <GridLayout-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:columnCount="2"-->
-<!--                        android:layout_marginLeft="5dp"-->
-<!--                        android:rowCount="1">-->
-
-<!--                        <Button-->
-<!--                            android:id="@+id/btnEdit"-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="37dp"-->
-<!--                            android:text="Edit" />-->
-
-<!--                        <Button-->
-<!--                            android:id="@+id/btnDelete"-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_marginLeft="20dp"-->
-<!--                            android:layout_height="37dp"-->
-<!--                            android:text="Delete" />-->
-
-<!--                    </GridLayout>-->
-
-<!--                </GridLayout>-->
-
-<!--            </GridLayout>-->
-
-
-<!--        </GridLayout>-->
-
-
-<!--    </LinearLayout>-->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="353dp"
             android:layout_margin="10dp"
-            android:elevation="10dp"
             app:cardBackgroundColor="@color/colorWhite"
             app:cardCornerRadius="10dp">
 
@@ -161,7 +21,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="10dp"
-                android:text="Category Name"
+                android:text="@string/category_name"
                 android:textColor="@android:color/black"
                 android:textSize="24sp" />
 
@@ -182,10 +42,11 @@
                         android:id="@+id/adImgFood"
                         android:layout_width="150dp"
                         android:layout_height="150dp"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginStart="10dp"
                         android:layout_marginTop="14dp"
                         android:scaleType="centerCrop"
-                        app:srcCompat="@mipmap/ic_launcher" />
+                        app:srcCompat="@mipmap/ic_launcher"
+                        android:contentDescription="@string/item_image" />
 
                     <GridLayout
                         android:layout_width="197dp"
@@ -197,10 +58,10 @@
                             android:id="@+id/adTxtName"
                             android:layout_width="182dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="2dp"
+                            android:layout_marginStart="2dp"
                             android:layout_marginTop="5dp"
                             android:gravity="center"
-                            android:text="Item Name"
+                            android:text="@string/product_name"
                             android:textSize="18sp"
                             android:textStyle="bold" />
 
@@ -208,12 +69,13 @@
                             android:id="@+id/adTxtDesc"
                             android:layout_width="178dp"
                             android:layout_height="150dp"
-                            android:layout_marginLeft="10dp"
+                            android:layout_marginStart="10dp"
                             android:layout_marginTop="2dp"
-                            android:gravity="left|top"
+                            android:gravity="start|top"
                             android:inputType="textMultiLine"
-                            android:paddingRight="10dp"
-                            android:text="Product description"
+                            android:paddingStart="0dp"
+                            android:paddingEnd="10dp"
+                            android:text="@string/product_desc"
                             android:textSize="14sp"
                             android:textStyle="italic" />
 
@@ -229,30 +91,29 @@
                 android:layout_width="365dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="1dp"
-                android:layout_marginLeft="1dp"
                 android:layout_marginTop="270dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text=""
-                android:textSize="14dp" />
+                android:textSize="14sp" />
 
             <Button
                 android:id="@+id/btnEdit"
                 android:layout_width="150dp"
                 android:layout_height="37dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="300dp"
                 android:background="@drawable/button2"
-                android:text="Edit" />
+                android:text="@string/edit" />
 
             <Button
                 android:id="@+id/btnDelete"
                 android:layout_width="150dp"
                 android:layout_height="37dp"
-                android:layout_marginLeft="220dp"
+                android:layout_marginStart="220dp"
                 android:layout_marginTop="300dp"
                 android:background="@drawable/button2"
-                android:text="Delete" />
+                android:text="@string/delete" />
 
 
         </androidx.cardview.widget.CardView>
