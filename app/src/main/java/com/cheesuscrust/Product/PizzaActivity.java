@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.cheesuscrust.R;
-
+import com.cheesuscrust.Database.Cheesus_Crust_Db;
 import java.util.ArrayList;
 
 public class PizzaActivity extends AppCompatActivity {
@@ -18,14 +18,14 @@ public class PizzaActivity extends AppCompatActivity {
     GridView gridView;
     ArrayList<CustomerFood> list;
     CustomerFoodListAdapter adapter = null;
-    DBHelper mydb;
+    Cheesus_Crust_Db mydb;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.customer_food_list_activity);
 
-        mydb = new DBHelper(this);
+        mydb = new Cheesus_Crust_Db(this);
         gridView = (GridView) findViewById(R.id.adGridView);
         list = new ArrayList<>();
         adapter = new CustomerFoodListAdapter(this, R.layout.customer_food_items, list);
