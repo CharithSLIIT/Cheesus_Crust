@@ -59,6 +59,7 @@ public class PizzaActivity extends AppCompatActivity {
 
     }
 
+    //Search function
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();

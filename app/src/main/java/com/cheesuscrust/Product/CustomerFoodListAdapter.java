@@ -149,36 +149,43 @@ public class CustomerFoodListAdapter extends BaseAdapter {
             @Override
             protected void publishResults(CharSequence constraint,FilterResults results) {
 
-                foodList = (ArrayList<CustomerFood>) results.values; // has the filtered values
-                notifyDataSetChanged();  // notifies the data with new filtered values
+                //Get filtered values
+                foodList = (ArrayList<CustomerFood>) results.values;
+                notifyDataSetChanged();
             }
 
             @Override
             protected FilterResults performFiltering(CharSequence constraint) {
-                FilterResults results = new FilterResults();        // Holds the results of a filtering operation in values
+                //To hold results of filtering
+                FilterResults results = new FilterResults();
                 ArrayList<CustomerFood> FilteredArrList = new ArrayList<CustomerFood>();
 
                 if (originalFoodList == null) {
                     originalFoodList = new ArrayList<CustomerFood>(foodList); // saves the original data in mOriginalValues
                 }
 
-                /********
-                 *
-                 *  If constraint(CharSequence that is received) is null returns the mOriginalValues(Original) values
-                 *  else does the Filtering and returns FilteredArrList(Filtered)
-                 *
-                 ********/
+                //if sequence is null, then return the original dataset
                 if (constraint == null || constraint.length() == 0) {
 
                     // set the Original result to return
                     results.count = originalFoodList.size();
                     results.values = originalFoodList;
-                } else {
+                }
+                //Else, filter results
+                else
+                {
                     constraint = constraint.toString().toLowerCase();
                     for (int i = 0; i < originalFoodList.size(); i++) {
                         String data = originalFoodList.get(i).getName();
                         if (data.toLowerCase().startsWith(constraint.toString())) {
-                            FilteredArrList.add(new CustomerFood(originalFoodList.get(i).getId(),originalFoodList.get(i).getName(),originalFoodList.get(i).getDescription(),originalFoodList.get(i).getSprice(),originalFoodList.get(i).getMprice(),originalFoodList.get(i).getLprice(),originalFoodList.get(i).getType(),originalFoodList.get(i).getImage()));
+                            FilteredArrList.add(new CustomerFood(originalFoodList.get(i).getId(),
+                                                                    originalFoodList.get(i).getName(),
+                                                                    originalFoodList.get(i).getDescription(),
+                                                                    originalFoodList.get(i).getSprice(),
+                                                                    originalFoodList.get(i).getMprice(),
+                                                                    originalFoodList.get(i).getLprice(),
+                                                                    originalFoodList.get(i).getType(),
+                                                                    originalFoodList.get(i).getImage()));
                         }
                     }
                     // set the Filtered result to return
