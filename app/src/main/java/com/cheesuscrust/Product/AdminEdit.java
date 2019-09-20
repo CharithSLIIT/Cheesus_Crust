@@ -30,17 +30,21 @@ import java.io.InputStream;
 
 public class AdminEdit extends AppCompatActivity {
 
+    //Declaration
     public static Cheesus_Crust_Db myDB;
     EditText updateame,updateDesc,updatesPrice,updatemPrice,updatelPrice;
     Button btnUpdateData , btnUpdateImage;
     ImageView updateImage, updateImage1;
     final int REQUEST_CODE_GALLERY = 888;
     int getid;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_edit);
 
+        //Get item ID
         Intent getintent = getIntent();
         getid = getintent.getIntExtra("id", 0);
 
@@ -49,14 +53,14 @@ public class AdminEdit extends AppCompatActivity {
 
 
         //Display the current values
-        updateame = (EditText)findViewById(R.id.updateTextName);
-        updateDesc = (EditText)findViewById(R.id.updateTextDesc);
-        updatesPrice = (EditText)findViewById(R.id.updateTextsPrice);
-        updatemPrice = (EditText)findViewById(R.id.updateTextmPrice);
-        updatelPrice = (EditText)findViewById(R.id.updateTextlPrice);
-        updateImage = (ImageView)findViewById(R.id.updateimageView1);
-        btnUpdateData = (Button)findViewById(R.id.buttonUpdate);
-        btnUpdateImage = (Button)findViewById(R.id.buttonUpdateImage);
+        updateame = findViewById(R.id.updateTextName);
+        updateDesc = findViewById(R.id.updateTextDesc);
+        updatesPrice = findViewById(R.id.updateTextsPrice);
+        updatemPrice = findViewById(R.id.updateTextmPrice);
+        updatelPrice = findViewById(R.id.updateTextlPrice);
+        updateImage = findViewById(R.id.updateimageView1);
+        btnUpdateData = findViewById(R.id.buttonUpdate);
+        btnUpdateImage = findViewById(R.id.buttonUpdateImage);
 
 
         //Vaidate input values
@@ -110,8 +114,6 @@ public class AdminEdit extends AppCompatActivity {
             String lprice = cursor.getString(5);
             byte[] image = cursor.getBlob(7);
 
-            Log.i("res1", "name is " +name);
-
             updateame.setText(name);
             updateDesc.setText(description);
             updatesPrice.setText(sprice);
@@ -124,6 +126,7 @@ public class AdminEdit extends AppCompatActivity {
 
         }
 
+        //Update image
         btnUpdateImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -145,6 +148,7 @@ public class AdminEdit extends AppCompatActivity {
 
     }
 
+    //Request permission to access the Gallery
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
 
@@ -185,14 +189,24 @@ public class AdminEdit extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
     }
 
+    //Image conversion
+    private byte[] imageViewToByte(ImageView image) {
+        Bitmap bitmap = ((BitmapDrawable)image.getDrawable()).getBitmap();
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+        byte[] byteArray = stream.toByteArray();
+        Log.i("res1", "image byte is " +byteArray);
+        return byteArray;
+    }
 
+
+    //Update the data
     public void AddData(){
-//        Log.i("whaty", "" + sPriceCheck);
         if(!checkName() | !checkSPrice() | !checkMPrice() | !checkLPrice()){
             return;
         }
         else{
-            updateImage1 = (ImageView)findViewById(R.id.updateimageView1);
+            updateImage1 = findViewById(R.id.updateimageView1);
             myDB.updateData(getid,
                     updateame.getText().toString().trim(),
                     updateDesc.getText().toString().trim(),
@@ -208,15 +222,7 @@ public class AdminEdit extends AppCompatActivity {
 
     }
 
-    private byte[] imageViewToByte(ImageView image) {
-        Bitmap bitmap = ((BitmapDrawable)image.getDrawable()).getBitmap();
-        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
-        byte[] byteArray = stream.toByteArray();
-        Log.i("res1", "image byte is " +byteArray);
-        return byteArray;
-    }
-
+    //Input validation
     private boolean checkName(){
         if(updateame.getText().length() < 1)
             return false;

@@ -1,14 +1,9 @@
 package com.cheesuscrust.Product;
 import com.cheesuscrust.Contact.ContactActivity;
-import com.cheesuscrust.Contact.InquiryActivity;
 import com.cheesuscrust.Database.Cheesus_Crust_Db;
 
 import com.cheesuscrust.Contact.activity_dash;
 import android.Manifest;
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -38,7 +33,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
-import androidx.core.app.NotificationCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -61,15 +55,14 @@ public class AddItem extends AppCompatActivity {
 
     UserData userData = UserData.getInstance();
 
+    //Declaration
     public static Cheesus_Crust_Db myDB;
     TextInputLayout editName,editDesc,editsPrice,editmPrice,editlPrice;
     Spinner  spinnerType;
-    Button btnAddData, btnView, btnAddImage;
+    Button btnAddImage;
     String editType;
     ImageView imageView;
-
     final int REQUEST_CODE_GALLERY = 999;
-    final String CHANNEL_ID = "Cheesus";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,12 +70,11 @@ public class AddItem extends AppCompatActivity {
         setContentView(R.layout.add_item);
 
 
-
         //Database Connection
         myDB = new Cheesus_Crust_Db(this);
 
         //Display values inside Spinners
-        Spinner proType = (Spinner) findViewById(R.id.typeSpinner);
+        Spinner proType =  findViewById(R.id.typeSpinner);
         ArrayAdapter<String> typeAdapter = new ArrayAdapter<String>(AddItem.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray((R.array.type)));
         typeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -95,7 +87,11 @@ public class AddItem extends AppCompatActivity {
         editsPrice = findViewById(R.id.editTextsPrice);
         editmPrice = findViewById(R.id.editTextmPrice);
         editlPrice = findViewById(R.id.editTextlPrice);
-        spinnerType = (Spinner) findViewById(R.id.typeSpinner);
+        spinnerType = findViewById(R.id.typeSpinner);
+        imageView = (ImageView) findViewById(R.id.imageView1);
+        btnAddImage = (Button)findViewById(R.id.buttonAddImage);
+
+        //Select a value from the Spinner
         spinnerType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             public void onItemSelected(AdapterView<?> parent, View arg1,
@@ -110,12 +106,7 @@ public class AddItem extends AppCompatActivity {
             }
         });
 
-        imageView = (ImageView) findViewById(R.id.imageView1);
-        btnAddImage = (Button)findViewById(R.id.buttonAddImage);
-
-
-
-
+        //Adding an image
         btnAddImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -144,11 +135,11 @@ public class AddItem extends AppCompatActivity {
         navigationView = findViewById(R.id.navigation_view);
 
         //Show Dashboard option
-//        if (userData.getUser_type().equals(getString(R.string.admin)))
-//        {
-//            Menu menu = navigationView.getMenu();
-//            menu.findItem(R.id.nav_dashboard).setVisible(true);
-//        }
+        if (userData.getUser_type().equals(getString(R.string.admin)))
+        {
+            Menu menu = navigationView.getMenu();
+            menu.findItem(R.id.nav_dashboard).setVisible(true);
+        }
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -223,6 +214,7 @@ public class AddItem extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    //Request permission to access Gallery
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
 
@@ -273,7 +265,7 @@ public class AddItem extends AppCompatActivity {
                 editType.trim(),
                 imageViewToByte(imageView));
 
-        if(isInserted == true)
+        if(isInserted)
         {
             spinnerType.setSelection(0);
             imageView.setImageResource((R.drawable.imageupload));
@@ -354,9 +346,8 @@ public class AddItem extends AppCompatActivity {
             return true;
         }
     }
-    //Input Validation
 
-
+    //Submit data
     public void confirmInput(View view) {
         if(!validateName() | !validatesPrice() | !validatemPrice() | !validatelPrice() ){
             return;
@@ -366,45 +357,4 @@ public class AddItem extends AppCompatActivity {
         }
 
     }
-
-    //newvid
-//    public void viewAll(){
-//        btnViewData.setOnClickListener(
-//            new View.OnClickListener(){
-//
-//                @Override
-//                public void onClick(View v) {
-//                    Cursor res = myDB.getAllData();
-//                        if(res.getCount() == 0){
-//                            showMessage("Error","No data found");
-//                            return;
-//                        }
-//
-//                        StringBuffer buffer = new StringBuffer();
-//                        while(res.moveToNext()){
-//                            buffer.append("ID :"+ res.getString(0)+"\n");
-//                            buffer.append("Name :"+ res.getString(1)+"\n");
-//                            buffer.append("Description :"+ res.getString(2)+"\n");
-//                            buffer.append("Small Price :"+ res.getString(3)+"\n");
-//                            buffer.append("Size :"+ res.getString(4)+"\n\n");
-//                            buffer.append("Type :"+ res.getString(5)+"\n\n");
-//                        }
-//
-//                        showMessage("Data",buffer.toString());
-//
-//                }
-//            }
-//        );
-//    }
-
-    //newvid
-//    public void showMessage(String title, String Message){
-//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-//        builder.setCancelable(true);
-//        builder.setTitle(title);
-//        builder.setMessage(Message);
-//        builder.show();
-//    }
-
-
 }
