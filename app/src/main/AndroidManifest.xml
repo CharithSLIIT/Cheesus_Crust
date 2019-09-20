@@ -46,10 +46,13 @@
             android:label="Food List"
             android:parentActivityName=".Product.AddItem" />
         <activity android:name=".Product.PizzaActivity"
+            android:theme="@style/AppTheme"
             tools:ignore="InnerclassSeparator"/>
         <activity android:name=".Product.BeverageActivity"
+            android:theme="@style/AppTheme"
             tools:ignore="InnerclassSeparator"/>
         <activity android:name=".Product.DessertActivity"
+            android:theme="@style/AppTheme"
             tools:ignore="InnerclassSeparator"/>
         <activity android:name=".Product.HomeActivity"
             tools:ignore="InnerclassSeparator"/>
