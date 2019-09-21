@@ -21,7 +21,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.cheesuscrust.R;
-import com.cheesuscrust.User.UserData;
+import com.cheesuscrust.User.UserData_Singleton;
 import com.cheesuscrust.User.UserProfile;
 import com.cheesuscrust.User.WelcomeScreen;
 import com.google.android.material.navigation.NavigationView;
@@ -35,7 +35,7 @@ public class ContactActivity extends AppCompatActivity{
     DrawerLayout drawerLayout;
     NavigationView navigationView;
 
-    UserData userData = UserData.getInstance();
+    UserData_Singleton userData = UserData_Singleton.getInstance();
 
     //create a object of input field
     EditText contact_fname,contact_lname,contact_email,contact_remail,contact_phone,contact_msg;

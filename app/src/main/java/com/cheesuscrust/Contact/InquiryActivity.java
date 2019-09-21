@@ -19,7 +19,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.cheesuscrust.R;
-import com.cheesuscrust.User.UserData;
+import com.cheesuscrust.User.UserData_Singleton;
 import com.cheesuscrust.User.UserProfile;
 import com.cheesuscrust.User.WelcomeScreen;
 import com.google.android.material.navigation.NavigationView;
@@ -33,7 +33,7 @@ public class InquiryActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     NavigationView navigationView;
 
-    UserData userData = UserData.getInstance();
+    UserData_Singleton userData = UserData_Singleton.getInstance();
 
     List<Inquiry> inqList;
     ListView listView;

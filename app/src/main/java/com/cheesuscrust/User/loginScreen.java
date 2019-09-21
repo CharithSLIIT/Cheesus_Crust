@@ -85,7 +85,7 @@ public class loginScreen extends AppCompatActivity {
         sharedPreferences.edit().putBoolean(String.valueOf(R.string.logged),true).apply();
         sharedPreferences.edit().putString(String.valueOf(R.string.email), email).apply();
 
-        UserData data = UserData.getInstance();
+        UserData_Singleton data = UserData_Singleton.getInstance();
         if(data.getUser_type().equals(getString(R.string.admin)))
         {
             Intent intent = new Intent(loginScreen.this, activity_dash.class);

@@ -7,6 +7,14 @@
         android:id="@+id/toolbar_cart"
         android:title="@string/cart"
         android:icon="@drawable/cart_icon"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="ifRoom"
+        android:visible="false"/>
+
+    <item android:id="@+id/adGridView"
+        android:title="Search Food"
+        android:icon="@drawable/ic_search"
+        app:actionViewClass="android.widget.SearchView"
+        app:showAsAction="always">
+    </item>
 
 </menu>

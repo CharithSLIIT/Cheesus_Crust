@@ -1,21 +1,21 @@
 package com.cheesuscrust.User;
 
-public class UserData {
+public class UserData_Singleton {
 
     //User data variables
     private String user_fname, user_lname, user_address, user_phone, user_email, user_type;
 
-    //UserData Singleton object
-    private static UserData userData = null;
+    //UserData_Singleton Singleton object
+    private static UserData_Singleton userData = null;
 
     //Private constructor
-    private UserData(){}
+    private UserData_Singleton(){}
 
     //getInstance() method
-    public static UserData getInstance()
+    public static UserData_Singleton getInstance()
     {
         if (userData == null)
-            userData = new UserData();
+            userData = new UserData_Singleton();
 
         return userData;
     }

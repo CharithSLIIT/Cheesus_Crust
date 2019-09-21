@@ -33,8 +33,8 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
     //Create the database connection
     Cheesus_Crust_Db database;
 
-    //get an instance of the UserData to get user data
-    UserData userData = UserData.getInstance();
+    //get an instance of the UserData_Singleton to get user data
+    UserData_Singleton userData = UserData_Singleton.getInstance();
 
     //Create TextView objects
     TextView displayName, displayEmail, displayAddress, displayPhone;
@@ -210,7 +210,7 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
             return;
         }
 
-        //Update details in the UserData object
+        //Update details in the UserData_Singleton object
         userData.setUser_address(address);
 
         //Get user email
@@ -270,7 +270,7 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
 
         else if(isUpdated == 1)
         {
-            //Update details in the UserData object
+            //Update details in the UserData_Singleton object
             userData.setUser_email(email);
 
             //Update the view
@@ -314,7 +314,7 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
 
         if(isUpdated)
         {
-            //Update details in the UserData object
+            //Update details in the UserData_Singleton object
             userData.setUser_phone(phone);
 
             //Update the view

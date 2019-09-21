@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -25,7 +26,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.cheesuscrust.Contact.ContactActivity;
 import com.cheesuscrust.Contact.activity_dash;
 import com.cheesuscrust.R;
-import com.cheesuscrust.User.UserData;
+import com.cheesuscrust.User.UserData_Singleton;
 import com.cheesuscrust.User.UserProfile;
 import com.cheesuscrust.User.WelcomeScreen;
 import com.google.android.material.navigation.NavigationView;
@@ -40,7 +41,7 @@ public class HomeActivity extends AppCompatActivity {
     private int CurrentPage;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
-    UserData userData = UserData.getInstance();
+    UserData_Singleton userData = UserData_Singleton.getInstance();
 
 
     @Override
@@ -82,7 +83,7 @@ public class HomeActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         //Set the title
-        getSupportActionBar().setTitle(getString(R.string.add_an_item));
+        getSupportActionBar().setTitle(getString(R.string.home));
 
         //Navigation menu icon
         final ActionBar actionBar = getSupportActionBar();
@@ -162,7 +163,7 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
-    //Navigation Drawer Display icon
+    //Navigation Drawer Display icon & Click events in Toolbar
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
@@ -170,7 +171,26 @@ public class HomeActivity extends AppCompatActivity {
             drawerLayout.openDrawer(GravityCompat.START);
             return true;
         }
-        return super.onOptionsItemSelected(item);
+
+        if (item.getItemId() == R.id.adGridView)
+        {
+            //Coding
+            return true;
+        }
+
+        else
+            return super.onOptionsItemSelected(item);
+    }
+
+
+    //Add the search icon to Toolbar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.toolbar_menu, menu);
+
+        return true;
     }
 
     //Navigation Dots

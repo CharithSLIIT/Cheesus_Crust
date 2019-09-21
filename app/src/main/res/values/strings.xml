@@ -170,6 +170,8 @@
     <string name="small_price">"Small: Rs."</string>
     <string name="medium_price">" | Medium: Rs."</string>
     <string name="large_price">" | Large: Rs."</string>
+    <string name="home">Home</string>
+    <string name="pizza">Pizza</string>
 
 
     <string-array name="type">

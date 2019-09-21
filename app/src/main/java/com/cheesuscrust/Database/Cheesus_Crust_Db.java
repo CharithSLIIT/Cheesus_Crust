@@ -12,7 +12,7 @@ import android.util.Log;
 
 import androidx.annotation.Nullable;
 
-import com.cheesuscrust.User.UserData;
+import com.cheesuscrust.User.UserData_Singleton;
 
 public class Cheesus_Crust_Db extends SQLiteOpenHelper {
 
@@ -193,8 +193,8 @@ public class Cheesus_Crust_Db extends SQLiteOpenHelper {
             {
                 //Login credentials are correct
 
-                //Create UserData Singleton object to store user data
-                UserData data = UserData.getInstance();
+                //Create UserData_Singleton Singleton object to store user data
+                UserData_Singleton data = UserData_Singleton.getInstance();
 
                 //Store user data
                 data.setUser_name(result.getString(1), result.getString(2));

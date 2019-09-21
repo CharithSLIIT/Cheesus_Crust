@@ -41,8 +41,8 @@ public class WelcomeScreen extends AppCompatActivity {
 
         if(sharedPreferences.getBoolean(String.valueOf(R.string.logged),false))
         {
-            //Create UserData Singleton object to store user data
-            UserData data = UserData.getInstance();
+            //Create UserData_Singleton Singleton object to store user data
+            UserData_Singleton data = UserData_Singleton.getInstance();
 
             database = new Cheesus_Crust_Db(this);
 
@@ -87,8 +87,8 @@ public class WelcomeScreen extends AppCompatActivity {
 
         if(sharedPreferences.getBoolean(String.valueOf(R.string.logged),false))
         {
-            //Create UserData Singleton object to store user data
-            UserData data = UserData.getInstance();
+            //Create UserData_Singleton Singleton object to store user data
+            UserData_Singleton data = UserData_Singleton.getInstance();
 
             database = new Cheesus_Crust_Db(this);
 
@@ -133,8 +133,8 @@ public class WelcomeScreen extends AppCompatActivity {
 
         if(sharedPreferences.getBoolean(String.valueOf(R.string.logged),false))
         {
-            //Create UserData Singleton object to store user data
-            UserData data = UserData.getInstance();
+            //Create UserData_Singleton Singleton object to store user data
+            UserData_Singleton data = UserData_Singleton.getInstance();
 
             database = new Cheesus_Crust_Db(this);
 
@@ -177,8 +177,8 @@ public class WelcomeScreen extends AppCompatActivity {
 
         if(sharedPreferences.getBoolean(String.valueOf(R.string.logged),false))
         {
-            //Create UserData Singleton object to store user data
-            UserData data = UserData.getInstance();
+            //Create UserData_Singleton Singleton object to store user data
+            UserData_Singleton data = UserData_Singleton.getInstance();
 
             database = new Cheesus_Crust_Db(this);
 
