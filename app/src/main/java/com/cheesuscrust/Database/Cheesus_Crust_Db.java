@@ -145,6 +145,33 @@ public class Cheesus_Crust_Db extends SQLiteOpenHelper {
     }
 
     //user Table functions
+    //Get details about all customers
+    public Cursor getAllCustomers()
+    {
+        //Connect the database
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+
+        String query = "SELECT * FROM " +TABLE_USER +" WHERE " +COLUMN_NAME_USER_TYPE +" = ?";
+        String[] selectionArgs = {"Customer"};
+
+        //Get results to a Cursor object
+        return sqLiteDatabase.rawQuery(query, selectionArgs);
+    }
+
+    //Get details about all employees
+    public Cursor getAllEmployees()
+    {
+        //Connect the database
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+
+        String query = "SELECT * FROM " +TABLE_USER +" WHERE " +COLUMN_NAME_USER_TYPE +" != ?";
+        String[] selectionArgs = {"Customer"};
+
+        //Get results to a Cursor object
+        return sqLiteDatabase.rawQuery(query, selectionArgs);
+    }
+
+    //Get current user data
     public Cursor getUserData(String email)
     {
         //Connect the database

@@ -173,6 +173,14 @@
     <string name="home">Home</string>
     <string name="food_items">"Food Items"</string>
     <string name="pizza">Pizza</string>
+    <string name="customer_name">Customer Name</string>
+    <string name="customer_address">Customer Address</string>
+    <string name="customer_email">Customer Email</string>
+    <string name="customer_phone">Customer Phone</string>
+    <string name="view_customers">View Customers</string>
+    <string name="are_you_sure_you_want_to_delete_this_user">Are you sure you want to delete this user?</string>
+    <string name="position">Position</string>
+    <string name="view_employees">View Employees</string>
     <string name="beverage">Beverages</string>
     <string name="dessert">Desserts</string>
     <string name="customer_product_menu_is_not_accessible">"Customer Product Menu is not accessible"</string>

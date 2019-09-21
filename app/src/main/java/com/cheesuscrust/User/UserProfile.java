@@ -392,7 +392,7 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
             return;
         }
 
-        else if(newPassword.equals(confirmPassword))
+        else if(!newPassword.equals(confirmPassword))
         {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setCancelable(true);

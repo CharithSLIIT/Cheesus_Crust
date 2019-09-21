@@ -4,10 +4,9 @@
     package="com.cheesuscrust">
 
     <!-- Access Network Status -->
-    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -38,6 +37,10 @@
         <activity
             android:name=".User.signupScreen"
             tools:ignore="InnerclassSeparator" />
+        <activity android:name=".User.Display_Customers"
+            tools:ignore="InnerclassSeparator" />
+        <activity android:name=".User.Display_Employees"
+            tools:ignore="InnerclassSeparator" />
 
         <!-- Inquiry Management -->
         <activity
@@ -48,13 +51,11 @@
             tools:ignore="InnerclassSeparator" />
         <activity
             android:name=".Contact.InquiryActivity"
-            tools:ignore="InnerclassSeparator" />
-
-        <!-- Product Management -->
+            tools:ignore="InnerclassSeparator" /> <!-- Product Management -->
         <activity
             android:name=".Product.AdminEdit"
             android:label="Edit Item"
-            tools:ignore="InnerclassSeparator"/>
+            tools:ignore="InnerclassSeparator" />
         <activity
             android:name=".Product.AddItem"
             tools:ignore="InnerclassSeparator" />
@@ -63,17 +64,21 @@
             android:label="Food List"
             android:parentActivityName=".Product.AddItem"
             tools:ignore="InnerclassSeparator" />
-        <activity android:name=".Product.PizzaActivity"
+        <activity
+            android:name=".Product.PizzaActivity"
             android:theme="@style/AppTheme"
-            tools:ignore="InnerclassSeparator"/>
-        <activity android:name=".Product.BeverageActivity"
+            tools:ignore="InnerclassSeparator" />
+        <activity
+            android:name=".Product.BeverageActivity"
             android:theme="@style/AppTheme"
-            tools:ignore="InnerclassSeparator"/>
-        <activity android:name=".Product.DessertActivity"
+            tools:ignore="InnerclassSeparator" />
+        <activity
+            android:name=".Product.DessertActivity"
             android:theme="@style/AppTheme"
-            tools:ignore="InnerclassSeparator"/>
-        <activity android:name=".Product.HomeActivity"
-            tools:ignore="InnerclassSeparator"/>
+            tools:ignore="InnerclassSeparator" />
+        <activity
+            android:name=".Product.HomeActivity"
+            tools:ignore="InnerclassSeparator" />
     </application>
 
 </manifest>

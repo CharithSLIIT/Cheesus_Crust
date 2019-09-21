@@ -1,12 +1,12 @@
-package com.cheesuscrust.Contact;
+package com.cheesuscrust.User;
 
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -16,36 +16,55 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import com.cheesuscrust.Product.AddItem;
-import com.cheesuscrust.Product.AdminFoodList;
+import com.cheesuscrust.Contact.ContactActivity;
+import com.cheesuscrust.Contact.activity_dash;
+import com.cheesuscrust.Database.Cheesus_Crust_Db;
 import com.cheesuscrust.R;
-import com.cheesuscrust.User.Display_Customers;
-import com.cheesuscrust.User.Display_Employees;
-import com.cheesuscrust.User.UserData_Singleton;
-import com.cheesuscrust.User.UserProfile;
-import com.cheesuscrust.User.WelcomeScreen;
 import com.google.android.material.navigation.NavigationView;
 
-public class activity_dash extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
+public class Display_Employees extends AppCompatActivity {
+
+    RecyclerView recyclerView;
+    RecyclerView.LayoutManager layoutManager;
+    Cursor cursor;
+    List<Users> users;
+    DisplayEmployees_Adapter displayEmployees_adapter;
+    Cheesus_Crust_Db database;
 
     //Navigation Drawer
     DrawerLayout drawerLayout;
     NavigationView navigationView;
-
     UserData_Singleton userData = UserData_Singleton.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dash);
+        setContentView(R.layout.activity_display_employees);
+
+        database = new Cheesus_Crust_Db(this);
+
+        recyclerView = findViewById(R.id.display_employees_recyclerView);
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        cursor = database.getAllEmployees();
+        users = setEmployees(cursor);
+        displayEmployees_adapter = new DisplayEmployees_Adapter(users);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setAdapter(displayEmployees_adapter);
 
         //Toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         //Set the title
-        getSupportActionBar().setTitle(getString(R.string.dashboard));
+        Objects.requireNonNull(getSupportActionBar()).setTitle(getString(R.string.view_employees));
 
         //Navigation menu icon
         final ActionBar actionBar = getSupportActionBar();
@@ -61,8 +80,6 @@ public class activity_dash extends AppCompatActivity {
         {
             Menu menu = navigationView.getMenu();
             menu.findItem(R.id.nav_dashboard).setVisible(true);
-            menu.findItem(R.id.nav_products).setVisible(false);
-
         }
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -72,38 +89,33 @@ public class activity_dash extends AppCompatActivity {
                 {
                     case R.id.nav_dashboard :
                         menuItem.setChecked(true);
-                        Toast.makeText(activity_dash.this, getString(R.string.you_are_already_in_dashboard), Toast.LENGTH_SHORT).show();
-                        drawerLayout.closeDrawers();
-                        return true;
-
-                    case R.id.nav_products :
-                        menuItem.setChecked(true);
-                        Toast.makeText(activity_dash.this, getString(R.string.customer_product_menu_is_not_accessible), Toast.LENGTH_SHORT).show();
+                        Intent intent1 = new Intent(Display_Employees.this, activity_dash.class);
+                        startActivity(intent1);
                         drawerLayout.closeDrawers();
                         return true;
 
                     case R.id.nav_user_profile :
                         menuItem.setChecked(true);
-                        Intent intent1 = new Intent(activity_dash.this, UserProfile.class);
-                        startActivity(intent1);
+                        Intent intent0 = new Intent(Display_Employees.this, UserProfile.class);
+                        startActivity(intent0);
                         drawerLayout.closeDrawers();
                         return true;
 
                     case R.id.nav_contact_us :
                         menuItem.setChecked(true);
-                        Intent intent2 = new Intent(activity_dash.this, ContactActivity.class);
+                        Intent intent2 = new Intent(Display_Employees.this, ContactActivity.class);
                         startActivity(intent2);
                         drawerLayout.closeDrawers();
                         return true;
 
                     case R.id.nav_settings :
                         menuItem.setChecked(true);
-                        Toast.makeText(activity_dash.this, R.string.settings_are_not_available_right_now, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Display_Employees.this, R.string.settings_are_not_available_right_now, Toast.LENGTH_SHORT).show();
                         drawerLayout.closeDrawers();
                         return true;
 
                     case R.id.nav_logout:
-                        AlertDialog.Builder builder = new AlertDialog.Builder(activity_dash.this);
+                        AlertDialog.Builder builder = new AlertDialog.Builder(Display_Employees.this);
                         builder.setCancelable(true);
                         builder.setTitle(getString(R.string.are_you_sure_you_want_to_logout));
                         builder.setPositiveButton(getString(R.string.logout), new DialogInterface.OnClickListener() {
@@ -112,15 +124,13 @@ public class activity_dash extends AppCompatActivity {
                                 SharedPreferences sharedPreferences = getSharedPreferences(String.valueOf(R.string.cheesus_crust), MODE_PRIVATE);
                                 sharedPreferences.edit().remove(String.valueOf(R.string.logged)).apply();
                                 sharedPreferences.edit().remove(String.valueOf(R.string.email)).apply();
-                                Intent intent3 = new Intent(activity_dash.this, WelcomeScreen.class);
+                                Intent intent3 = new Intent(Display_Employees.this, WelcomeScreen.class);
                                 startActivity(intent3);
-                                return;
                             }
                         });
                         builder.setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                return;
                             }
                         });
                         builder.show();
@@ -142,31 +152,20 @@ public class activity_dash extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void goToAddItems(View view) {
-        Intent intent = new Intent(activity_dash.this, AddItem.class);
-        startActivity(intent);
+    public List<Users> setEmployees(Cursor cursor)
+    {
+        List<Users> getUsers = new ArrayList<>();
+        if(cursor.getCount() == 0)
+        {
+            return null;
+        }
+
+        while(cursor.moveToNext())
+        {
+            getUsers.add(new Users(cursor.getString(1), cursor.getString(2), cursor.getString(5), cursor.getString(4), cursor.getString(3), cursor.getString(8)));
+        }
+
+        return getUsers;
     }
 
-
-    public void goToView(View view) {
-        Intent intent = new Intent(activity_dash.this,InquiryActivity.class);
-        startActivity(intent);
-    }
-
-    public void goToAllItems(View view) {
-        Intent intent = new Intent(activity_dash.this,AdminFoodList.class);
-        startActivity(intent);
-    }
-
-    public void displayCustomers(View view) {
-
-        Intent intent = new Intent(activity_dash.this, Display_Customers.class);
-        startActivity(intent);
-
-    }
-
-    public void displayEmployees(View view) {
-        Intent intent = new Intent(activity_dash.this, Display_Employees.class);
-        startActivity(intent);
-    }
 }

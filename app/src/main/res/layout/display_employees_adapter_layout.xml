@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/dp_10">
+
+    <!--Line 1-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_10"
+        android:text="@string/name"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/pureWhite"/>
+
+    <TextView
+        android:id="@+id/display_employees_recyclerView_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_20"
+        android:layout_marginEnd="196dp"
+        android:text="@string/customer_name"
+        android:textColor="@color/pureWhite"/>
+
+    <!--Line 2-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_10"
+        android:text="@string/email"
+        android:textColor="@color/pureWhite"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+    <TextView
+        android:id="@+id/display_employees_recyclerView_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_20"
+        android:text="@string/customer_email"
+        android:textColor="@color/pureWhite"/>
+
+
+    <!--Line 3-->
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_10"
+        android:text="@string/phone"
+        android:textColor="@color/pureWhite"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+
+    <TextView
+        android:id="@+id/display_employees_recyclerView_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_20"
+        android:text="@string/customer_phone"
+        android:textColor="@color/pureWhite"/>
+
+    <!--Line 4-->
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_10"
+        android:text="@string/address"
+        android:textColor="@color/pureWhite"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+    <TextView
+        android:id="@+id/display_employees_recyclerView_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_20"
+        android:text="@string/customer_address"
+        android:textColor="@color/pureWhite"/>
+
+    <!--Line 5-->
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_10"
+        android:text="@string/position"
+        android:textColor="@color/pureWhite"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+    <TextView
+        android:id="@+id/display_employees_recyclerView_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_20"
+        android:text="@string/position"
+        android:textColor="@color/pureWhite"/>
+
+    <Button
+        android:id="@+id/display_employees_recyclerView_deleteButton"
+        android:layout_width="114dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_20"
+        android:layout_marginEnd="@dimen/dp_20"
+        android:layout_marginBottom="@dimen/dp_20"
+        android:background="@drawable/button_background"
+        android:padding="@dimen/dp_10"
+        android:text="@string/delete"
+        android:layout_gravity="end"/>
+
+    <View style="@style/Divider"/>
+
+</LinearLayout>

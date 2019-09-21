@@ -9,4 +9,5 @@
     <color name="pureWhiteTransparent">#75FFFFFF</color>
     <color name="pureYellowTransparent">#75FFB300</color>
     <color name="colorTransparentWhite">#CCCCCC</color>
+    <color name="red">#ef5350</color>
 </resources>

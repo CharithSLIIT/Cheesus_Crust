@@ -206,6 +206,7 @@
                         android:textStyle="bold"
                         android:textAlignment="center"
                         android:text="@string/viewemp"
+                        android:onClick="displayEmployees"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="18sp"/>
 
@@ -291,7 +292,8 @@
                         android:textAlignment="center"
                         android:text="@string/view_customer"
                         android:textColor="@color/pureBlack"
-                        android:textSize="18sp"/>
+                        android:textSize="18sp"
+                        android:onClick="displayCustomers"/>
 
 
                 </LinearLayout>
