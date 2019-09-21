@@ -57,7 +57,11 @@ public class PizzaActivity extends AppCompatActivity {
 
         adapter.notifyDataSetChanged();
 
+
+
     }
+
+
 
     //Search function
     @Override
