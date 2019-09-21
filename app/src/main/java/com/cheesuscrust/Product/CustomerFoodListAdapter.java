@@ -14,6 +14,7 @@ import android.widget.Filter;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cheesuscrust.R;
 
@@ -96,6 +97,13 @@ public class CustomerFoodListAdapter extends BaseAdapter {
         holder.txtprice.setText(price);
 
 
+        holder.cart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context,"The Cart is under maintenance",Toast.LENGTH_SHORT).show();
+            }
+        });
+
         //Spinner values
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(context,
                 R.array.size, android.R.layout.simple_list_item_1);
@@ -138,8 +146,6 @@ public class CustomerFoodListAdapter extends BaseAdapter {
         }
 
         return row;
-
-
     }
 
     public Filter getFilter() {

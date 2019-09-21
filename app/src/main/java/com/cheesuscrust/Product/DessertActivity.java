@@ -84,7 +84,7 @@ public class DessertActivity extends AppCompatActivity {
 //        setSupportActionBar(toolbar);
 
         //Set the title
-        getSupportActionBar().setTitle(getString(R.string.home));
+        getSupportActionBar().setTitle(getString(R.string.dessert));
 
         //Navigation menu icon
         final ActionBar actionBar = getSupportActionBar();

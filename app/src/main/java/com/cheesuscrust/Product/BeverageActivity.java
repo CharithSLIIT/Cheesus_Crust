@@ -84,7 +84,7 @@ public class BeverageActivity extends AppCompatActivity {
 //        setSupportActionBar(toolbar);
 
         //Set the title
-        getSupportActionBar().setTitle(getString(R.string.home));
+        getSupportActionBar().setTitle(getString(R.string.beverage));
 
         //Navigation menu icon
         final ActionBar actionBar = getSupportActionBar();
