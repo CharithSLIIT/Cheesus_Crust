@@ -3,48 +3,66 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.cheesuscrust">
 
-<!--    Access Network Status-->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- Access Network Status -->
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
+        android:fullBackupContent="true"
         android:icon="@mipmap/app_icon_rounded"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/app_icon_rounded"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar"
-        tools:ignore="GoogleAppIndexingWarning"
-        android:fullBackupContent="true">
+        tools:ignore="GoogleAppIndexingWarning">
 
-<!--        User Management -->
-        <activity android:name=".User.WelcomeScreen"
+        <!-- User Management -->
+        <activity
+            android:name=".User.WelcomeScreen"
             tools:ignore="InnerclassSeparator">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".User.UserProfile"
+        <activity
+            android:name=".User.UserProfile"
             tools:ignore="InnerclassSeparator" />
-        <activity android:name=".User.loginScreen"
+        <activity
+            android:name=".User.loginScreen"
             tools:ignore="InnerclassSeparator" />
-        <activity android:name=".User.signupScreen"
+        <activity
+            android:name=".User.signupScreen"
             tools:ignore="InnerclassSeparator" />
 
-<!--        Product Management-->
-        <activity android:name=".Product.AdminEdit"
-            tools:ignore="InnerclassSeparator"
-            android:label="Edit Item">
-        </activity>
-        <activity android:name=".Product.AddItem"
+        <!-- Inquiry Management -->
+        <activity
+            android:name=".Contact.activity_dash"
+            tools:ignore="InnerclassSeparator" />
+        <activity
+            android:name=".Contact.ContactActivity"
+            tools:ignore="InnerclassSeparator" />
+        <activity
+            android:name=".Contact.InquiryActivity"
+            tools:ignore="InnerclassSeparator" />
+
+        <!-- Product Management -->
+        <activity
+            android:name=".Product.AdminEdit"
+            android:label="Edit Item"
             tools:ignore="InnerclassSeparator"/>
         <activity
+            android:name=".Product.AddItem"
+            tools:ignore="InnerclassSeparator" />
+        <activity
             android:name=".Product.AdminFoodList"
-            tools:ignore="InnerclassSeparator"
             android:label="Food List"
-            android:parentActivityName=".Product.AddItem" />
+            android:parentActivityName=".Product.AddItem"
+            tools:ignore="InnerclassSeparator" />
         <activity android:name=".Product.PizzaActivity"
             android:theme="@style/AppTheme"
             tools:ignore="InnerclassSeparator"/>
@@ -55,14 +73,6 @@
             android:theme="@style/AppTheme"
             tools:ignore="InnerclassSeparator"/>
         <activity android:name=".Product.HomeActivity"
-            tools:ignore="InnerclassSeparator"/>
-
-<!--        Inquiry Management-->
-        <activity android:name=".Contact.activity_dash"
-            tools:ignore="InnerclassSeparator"/>
-        <activity android:name=".Contact.ContactActivity"
-            tools:ignore="InnerclassSeparator"/>
-        <activity android:name=".Contact.InquiryActivity"
             tools:ignore="InnerclassSeparator"/>
     </application>
 
