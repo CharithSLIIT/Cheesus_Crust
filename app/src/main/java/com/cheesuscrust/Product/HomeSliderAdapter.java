@@ -52,8 +52,8 @@ public class HomeSliderAdapter extends PagerAdapter {
     public String[] slide_descs = {
 
             "Enjoy a variety of delicious Oven made Pizza that will give your tastebuds a new sensation",
-            "Have a drink, be refreshed with our wide range of Soft Drink Beverages",
-            "Not yet full? Have a fiesta with our new line of Desserts that will surely satisfy your tummy!"
+            "Have a drink and be refreshed with our wide range of Soft Drink Beverages",
+            "Do not be stuffed just yet Have a fiesta with our new line of Desserts that will surely satisfy your tummy"
     };
 
     @Override
