@@ -100,7 +100,7 @@ public class CustomerFoodListAdapter extends BaseAdapter {
         holder.cart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context,"The Cart is under maintenance",Toast.LENGTH_SHORT).show();
+                Toast.makeText(context,"The Cart is under maintenance! Sorry for the inconvenience!",Toast.LENGTH_SHORT).show();
             }
         });
 

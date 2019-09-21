@@ -180,4 +180,10 @@ public class AdminFoodList extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    public void onBackPressed() {
+        Intent intent = new Intent(AdminFoodList.this, activity_dash.class);
+        startActivity(intent);
+    }
+
 }
