@@ -75,6 +75,7 @@ public class InquiryActivity extends AppCompatActivity {
         {
             Menu menu = navigationView.getMenu();
             menu.findItem(R.id.nav_dashboard).setVisible(true);
+            menu.findItem(R.id.nav_products).setVisible(false);
         }
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -86,6 +87,12 @@ public class InquiryActivity extends AppCompatActivity {
                         menuItem.setChecked(true);
                         Intent intent0 = new Intent(InquiryActivity.this, activity_dash.class);
                         startActivity(intent0);
+                        drawerLayout.closeDrawers();
+                        return true;
+
+                    case R.id.nav_products :
+                        menuItem.setChecked(true);
+                        Toast.makeText(InquiryActivity.this, getString(R.string.customer_product_menu_is_not_accessible), Toast.LENGTH_SHORT).show();
                         drawerLayout.closeDrawers();
                         return true;
 

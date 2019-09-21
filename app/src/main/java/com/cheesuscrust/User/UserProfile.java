@@ -20,6 +20,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.cheesuscrust.Contact.ContactActivity;
 import com.cheesuscrust.Contact.activity_dash;
+import com.cheesuscrust.Product.HomeActivity;
 import com.cheesuscrust.Database.Cheesus_Crust_Db;
 import com.cheesuscrust.R;
 import com.google.android.material.navigation.NavigationView;
@@ -69,6 +70,7 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
         {
             Menu menu = navigationView.getMenu();
             menu.findItem(R.id.nav_dashboard).setVisible(true);
+            menu.findItem(R.id.nav_products).setVisible(false);
         }
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -82,6 +84,14 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
                         startActivity(intent0);
                         drawerLayout.closeDrawers();
                         return true;
+
+                    case R.id.nav_products :
+                        menuItem.setChecked(true);
+                        Intent intent3 = new Intent(UserProfile.this, HomeActivity.class);
+                        startActivity(intent3);
+                        drawerLayout.closeDrawers();
+                        return true;
+
 
                     case R.id.nav_user_profile :
                         menuItem.setChecked(true);

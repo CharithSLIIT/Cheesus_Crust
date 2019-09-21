@@ -59,6 +59,8 @@ public class activity_dash extends AppCompatActivity {
         {
             Menu menu = navigationView.getMenu();
             menu.findItem(R.id.nav_dashboard).setVisible(true);
+            menu.findItem(R.id.nav_products).setVisible(false);
+
         }
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -69,6 +71,12 @@ public class activity_dash extends AppCompatActivity {
                     case R.id.nav_dashboard :
                         menuItem.setChecked(true);
                         Toast.makeText(activity_dash.this, getString(R.string.you_are_already_in_dashboard), Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawers();
+                        return true;
+
+                    case R.id.nav_products :
+                        menuItem.setChecked(true);
+                        Toast.makeText(activity_dash.this, getString(R.string.customer_product_menu_is_not_accessible), Toast.LENGTH_SHORT).show();
                         drawerLayout.closeDrawers();
                         return true;
 

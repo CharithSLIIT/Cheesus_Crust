@@ -15,8 +15,7 @@
         android:layout_height="match_parent"
         android:background="@drawable/nonslidebackground">
 
-        <include
-            layout="@layout/toolbar_layout"/>
+   
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/slideViewPager"

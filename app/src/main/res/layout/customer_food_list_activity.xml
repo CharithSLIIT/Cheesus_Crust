@@ -3,11 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/drawer_layout"
-    android:fitsSystemWindows="true"
-    tools:context=".Product.HomeActivity">
+    android:fitsSystemWindows="true">
 
         <RelativeLayout
             android:fitsSystemWindows="true"

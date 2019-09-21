@@ -171,7 +171,11 @@
     <string name="medium_price">" | Medium: Rs."</string>
     <string name="large_price">" | Large: Rs."</string>
     <string name="home">Home</string>
+    <string name="food_items">"Food Items"</string>
     <string name="pizza">Pizza</string>
+    <string name="beverage">Beverages</string>
+    <string name="dessert">Desserts</string>
+    <string name="customer_product_menu_is_not_accessible">"Customer Product Menu is not accessible"</string>
 
 
     <string-array name="type">
