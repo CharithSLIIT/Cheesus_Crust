@@ -119,7 +119,7 @@
     <string name="fname">First Name</string>
     <string name="lname">Last Name</string>
     <string name="remail">Re Enter Email</string>
-    <string name="message">Message</string>
+    <string name="message">Message:</string>
     <string name="send">Send</string>
     <string name="order">Order Inquiry</string>
     <string name="type">Inquiry Type</string>
