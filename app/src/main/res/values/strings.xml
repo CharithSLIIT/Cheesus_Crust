@@ -199,5 +199,8 @@
         <item>Medium</item>
         <item>Large</item>
     </string-array>
+    <string name="thankyouforcontactingus">Thankyou for contacting us!</string>
+    <string name="wehavereceivedyourinquiry">We have received your inquiry.We will get back to you soon!</string>
+    <string name="email_mismatched_please_enter_above_email">Email mismatched! Please re-enter email.</string>
 
 </resources>

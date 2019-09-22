@@ -214,10 +214,24 @@ public class ContactActivity extends AppCompatActivity{
             return;
         }
 
+        //check confirm password
+        if(!emailValue.equals(remailValue))
+        {
+            contact_remail.setError(getString(R.string.email_mismatched_please_enter_above_email));
+            return;
+        }
+
 
         if(TextUtils.isEmpty(msgValue))
         {
             contact_msg.setError("Please enter message");
+            return;
+        }
+
+        //Telephone number validation
+        if (phoneValue.length() != 10)
+        {
+            contact_phone.setError(getString(R.string.please_enter_valid_phone_number));
             return;
         }
 
@@ -234,14 +248,14 @@ public class ContactActivity extends AppCompatActivity{
 
         else{
 
-            Toast.makeText(this, "We will get back to you soon", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Sent", Toast.LENGTH_LONG).show();
 
             //create notification
             createNotificationChannel();
             NotificationCompat.Builder builder = new NotificationCompat.Builder(this,CHANNEL_ID);
             builder.setSmallIcon(R.drawable.ic_event_available_black_24dp);
             builder.setContentTitle("Thankyou for contacting us!");
-            builder.setContentText("We have received your inquiry.We will get back to you as soon");
+            builder.setContentText("We have received your inquiry.We will get back to you soon");
             builder.setPriority(NotificationCompat.PRIORITY_DEFAULT);
             NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(this);
             notificationManagerCompat.notify(NOTIFICATION_ID,builder.build());
