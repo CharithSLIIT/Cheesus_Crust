@@ -63,7 +63,7 @@ public class HomeSliderAdapter extends PagerAdapter {
 
     @Override
     public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
-        return view == (RelativeLayout) object;
+        return view ==  object;
     }
 
     @NonNull
@@ -74,10 +74,10 @@ public class HomeSliderAdapter extends PagerAdapter {
         View view = layoutInflater.inflate(R.layout.home_slide_layout, container, false);
 
         //Set Layouts
-        ImageView slideImageView = (ImageView) view.findViewById(R.id.slide_image);
-        TextView slideHeading = (TextView) view.findViewById(R.id.slide_heading);
-        TextView slideDesciption = (TextView) view.findViewById(R.id.slide_desc);
-        Button getStarted = (Button) view.findViewById(R.id.getStarted);
+        ImageView slideImageView = view.findViewById(R.id.slide_image);
+        TextView slideHeading = view.findViewById(R.id.slide_heading);
+        TextView slideDesciption = view.findViewById(R.id.slide_desc);
+        Button getStarted = view.findViewById(R.id.getStarted);
 
         slideImageView.setImageResource(slide_images[position]);
         slideHeading.setText(slide_headings[position]);

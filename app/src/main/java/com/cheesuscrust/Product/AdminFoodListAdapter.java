@@ -126,7 +126,7 @@ public class AdminFoodListAdapter extends BaseAdapter {
     }
 
     //Edit Data
-    public void editData(int i){
+    private void editData(int i){
         Intent editIntent = new Intent(context, AdminEdit.class);
         editIntent.putExtra("id", i);
         context.startActivity(editIntent);
