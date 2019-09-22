@@ -2,6 +2,7 @@ package com.cheesuscrust.User;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -35,6 +36,109 @@ public class loginScreen extends AppCompatActivity {
         //Initialise two EditText objects
         getEmail = findViewById(R.id.login_email);
         getPassword = findViewById(R.id.login_password);
+
+        sharedPreferences = getSharedPreferences(String.valueOf(R.string.cheesus_crust), MODE_PRIVATE);
+
+        if(sharedPreferences.getBoolean(String.valueOf(R.string.logged),false)) {
+            //Create UserData_Singleton Singleton object to store user data
+            UserData_Singleton data = UserData_Singleton.getInstance();
+
+            database = new Cheesus_Crust_Db(this);
+
+            Cursor userData = database.getUserData(sharedPreferences.getString(String.valueOf(R.string.email), null));
+
+            while (userData.moveToNext()) {
+                //Store user data
+                data.setUser_name(userData.getString(1), userData.getString(2));
+                data.setUser_email(userData.getString(3));
+                data.setUser_phone(userData.getString(4));
+                data.setUser_address(userData.getString(5));
+                data.setUser_type(userData.getString(8));
+            }
+
+            if (data.getUser_type().equals(getString(R.string.admin))) {
+                Intent intent = new Intent(loginScreen.this, activity_dash.class);
+                startActivity(intent);
+                return;
+            }
+
+            Intent intent = new Intent(loginScreen.this, HomeActivity.class);
+            startActivity(intent);
+        }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        sharedPreferences = getSharedPreferences(String.valueOf(R.string.cheesus_crust), MODE_PRIVATE);
+
+        if(sharedPreferences.getBoolean(String.valueOf(R.string.logged),false))
+        {
+            //Create UserData_Singleton Singleton object to store user data
+            UserData_Singleton data = UserData_Singleton.getInstance();
+
+            database = new Cheesus_Crust_Db(this);
+
+            Cursor userData = database.getUserData(sharedPreferences.getString(String.valueOf(R.string.email), null));
+
+            while(userData.moveToNext())
+            {
+                //Store user data
+                data.setUser_name(userData.getString(1), userData.getString(2));
+                data.setUser_email(userData.getString(3));
+                data.setUser_phone(userData.getString(4));
+                data.setUser_address(userData.getString(5));
+                data.setUser_type(userData.getString(8));
+            }
+
+            if (data.getUser_type().equals(getString(R.string.admin)))
+            {
+                Intent intent = new Intent(loginScreen.this, activity_dash.class);
+                startActivity(intent);
+                return;
+            }
+
+            Intent intent = new Intent(loginScreen.this, HomeActivity.class);
+            startActivity(intent);
+        }
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+
+        sharedPreferences = getSharedPreferences(String.valueOf(R.string.cheesus_crust), MODE_PRIVATE);
+
+        if(sharedPreferences.getBoolean(String.valueOf(R.string.logged),false))
+        {
+            //Create UserData_Singleton Singleton object to store user data
+            UserData_Singleton data = UserData_Singleton.getInstance();
+
+            database = new Cheesus_Crust_Db(this);
+
+            Cursor userData = database.getUserData(sharedPreferences.getString(String.valueOf(R.string.email), null));
+
+            while(userData.moveToNext())
+            {
+                //Store user data
+                data.setUser_name(userData.getString(1), userData.getString(2));
+                data.setUser_email(userData.getString(3));
+                data.setUser_phone(userData.getString(4));
+                data.setUser_address(userData.getString(5));
+                data.setUser_type(userData.getString(8));
+            }
+
+            if (data.getUser_type().equals(getString(R.string.admin)))
+            {
+                Intent intent = new Intent(loginScreen.this, activity_dash.class);
+                startActivity(intent);
+                return;
+            }
+
+            Intent intent = new Intent(loginScreen.this, HomeActivity.class);
+            startActivity(intent);
+        }
     }
 
     public void userLogin(View view)

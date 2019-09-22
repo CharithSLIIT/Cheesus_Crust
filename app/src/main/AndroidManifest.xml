@@ -30,17 +30,30 @@
         </activity>
         <activity
             android:name=".User.UserProfile"
-            tools:ignore="InnerclassSeparator" />
+            tools:ignore="InnerclassSeparator"
+            android:parentActivityName=".Product.HomeActivity"/>
         <activity
             android:name=".User.loginScreen"
-            tools:ignore="InnerclassSeparator" />
+            android:parentActivityName=".User.WelcomeScreen"
+            tools:ignore="InnerclassSeparator">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".User.WelcomeScreen"/>
+        </activity>
         <activity
             android:name=".User.signupScreen"
-            tools:ignore="InnerclassSeparator" />
+            tools:ignore="InnerclassSeparator"
+            android:parentActivityName=".User.WelcomeScreen">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".User.WelcomeScreen"/>
+        </activity>
         <activity android:name=".User.Display_Customers"
-            tools:ignore="InnerclassSeparator" />
+            tools:ignore="InnerclassSeparator"
+            android:parentActivityName=".Contact.activity_dash"/>
         <activity android:name=".User.Display_Employees"
-            tools:ignore="InnerclassSeparator" />
+            tools:ignore="InnerclassSeparator"
+            android:parentActivityName=".Contact.activity_dash"/>
 
         <!-- Inquiry Management -->
         <activity

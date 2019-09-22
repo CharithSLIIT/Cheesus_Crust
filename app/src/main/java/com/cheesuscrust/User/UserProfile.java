@@ -216,6 +216,12 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
             builder.setCancelable(true);
             builder.setTitle(R.string.error);
             builder.setMessage(getString(R.string.please_provide_an_address_to_proceed));
+            builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+                }
+            });
             builder.show();
             return;
         }
@@ -253,6 +259,30 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
             builder.setCancelable(true);
             builder.setTitle(R.string.error);
             builder.setMessage(getString(R.string.please_provide_an_email_address_to_proceed));
+            builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+                }
+            });
+            builder.show();
+            return;
+        }
+
+        //Email Validation
+        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+        if (!email.matches(emailPattern))
+        {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setCancelable(true);
+            builder.setTitle(R.string.error);
+            builder.setMessage(getString(R.string.invalid_email_address_please_enter_correct_email_address));
+            builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+                }
+            });
             builder.show();
             return;
         }
@@ -306,6 +336,23 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
             builder.setCancelable(true);
             builder.setTitle(R.string.error);
             builder.setMessage(getString(R.string.please_provide_a_phone_number_to_proceed));
+            builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+                }
+            });
+            builder.show();
+            return;
+        }
+
+        //Telephone number validation
+        if (phone.length() != 10)
+        {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setCancelable(true);
+            builder.setTitle(R.string.error);
+            builder.setMessage(getString(R.string.please_enter_valid_phone_number));
             builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
