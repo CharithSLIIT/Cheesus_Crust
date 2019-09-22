@@ -82,7 +82,7 @@
                     android:id="@+id/contact_phone"
                     android:importantForAutofill="no"
                     android:textColor="@color/pureWhite"
-                    android:textColorHint="@color/pureWhite"/>
+                    android:textColorHint="@color/colorAccent"/>
 
                 <EditText
                     android:layout_width="300dp"
