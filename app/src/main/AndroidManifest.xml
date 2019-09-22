@@ -2,12 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.cheesuscrust">
-
     <!-- Access Network Status -->
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:allowBackup="true"
         android:fullBackupContent="true"
@@ -17,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning">
-
+        <activity android:name=".activity_con_notification"></activity>
         <!-- User Management -->
         <activity
             android:name=".User.WelcomeScreen"
@@ -30,32 +25,32 @@
         </activity>
         <activity
             android:name=".User.UserProfile"
-            tools:ignore="InnerclassSeparator"
-            android:parentActivityName=".Product.HomeActivity"/>
+            android:parentActivityName=".Product.HomeActivity"
+            tools:ignore="InnerclassSeparator" />
         <activity
             android:name=".User.loginScreen"
             android:parentActivityName=".User.WelcomeScreen"
             tools:ignore="InnerclassSeparator">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".User.WelcomeScreen"/>
+                android:value=".User.WelcomeScreen" />
         </activity>
         <activity
             android:name=".User.signupScreen"
-            tools:ignore="InnerclassSeparator"
-            android:parentActivityName=".User.WelcomeScreen">
+            android:parentActivityName=".User.WelcomeScreen"
+            tools:ignore="InnerclassSeparator">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".User.WelcomeScreen"/>
+                android:value=".User.WelcomeScreen" />
         </activity>
-        <activity android:name=".User.Display_Customers"
-            tools:ignore="InnerclassSeparator"
-            android:parentActivityName=".Contact.activity_dash"/>
-        <activity android:name=".User.Display_Employees"
-            tools:ignore="InnerclassSeparator"
-            android:parentActivityName=".Contact.activity_dash"/>
-
-        <!-- Inquiry Management -->
+        <activity
+            android:name=".User.Display_Customers"
+            android:parentActivityName=".Contact.activity_dash"
+            tools:ignore="InnerclassSeparator" />
+        <activity
+            android:name=".User.Display_Employees"
+            android:parentActivityName=".Contact.activity_dash"
+            tools:ignore="InnerclassSeparator" /> <!-- Inquiry Management -->
         <activity
             android:name=".Contact.activity_dash"
             tools:ignore="InnerclassSeparator" />
@@ -93,5 +88,9 @@
             android:name=".Product.HomeActivity"
             tools:ignore="InnerclassSeparator" />
     </application>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
 </manifest>

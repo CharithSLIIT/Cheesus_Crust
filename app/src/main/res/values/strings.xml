@@ -186,18 +186,18 @@
     <string name="customer_product_menu_is_not_accessible">"Customer Product Menu is not accessible"</string>
 
 
+    <string name="phone1">Phone:</string>
+
+    <string name="status">Status:</string>
     <string-array name="type">
         <item>Pizza</item>
         <item>Beverage</item>
         <item>Dessert</item>
     </string-array>
-
     <string-array name="size">
         <item>Small</item>
         <item>Medium</item>
         <item>Large</item>
     </string-array>
-    <string name="phone1">Phone:</string>
-    <string name="status">Status:</string>
 
 </resources>
