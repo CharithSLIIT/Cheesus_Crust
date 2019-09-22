@@ -198,5 +198,6 @@
         <item>Large</item>
     </string-array>
     <string name="phone1">Phone:</string>
+    <string name="status">Status:</string>
 
 </resources>

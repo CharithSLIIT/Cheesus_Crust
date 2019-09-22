@@ -20,6 +20,7 @@
             android:layout_marginBottom="5dp"
             android:layout_marginTop="10dp"
             android:text="@string/date"
+            android:textColor="@color/pureWhite"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
         <GridLayout
@@ -33,37 +34,43 @@
                 android:id="@+id/textView"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="Name:"
+                android:text="@string/name"
+                android:textColor="@color/pureWhite"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
             <TextView
                 android:id="@+id/textViewName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Technical"
+                android:textColor="@color/pureWhite"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Email:"
+                android:text="@string/email"
+                android:textColor="@color/pureWhite"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
             <TextView
                 android:id="@+id/textViewEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/pureWhite"
                 android:text="INR 40000"/>
 
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Phone: "
+                android:text="@string/phone"
+                android:textColor="@color/pureWhite"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
             <TextView
                 android:id="@+id/textViewPhone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/pureWhite"
                 android:text="INR 40000"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
@@ -71,27 +78,31 @@
                 android:id="@+id/textView5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Message: "
+                android:textColor="@color/pureWhite"
+                android:text="@string/message"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
             <TextView
                 android:id="@+id/textViewMsg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Message: "
+                android:textColor="@color/pureWhite"
+                android:text=""
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
             <TextView
                 android:id="@+id/textView6"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="Status:"
+                android:textColor="@color/pureWhite"
+                android:text="@string/status"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
             <TextView
                 android:id="@+id/textViewStatus"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/pureWhite"
                 android:text="INR 40000"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
