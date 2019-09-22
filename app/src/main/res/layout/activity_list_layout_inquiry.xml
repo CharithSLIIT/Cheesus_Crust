@@ -4,12 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="8dp">
+    android:padding="8dp"
+    android:background="@drawable/app_background_default">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        >
 
         <TextView
             android:id="@+id/textViewDate"
@@ -24,7 +26,8 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:columnCount="2"
-            android:rowCount="5">
+            android:rowCount="5"
+            >
 
             <TextView
                 android:id="@+id/textView"
