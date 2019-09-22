@@ -1,9 +1,12 @@
 package com.cheesuscrust.Contact;
 
 import android.annotation.SuppressLint;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
@@ -18,6 +21,8 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -34,6 +39,10 @@ import java.util.Calendar;
 import java.util.Objects;
 
 public class ContactActivity extends AppCompatActivity{
+
+    //notification
+    private final String CHANNEL_ID = "personal";
+    private final int NOTIFICATION_ID = 001;
 
     //Navigation Drawer
     DrawerLayout drawerLayout;
@@ -212,6 +221,8 @@ public class ContactActivity extends AppCompatActivity{
             return;
         }
 
+
+
         Calendar cal = Calendar.getInstance();
         @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
         String dateValue = sdf.format(cal.getTime());
@@ -221,7 +232,35 @@ public class ContactActivity extends AppCompatActivity{
         if(!result)
             Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
 
-        else
+        else{
+
             Toast.makeText(this, "We will get back to you soon", Toast.LENGTH_LONG).show();
+
+            //create notification
+            createNotificationChannel();
+            NotificationCompat.Builder builder = new NotificationCompat.Builder(this,CHANNEL_ID);
+            builder.setSmallIcon(R.drawable.ic_event_available_black_24dp);
+            builder.setContentTitle("Thankyou for contacting us!");
+            builder.setContentText("We have received your inquiry.We will get back to you as soon");
+            builder.setPriority(NotificationCompat.PRIORITY_DEFAULT);
+            NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(this);
+            notificationManagerCompat.notify(NOTIFICATION_ID,builder.build());
+        }
+
+    }
+
+    private  void createNotificationChannel(){
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+        {
+            CharSequence name = "Personal";
+            String description = "Include";
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+
+            NotificationChannel notificationChannel = new NotificationChannel(CHANNEL_ID,name,importance);
+
+            notificationChannel.setDescription(description);
+            NotificationManager notificationManager = (NotificationManager)  getSystemService(NOTIFICATION_SERVICE);
+            notificationManager.createNotificationChannel(notificationChannel);
+        }
     }
 }
