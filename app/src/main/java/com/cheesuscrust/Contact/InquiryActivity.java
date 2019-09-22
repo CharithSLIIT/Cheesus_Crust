@@ -18,6 +18,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.cheesuscrust.Database.Cheesus_Crust_Db;
 import com.cheesuscrust.R;
 import com.cheesuscrust.User.UserData_Singleton;
 import com.cheesuscrust.User.UserProfile;
@@ -26,6 +27,7 @@ import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class InquiryActivity extends AppCompatActivity {
 
@@ -39,7 +41,7 @@ public class InquiryActivity extends AppCompatActivity {
     ListView listView;
 
     //database object
-    contactTable database;
+    Cheesus_Crust_Db database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,10 +53,10 @@ public class InquiryActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         //Set the title
-        getSupportActionBar().setTitle(getString(R.string.view_inquiries));
+        Objects.requireNonNull(getSupportActionBar()).setTitle(getString(R.string.view_inquiries));
 
         //Instantiating the database manager object
-        database = new contactTable(this);
+        database = new Cheesus_Crust_Db(this);
 
         inqList = new ArrayList<>();
         listView = findViewById(R.id.listViewInquiry);
@@ -128,13 +130,11 @@ public class InquiryActivity extends AppCompatActivity {
                                 sharedPreferences.edit().remove(String.valueOf(R.string.email)).apply();
                                 Intent intent3 = new Intent(InquiryActivity.this, WelcomeScreen.class);
                                 startActivity(intent3);
-                                return;
                             }
                         });
                         builder.setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                return;
                             }
                         });
                         builder.show();

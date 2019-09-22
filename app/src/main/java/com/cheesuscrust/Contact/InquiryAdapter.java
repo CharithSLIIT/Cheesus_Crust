@@ -1,5 +1,6 @@
 package com.cheesuscrust.Contact;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.cheesuscrust.Database.Cheesus_Crust_Db;
 import com.cheesuscrust.R;
 
 import java.util.List;
@@ -19,14 +21,14 @@ public class InquiryAdapter extends ArrayAdapter<Inquiry> {
 
     //Button deleteInq;
 
-    Context mCtx;
-    int layoutRes;
-    List<Inquiry> inqList;
+    private Context mCtx;
+    private int layoutRes;
+    private List<Inquiry> inqList;
 
     //database object
-    contactTable database;
+    private Cheesus_Crust_Db database;
 
-    public InquiryAdapter(Context mCtx, int layoutRes, List<Inquiry> inqList, contactTable database) {
+    InquiryAdapter(Context mCtx, int layoutRes, List<Inquiry> inqList, Cheesus_Crust_Db database) {
         super(mCtx, layoutRes, inqList);
 
         this.mCtx = mCtx;
@@ -35,12 +37,13 @@ public class InquiryAdapter extends ArrayAdapter<Inquiry> {
         this.database = database;
     }
 
+    @SuppressLint("SetTextI18n")
     @NonNull
     @Override
     public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         LayoutInflater inflater = LayoutInflater.from(mCtx);
 
-        View view = inflater.inflate(layoutRes, null);
+        @SuppressLint("ViewHolder") View view = inflater.inflate(layoutRes, null);
 
         TextView textViewDate = view.findViewById(R.id.textViewDate);
         TextView textViewName = view.findViewById(R.id.textViewName);
@@ -62,11 +65,12 @@ public class InquiryAdapter extends ArrayAdapter<Inquiry> {
         final int getId = inquiry.getId();
 
         view.findViewById(R.id.buttonEditInquiry).setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View view) {
                 boolean result = database.updateInquiry(getId);
 
-                if(result == true)
+                if(result)
                 {
                     Toast.makeText(mCtx, "Inquiry Completed!", Toast.LENGTH_SHORT).show();
                     textViewStatus.setText("Complete");
@@ -82,7 +86,7 @@ public class InquiryAdapter extends ArrayAdapter<Inquiry> {
             public void onClick(View view) {
                 boolean result = database.deleteInquiry(getId);
 
-                if(result == true)
+                if(result)
                 {
                     Toast.makeText(mCtx, "Inquiry Deleted!", Toast.LENGTH_SHORT).show();
                 }

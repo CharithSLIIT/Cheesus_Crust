@@ -1,5 +1,6 @@
 package com.cheesuscrust.Contact;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -20,6 +21,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.cheesuscrust.Database.Cheesus_Crust_Db;
 import com.cheesuscrust.R;
 import com.cheesuscrust.User.UserData_Singleton;
 import com.cheesuscrust.User.UserProfile;
@@ -29,6 +31,7 @@ import com.google.android.material.navigation.NavigationView;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Objects;
 
 public class ContactActivity extends AppCompatActivity{
 
@@ -42,7 +45,7 @@ public class ContactActivity extends AppCompatActivity{
     EditText contact_fname,contact_lname,contact_email,contact_remail,contact_phone,contact_msg;
 
     //create contact table object
-    contactTable database;
+    Cheesus_Crust_Db database;
 
 
     @Override
@@ -55,9 +58,9 @@ public class ContactActivity extends AppCompatActivity{
         setSupportActionBar(toolbar);
 
         //Set the title
-        getSupportActionBar().setTitle(getString(R.string.contact_us));
+        Objects.requireNonNull(getSupportActionBar()).setTitle(getString(R.string.contact_us));
 
-        database = new contactTable(this);
+        database = new Cheesus_Crust_Db(this);
 
         //initialise input fields
         //contact_date = (EditText) findViewById(R.id.contact_date);
@@ -135,13 +138,11 @@ public class ContactActivity extends AppCompatActivity{
                                 sharedPreferences.edit().remove(String.valueOf(R.string.email)).apply();
                                 Intent intent3 = new Intent(ContactActivity.this, WelcomeScreen.class);
                                 startActivity(intent3);
-                                return;
                             }
                         });
                         builder.setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                return;
                             }
                         });
                         builder.show();
@@ -212,7 +213,7 @@ public class ContactActivity extends AppCompatActivity{
         }
 
         Calendar cal = Calendar.getInstance();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
         String dateValue = sdf.format(cal.getTime());
 
         boolean result = database.insertData(dateValue,fnameValue,lnameValue,emailValue,remailValue,phoneValue,msgValue);

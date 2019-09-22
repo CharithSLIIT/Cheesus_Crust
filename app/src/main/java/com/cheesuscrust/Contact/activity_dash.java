@@ -27,6 +27,8 @@ import com.cheesuscrust.User.UserProfile;
 import com.cheesuscrust.User.WelcomeScreen;
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.Objects;
+
 public class activity_dash extends AppCompatActivity {
 
     //Navigation Drawer
@@ -45,7 +47,7 @@ public class activity_dash extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         //Set the title
-        getSupportActionBar().setTitle(getString(R.string.dashboard));
+        Objects.requireNonNull(getSupportActionBar()).setTitle(getString(R.string.dashboard));
 
         //Navigation menu icon
         final ActionBar actionBar = getSupportActionBar();
@@ -114,13 +116,11 @@ public class activity_dash extends AppCompatActivity {
                                 sharedPreferences.edit().remove(String.valueOf(R.string.email)).apply();
                                 Intent intent3 = new Intent(activity_dash.this, WelcomeScreen.class);
                                 startActivity(intent3);
-                                return;
                             }
                         });
                         builder.setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                return;
                             }
                         });
                         builder.show();
