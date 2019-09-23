@@ -39,7 +39,6 @@ public class DisplayCustomers_Adapter extends RecyclerView.Adapter<DisplayCustom
         holder.cus_email_display.setText(customer.getUser_email());
         holder.cus_phone_display.setText(customer.getUser_phone());
         holder.cus_address_display.setText(customer.getUser_address());
-
     }
 
     @Override
