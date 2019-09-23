@@ -2,6 +2,7 @@ package com.cheesuscrust.Contact;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -87,6 +88,8 @@ public class InquiryAdapter extends ArrayAdapter<Inquiry> {
                 if(result)
                 {
                     Toast.makeText(mCtx, R.string.inquiry_deleted, Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(mCtx,InquiryActivity.class);
+                    mCtx.startActivity(intent);
                 }
 
                 else

@@ -239,7 +239,7 @@ public class ContactActivity extends AppCompatActivity{
 
 
         Calendar cal = Calendar.getInstance();
-        @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
         String dateValue = sdf.format(cal.getTime());
 
         boolean result = database.insertData(dateValue,fnameValue,lnameValue,emailValue,remailValue,phoneValue,msgValue);
@@ -254,7 +254,7 @@ public class ContactActivity extends AppCompatActivity{
             //create notification
             createNotificationChannel();
             NotificationCompat.Builder builder = new NotificationCompat.Builder(this,CHANNEL_ID);
-            builder.setSmallIcon(R.drawable.ic_event_available_black_24dp);
+            builder.setSmallIcon(R.drawable.ic_lcheesus_crust_notification_icon);
             builder.setContentTitle(getString(R.string.thanku_for_contacting_us));
             builder.setContentText(getString(R.string.we_have_received_ur_inquiry));
             builder.setPriority(NotificationCompat.PRIORITY_DEFAULT);
