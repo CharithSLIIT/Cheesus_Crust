@@ -187,6 +187,8 @@
     <string name="beverage">Beverages</string>
     <string name="dessert">Desserts</string>
     <string name="customer_product_menu_is_not_accessible">"Customer Product Menu is not accessible"</string>
+    <string name="item_add">"Item add Notification"</string>
+    <string name="item_success">"Item was successfully added to the System"</string>
 
 
     <string name="phone1">Phone:</string>

@@ -4,6 +4,9 @@ import com.cheesuscrust.Database.Cheesus_Crust_Db;
 
 import com.cheesuscrust.Contact.activity_dash;
 import android.Manifest;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,6 +16,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -33,6 +37,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -46,6 +52,8 @@ import com.google.android.material.textfield.TextInputLayout;
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+
+import static java.lang.String.valueOf;
 
 public class AddItem extends AppCompatActivity {
 
@@ -63,6 +71,7 @@ public class AddItem extends AppCompatActivity {
     String editType;
     ImageView imageView;
     final int REQUEST_CODE_GALLERY = 999;
+    private final String CHANNEL_ID = valueOf(R.string.personal_notification);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -276,7 +285,7 @@ public class AddItem extends AppCompatActivity {
         {
             spinnerType.setSelection(0);
             imageView.setImageResource((R.drawable.imageupload));
-
+            displayNotification();
             Toast.makeText(AddItem.this, "Item successfully Added", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(AddItem.this, activity_dash.class);
             startActivity(intent);
@@ -364,4 +373,49 @@ public class AddItem extends AppCompatActivity {
         }
 
     }
+
+    public void displayNotification()
+    {
+        int NOTIFICATION_ID = 1;
+
+        createNotificationChannel();
+
+        Intent landingIntent = new Intent(this, WelcomeScreen.class);
+        landingIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+        PendingIntent landingPendingIntent = PendingIntent.getActivity(this, 0, landingIntent, PendingIntent.FLAG_ONE_SHOT);
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID);
+        builder.setSmallIcon(R.drawable.ic_lcheesus_crust_notification_icon);
+        builder.setContentTitle(getString(R.string.item_add));
+        builder.setContentText(getString(R.string.item_success));
+        builder.setPriority(NotificationCompat.PRIORITY_DEFAULT);
+        builder.setAutoCancel(true);
+        builder.setContentIntent(landingPendingIntent);
+
+        NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(this);
+
+        notificationManagerCompat.notify(NOTIFICATION_ID, builder.build());
+    }
+
+    public void createNotificationChannel()
+    {
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+        {
+            CharSequence name = getString(R.string.personal_notifications);
+            String description = getString(R.string.include_all_the_personal_notifications);
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+
+            NotificationChannel notificationChannel = new NotificationChannel(CHANNEL_ID, name, importance);
+
+            notificationChannel.setDescription(description);
+
+            NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+            if (notificationManager != null) {
+                notificationManager.createNotificationChannel(notificationChannel);
+            }
+        }
+    }
 }
+
+
