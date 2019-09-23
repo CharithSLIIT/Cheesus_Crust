@@ -221,5 +221,9 @@
     <string name="please_enter_a_valid_email">Please Enter a valisd Email</string>
     <string name="technical">Technical</string>
     <string name="mark_as_complete">Mark as Complete</string>
+    <string name="error_">Error!!</string>
+    <string name="inquiry_deleted">Inquiry Deleted!</string>
+    <string name="inquiry_completed">Inquiry Completed!</string>
+    <string name="complete">Complete</string>
 
 </resources>

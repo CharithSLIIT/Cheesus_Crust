@@ -72,12 +72,12 @@ public class InquiryAdapter extends ArrayAdapter<Inquiry> {
 
                 if(result)
                 {
-                    Toast.makeText(mCtx, "Inquiry Completed!", Toast.LENGTH_SHORT).show();
-                    textViewStatus.setText("Complete");
+                    Toast.makeText(mCtx, R.string.inquiry_completed, Toast.LENGTH_SHORT).show();
+                    textViewStatus.setText(R.string.complete);
                 }
 
                 else
-                    Toast.makeText(mCtx, "Error!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mCtx, R.string.error, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -88,108 +88,15 @@ public class InquiryAdapter extends ArrayAdapter<Inquiry> {
 
                 if(result)
                 {
-                    Toast.makeText(mCtx, "Inquiry Deleted!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mCtx, R.string.inquiry_deleted, Toast.LENGTH_SHORT).show();
                 }
 
                 else
-                    Toast.makeText(mCtx, "Error!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mCtx, R.string.error_, Toast.LENGTH_SHORT).show();
             }
         });
 
         return view;
     }
-//
-//    private void updateEmployee( Inquiry inquiry) {
-//       AlertDialog.Builder builder = new AlertDialog.Builder(mCtx);
-//        LayoutInflater inflater = LayoutInflater.from(mCtx);
-//         View view = inflater.inflate(R.layout.activity_dialog_update_inquiry, null);
-//        builder.setView(view);
-//
-//        final AlertDialog alertDialog = builder.create();
-//        alertDialog.show();
-//
-//        final EditText editTextStatus = view.findViewById(R.id.editTextStatus);
-//
-//
-//        editTextStatus.setText(inquiry.getStatus());
-//
-//
-//
-//        view.findViewById(R.id.buttonUpdateInquiry).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                String status = editTextStatus.getText().toString().trim();
-//
-//
-//                if (status.isEmpty()) {
-//                    editTextStatus.setError("status can't be empty");
-//                    editTextStatus.requestFocus();
-//                    return;
-//                }
-//
-//
-//
-//
-//                //calling the update method from database manager instance
-//                if (database.updateInquiry(inquiry.getId(), status)) {
-//                    Toast.makeText(mCtx, "Inquiry Updated", Toast.LENGTH_SHORT).show();
-//                    loadInquiryFromDatabaseAgain();
-//                }
-//                alertDialog.dismiss();
-//            }
-//        });
-//    }
-//
-//
-//    private void deleteInquiry(final Inquiry inquiry) {
-//        AlertDialog.Builder builder = new AlertDialog.Builder(mCtx);
-//        builder.setTitle("Are you sure?");
-//
-//        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialogInterface, int i) {
-//
-//                //calling the delete method from the database manager instance
-//                if (database.deleteInquiry(inquiry.getId()))
-//                    loadInquiryFromDatabaseAgain();
-//            }
-//        });
-//
-//        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialogInterface, int i) {
-//
-//            }
-//        });
-//
-//        AlertDialog alertDialog = builder.create();
-//        alertDialog.show();
-//    }
-//
-//    private void loadInquiryFromDatabaseAgain() {
-//        //calling the read method from database instance
-//        Cursor cursor = database.getAllInquries();
-//
-//        inqList.clear();
-//        if (cursor.moveToFirst()) {
-//            do {
-//                inqList.add(new Inquiry(
-//                        cursor.getInt(0),
-//                        cursor.getString(1),
-//                        cursor.getString(2),
-//                        cursor.getString(3),
-//                        cursor.getString(4),
-//                        cursor.getString(5),
-//                        cursor.getString(6),
-//                        cursor.getString(7),
-//                        cursor.getString(8)
-//                ));
-//            } while (cursor.moveToNext());
-//        }
-//        notifyDataSetChanged();
-//
-//
-//    }
 
 }
