@@ -88,8 +88,8 @@ public class AddItem extends AppCompatActivity {
         editmPrice = findViewById(R.id.editTextmPrice);
         editlPrice = findViewById(R.id.editTextlPrice);
         spinnerType = findViewById(R.id.typeSpinner);
-        imageView = (ImageView) findViewById(R.id.imageView1);
-        btnAddImage = (Button)findViewById(R.id.buttonAddImage);
+        imageView = findViewById(R.id.imageView1);
+        btnAddImage = findViewById(R.id.buttonAddImage);
 
         //Select a value from the Spinner
         spinnerType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
