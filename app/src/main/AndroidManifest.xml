@@ -43,7 +43,8 @@
         <activity
             android:name=".User.signupScreen"
             android:parentActivityName=".User.WelcomeScreen"
-            tools:ignore="InnerclassSeparator">
+            tools:ignore="InnerclassSeparator"
+            android:windowSoftInputMode="adjustPan">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".User.WelcomeScreen" />
