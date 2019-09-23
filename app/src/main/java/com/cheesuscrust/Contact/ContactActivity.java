@@ -38,10 +38,12 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Objects;
 
+import static java.lang.String.valueOf;
+
 public class ContactActivity extends AppCompatActivity{
 
     //notification
-    private final String CHANNEL_ID = getString(R.string.personal);
+    private final String CHANNEL_ID = valueOf(R.string.personal_notification);
 
     //Navigation Drawer
     DrawerLayout drawerLayout;
