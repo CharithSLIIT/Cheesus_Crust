@@ -56,15 +56,6 @@ public class signupScreen extends AppCompatActivity {
         getConfirmPassword = findViewById(R.id.signup_confirmPassword);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.toolbar_menu, menu);
-
-        return super.onCreateOptionsMenu(menu);
-    }
-
     //Signup function
     public void userSignup(View view)
     {
