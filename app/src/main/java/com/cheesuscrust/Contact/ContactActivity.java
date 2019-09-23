@@ -41,8 +41,7 @@ import java.util.Objects;
 public class ContactActivity extends AppCompatActivity{
 
     //notification
-    private final String CHANNEL_ID = "personal";
-    private final int NOTIFICATION_ID = 001;
+    private final String CHANNEL_ID = getString(R.string.personal);
 
     //Navigation Drawer
     DrawerLayout drawerLayout;
@@ -185,32 +184,32 @@ public class ContactActivity extends AppCompatActivity{
 
         if(TextUtils.isEmpty(fnameValue))
         {
-            contact_fname.setError("Please enter first name");
+            contact_fname.setError(getString(R.string.please_enter_first_name));
             return;
         }
 
         if(TextUtils.isEmpty(lnameValue))
         {
-            contact_lname.setError("Please enter last name");
+            contact_lname.setError(getString(R.string.Please_enter_last_name));
             return;
         }
 
         if(TextUtils.isEmpty(remailValue))
         {
-            contact_remail.setError("Please enter last re enter email");
+            contact_remail.setError(getString(R.string.please_reenter_email));
             return;
         } else if(!Patterns.EMAIL_ADDRESS.matcher(emailValue).matches()){
-            contact_email.setError("Please enter a valid email address");
+            contact_email.setError(getString(R.string.please_enter_a_valid_email_address));
             return;
         }
 
 
         if(TextUtils.isEmpty(emailValue))
         {
-            contact_email.setError("Please enter email");
+            contact_email.setError(getString(R.string.please_enter_email));
             return;
         } else if(!Patterns.EMAIL_ADDRESS.matcher(emailValue).matches()){
-            contact_email.setError("Please enter a valid email address");
+            contact_email.setError(getString(R.string.please_enter_a_valid_email));
             return;
         }
 
@@ -224,7 +223,7 @@ public class ContactActivity extends AppCompatActivity{
 
         if(TextUtils.isEmpty(msgValue))
         {
-            contact_msg.setError("Please enter message");
+            contact_msg.setError(getString(R.string.please_enter_message));
             return;
         }
 
@@ -244,20 +243,21 @@ public class ContactActivity extends AppCompatActivity{
         boolean result = database.insertData(dateValue,fnameValue,lnameValue,emailValue,remailValue,phoneValue,msgValue);
 
         if(!result)
-            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.Error, Toast.LENGTH_SHORT).show();
 
         else{
 
-            Toast.makeText(this, "Sent", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.sending, Toast.LENGTH_LONG).show();
 
             //create notification
             createNotificationChannel();
             NotificationCompat.Builder builder = new NotificationCompat.Builder(this,CHANNEL_ID);
             builder.setSmallIcon(R.drawable.ic_event_available_black_24dp);
-            builder.setContentTitle("Thankyou for contacting us!");
-            builder.setContentText("We have received your inquiry.We will get back to you soon");
+            builder.setContentTitle(getString(R.string.thanku_for_contacting_us));
+            builder.setContentText(getString(R.string.we_have_received_ur_inquiry));
             builder.setPriority(NotificationCompat.PRIORITY_DEFAULT);
             NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(this);
+            int NOTIFICATION_ID = 1;
             notificationManagerCompat.notify(NOTIFICATION_ID,builder.build());
         }
 
@@ -266,14 +266,15 @@ public class ContactActivity extends AppCompatActivity{
     private  void createNotificationChannel(){
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
         {
-            CharSequence name = "Personal";
-            String description = "Include";
+            CharSequence name = getString(R.string.personal2);
+            String description = getString(R.string.include);
             int importance = NotificationManager.IMPORTANCE_DEFAULT;
 
             NotificationChannel notificationChannel = new NotificationChannel(CHANNEL_ID,name,importance);
 
             notificationChannel.setDescription(description);
             NotificationManager notificationManager = (NotificationManager)  getSystemService(NOTIFICATION_SERVICE);
+            assert notificationManager != null;
             notificationManager.createNotificationChannel(notificationChannel);
         }
     }
