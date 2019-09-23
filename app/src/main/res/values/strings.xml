@@ -203,5 +203,19 @@
     <string name="wehavereceivedyourinquiry">We have received your inquiry.We will get back to you soon!</string>
     <string name="email_mismatched_please_enter_above_email">Email mismatched! Please re-enter email.</string>
     <string name="todo">TODO</string>
+    <string name="personal">Personal</string>
+    <string name="please_enter_message">Please Enter Message</string>
+    <string name="Error">Error</string>
+    <string name="sending">Sending...</string>
+    <string name="thanku_for_contacting_us">Thankyou  for contacting us!</string>
+    <string name="we_have_received_ur_inquiry">We have received your inquiry. We will get back to you soon.</string>
+    <string name="personal2">personal</string>
+    <string name="include">Include</string>
+    <string name="please_enter_first_name">Please enter First name</string>
+    <string name="Please_enter_last_name">Please Enter Last Name</string>
+    <string name="please_reenter_email">Please re-enter Email</string>
+    <string name="please_enter_a_valid_email_address">Please enter a valis email address</string>
+    <string name="please_enter_email">Please Enter email</string>
+    <string name="please_enter_a_valid_email">Please Enter a valisd Email</string>
 
 </resources>
