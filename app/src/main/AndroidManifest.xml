@@ -55,7 +55,9 @@
         <activity
             android:name=".User.Display_Employees"
             android:parentActivityName=".Contact.activity_dash"
-            tools:ignore="InnerclassSeparator" /> <!-- Inquiry Management -->
+            tools:ignore="InnerclassSeparator" />
+
+        <!-- Inquiry Management -->
         <activity
             android:name=".Contact.activity_dash"
             tools:ignore="InnerclassSeparator" />
@@ -64,7 +66,9 @@
             tools:ignore="InnerclassSeparator" />
         <activity
             android:name=".Contact.InquiryActivity"
-            tools:ignore="InnerclassSeparator" /> <!-- Product Management -->
+            tools:ignore="InnerclassSeparator" />
+
+        <!-- Product Management -->
         <activity
             android:name=".Product.AdminEdit"
             android:label="Edit Item"
