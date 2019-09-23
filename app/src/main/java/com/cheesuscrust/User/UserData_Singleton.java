@@ -20,8 +20,6 @@ public class UserData_Singleton {
         return userData;
     }
 
-    //set user id
-
     //get user name
     String getUser_name() {
         return user_fname + " " +user_lname;
@@ -63,10 +61,12 @@ public class UserData_Singleton {
         this.user_email = user_email;
     }
 
+    //get user type
     public String getUser_type() {
         return user_type;
     }
 
+    //set user type
     public void setUser_type(String user_type) {
         this.user_type = user_type;
     }
