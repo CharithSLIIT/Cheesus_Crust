@@ -19,8 +19,6 @@ import java.util.List;
 
 public class InquiryAdapter extends ArrayAdapter<Inquiry> {
 
-    //Button deleteInq;
-
     private Context mCtx;
     private int layoutRes;
     private List<Inquiry> inqList;
