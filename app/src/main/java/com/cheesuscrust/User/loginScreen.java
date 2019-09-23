@@ -45,7 +45,7 @@ public class loginScreen extends AppCompatActivity {
 
             database = new Cheesus_Crust_Db(this);
 
-            Cursor userData = database.getUserData(sharedPreferences.getString(String.valueOf(R.string.email), null));
+            Cursor userData = database.getUserData(sharedPreferences.getString(String.valueOf(R.string.email_sp), null));
 
             while (userData.moveToNext()) {
                 //Store user data
@@ -80,7 +80,7 @@ public class loginScreen extends AppCompatActivity {
 
             database = new Cheesus_Crust_Db(this);
 
-            Cursor userData = database.getUserData(sharedPreferences.getString(String.valueOf(R.string.email), null));
+            Cursor userData = database.getUserData(sharedPreferences.getString(String.valueOf(R.string.email_sp), null));
 
             while(userData.moveToNext())
             {
@@ -117,7 +117,7 @@ public class loginScreen extends AppCompatActivity {
 
             database = new Cheesus_Crust_Db(this);
 
-            Cursor userData = database.getUserData(sharedPreferences.getString(String.valueOf(R.string.email), null));
+            Cursor userData = database.getUserData(sharedPreferences.getString(String.valueOf(R.string.email_sp), null));
 
             while(userData.moveToNext())
             {
@@ -187,7 +187,7 @@ public class loginScreen extends AppCompatActivity {
 
         sharedPreferences = getSharedPreferences(String.valueOf(R.string.cheesus_crust), MODE_PRIVATE);
         sharedPreferences.edit().putBoolean(String.valueOf(R.string.logged),true).apply();
-        sharedPreferences.edit().putString(String.valueOf(R.string.email), email).apply();
+        sharedPreferences.edit().putString(String.valueOf(R.string.email_sp), email).apply();
 
         UserData_Singleton data = UserData_Singleton.getInstance();
         if(data.getUser_type().equals(getString(R.string.admin)))

@@ -27,6 +27,7 @@
     <string name="enter_address">Enter Address</string>
     <string name="name">Name :</string>
     <string name="email">Email :</string>
+    <string name="email_sp">email</string>
     <string name="address">Address :</string>
     <string name="phone">Phone :</string>
     <string name="confirm_your_password">Confirm Your Password</string>

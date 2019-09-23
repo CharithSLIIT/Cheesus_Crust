@@ -44,6 +44,8 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
     DrawerLayout drawerLayout;
     NavigationView navigationView;
 
+    SharedPreferences sharedPreferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -120,7 +122,7 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
                         builder.setPositiveButton(getString(R.string.logout), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                SharedPreferences sharedPreferences = getSharedPreferences(String.valueOf(R.string.cheesus_crust), MODE_PRIVATE);
+                                sharedPreferences = getSharedPreferences(String.valueOf(R.string.cheesus_crust), MODE_PRIVATE);
                                 sharedPreferences.edit().remove(String.valueOf(R.string.logged)).apply();
                                 sharedPreferences.edit().remove(String.valueOf(R.string.email)).apply();
                                 Intent intent3 = new Intent(UserProfile.this, WelcomeScreen.class);
@@ -492,13 +494,13 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
         builder.setCancelable(true);
         builder.setTitle(getString(R.string.are_you_sure_about_this));
         builder.setMessage(getString(R.string.we_will_miss_you));
-        builder.setPositiveButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 Toast.makeText(UserProfile.this, R.string.hurray_lets_eat_some_pizza, Toast.LENGTH_SHORT).show();
             }
         });
-        builder.setNegativeButton(getString(R.string.delete_my_account), new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(getString(R.string.delete_my_account), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
 
@@ -507,14 +509,12 @@ public class UserProfile extends AppCompatActivity implements UserProfile_Update
                 if (!result) {
                     Toast.makeText(UserProfile.this, R.string.some_error_occurred_lease_try_again_later, Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(UserProfile.this, R.string.your_account_was_deleted, Toast.LENGTH_SHORT).show();
-
-                    SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.cheesus_crust), MODE_PRIVATE);
-                    sharedPreferences.edit().remove(getString(R.string.logged)).apply();
+                    sharedPreferences = getSharedPreferences(String.valueOf(R.string.cheesus_crust), MODE_PRIVATE);
+                    sharedPreferences.edit().remove(String.valueOf(R.string.logged)).apply();
                     sharedPreferences.edit().remove(String.valueOf(R.string.email)).apply();
-
                     Intent intent = new Intent(UserProfile.this, WelcomeScreen.class);
                     startActivity(intent);
+                    Toast.makeText(UserProfile.this, R.string.your_account_was_deleted, Toast.LENGTH_SHORT).show();
                 }
             }
         });

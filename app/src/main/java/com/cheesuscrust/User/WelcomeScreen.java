@@ -46,7 +46,7 @@ public class WelcomeScreen extends AppCompatActivity {
 
             database = new Cheesus_Crust_Db(this);
 
-            Cursor userData = database.getUserData(sharedPreferences.getString(String.valueOf(R.string.email), null));
+            Cursor userData = database.getUserData(sharedPreferences.getString(String.valueOf(R.string.email_sp), null));
 
             while(userData.moveToNext())
             {
@@ -92,7 +92,7 @@ public class WelcomeScreen extends AppCompatActivity {
 
             database = new Cheesus_Crust_Db(this);
 
-            Cursor userData = database.getUserData(sharedPreferences.getString(String.valueOf(R.string.email), null));
+            Cursor userData = database.getUserData(sharedPreferences.getString(String.valueOf(R.string.email_sp), null));
 
             while(userData.moveToNext())
             {
@@ -138,7 +138,7 @@ public class WelcomeScreen extends AppCompatActivity {
 
             database = new Cheesus_Crust_Db(this);
 
-            Cursor userData = database.getUserData(sharedPreferences.getString(String.valueOf(R.string.email), null));
+            Cursor userData = database.getUserData(sharedPreferences.getString(String.valueOf(R.string.email_sp), null));
 
             while(userData.moveToNext())
             {
@@ -182,7 +182,7 @@ public class WelcomeScreen extends AppCompatActivity {
 
             database = new Cheesus_Crust_Db(this);
 
-            Cursor userData = database.getUserData(sharedPreferences.getString(String.valueOf(R.string.email), null));
+            Cursor userData = database.getUserData(sharedPreferences.getString(String.valueOf(R.string.email_sp), null));
 
             while(userData.moveToNext())
             {
