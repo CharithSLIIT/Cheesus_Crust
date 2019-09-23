@@ -7,7 +7,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/drawer_layout"
     android:fitsSystemWindows="true"
-    tools:context=".Contact.InquiryActivity" >
+    tools:context=".Contact.InquiryActivity"
+    android:background="@drawable/app_background_default" >
 
     <RelativeLayout
         android:layout_width="match_parent"
