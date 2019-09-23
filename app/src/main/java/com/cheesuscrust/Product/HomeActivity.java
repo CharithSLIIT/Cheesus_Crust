@@ -1,6 +1,7 @@
 package com.cheesuscrust.Product;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.Menu;
@@ -9,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 import com.cheesuscrust.R;
@@ -20,7 +23,7 @@ public class HomeActivity extends AppCompatActivity {
     private HomeSliderAdapter sliderAdapter;
     private TextView[] Dots;
     private Button NextButton, BackButton;
-    private int CurrentPage;
+    private int CurrentPage, backButtonCount =0;
 
 
     @Override
@@ -145,5 +148,23 @@ public class HomeActivity extends AppCompatActivity {
 
         }
     };
+
+    public void onBackPressed()
+    {
+        if(backButtonCount >= 1)
+        {
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+            backButtonCount--;
+            finish();
+        }
+        else
+        {
+            Toast.makeText(this, "Press the back button once again to close the application.", Toast.LENGTH_SHORT).show();
+            backButtonCount++;
+        }
+    }
 
 }
